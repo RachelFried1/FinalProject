@@ -51,7 +51,7 @@ public partial class dbClass : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_JobOffers_ToTable");
 
-            entity.HasOne(d => d.JobCodeNavigation).WithMany(p => p.JobOffers)
+            entity.HasOne(d => d.JobMatch).WithMany(p => p.JobOffers)
                 .HasForeignKey(d => d.JobCode)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_JobOffers_ToTable_1");

@@ -10,7 +10,6 @@ namespace DAL.Api
 {
     public interface IJobSeeker
     {
-        List<JobSeeker> JobSeekers { get; set; }
         bool AddJobSeeker(JobSeeker jobSeeker);
         List<Job> FindMatchingJobs(int jobId);
         bool NotSeekingJob(int id);

@@ -10,20 +10,20 @@ namespace DAL.Services
 {
     public class JobOffersService : IJobOffers
     {
-        public List<JobOffer> JobOffers { get; set; } = new List<JobOffer>();
-        IDalManager _dalManager;
-        public JobOffersService(IDalManager dalManager)
+        dbClass dataBase;
+        public JobOffersService( dbClass dataBase)
         {
-            _dalManager = dalManager;
+            this.dataBase = dataBase;   
         }
         public bool AddJobs(JobSeeker seeker)
         {
             bool found = false;
-            foreach (Job job in _dalManager.JobManager.Jobs)
+            foreach (Job job in dataBase.Jobs)
             {
                 if (IsMatch(seeker, job))
                 {
-                    JobOffers.Add(new JobOffer(job, seeker));
+                    dataBase.JobOffers.Add(new JobOffer(job, seeker));
+                    dataBase.SaveChanges();
                     found = true;
                 }
             }
@@ -32,11 +32,12 @@ namespace DAL.Services
         public bool AddCandidates(Job job)
         {
             bool found = false;
-            foreach (JobSeeker seeker in _dalManager.JobSeekerManager.JobSeekers)
+            foreach (JobSeeker seeker in dataBase.JobSeekers)
             {
                 if (IsMatch(seeker, job))
                 {
-                    JobOffers.Add(new JobOffer(job, seeker));
+                    dataBase.JobOffers.Add(new JobOffer(job, seeker));
+                    dataBase.SaveChanges();
                     found = true;
                 }
             }
@@ -56,7 +57,7 @@ namespace DAL.Services
         public List<Job> FindMatchesById(int id)
         {
             List<Job> jobMatches = new List<Job>();
-            foreach (JobOffer offer in JobOffers)
+            foreach (JobOffer offer in dataBase.JobOffers)
             {
                 if (offer.CandidateId == id)
                 {
@@ -68,7 +69,7 @@ namespace DAL.Services
         public List<JobSeeker> FindCandidatesByJobCode(int jobCode)
         {
             List<JobSeeker> candidates = new List<JobSeeker>();
-            foreach (JobOffer offer in JobOffers)
+            foreach (JobOffer offer in dataBase.JobOffers)
             {
                 if (offer.JobCode == jobCode)
                 {
@@ -77,6 +78,5 @@ namespace DAL.Services
             }
             return candidates;
         }
-
     }
 }

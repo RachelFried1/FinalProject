@@ -1,4 +1,5 @@
 ﻿using DAL.Api;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,8 @@ namespace DAL
 {
     public interface IDalManager
     {
-         IJob JobManager { get; set; }
-         IJobSeeker JobSeekerManager { get; set; }
-         IJobOffers JobOffersManager { get; set; }
-       
+        IJob JobManager { get; set; }
+        IJobSeeker JobSeekerManager { get; set; }
+        IJobOffers JobOffersManager { get; set; }
     }
 }

@@ -8,44 +8,49 @@ using System.Threading.Tasks;
 
 namespace DAL.Services
 {
-    public class JobService :IJob
+    public class JobService : IJob
     {
-        public List<Job> Jobs { get; set; }
-        IDalManager _dalManager;
-        dbClass database;
+        IJobOffers jobOffersService;
+        dbClass dataBase;
 
-        public JobService(IDalManager dalManager , dbClass database)
+        public JobService( IJobOffers jobOffersService, dbClass dataBase)
         {
-            _dalManager = dalManager;
-            this.database = database;
+            this.jobOffersService = jobOffersService;
+            this.dataBase = dataBase;
         }
         public bool AddJob(Job job)
         {
-           // Jobs.Add(job);
-            database.Jobs.add(job);
-            database.Jobs.save();
+            dataBase.Jobs.Add(job);
+            dataBase.SaveChanges();
 
-            _dalManager.JobOffersManager.AddCandidates(job);
+            jobOffersService.AddCandidates(job);
             return true;
         }
 
         public List<JobSeeker> FindMatchingCandidates(int code)
         {
             List<JobSeeker> candidates = new List<JobSeeker>();
-            candidates = _dalManager.JobOffersManager.FindCandidatesByJobCode(code);
+            candidates = jobOffersService.FindCandidatesByJobCode(code);
             return candidates;
         }
 
         public bool NotSeekingWorkers(int code)
         {
-            foreach (JobOffer offer in _dalManager.JobOffersManager.JobOffers)
+            foreach (JobOffer offer in dataBase.JobOffers)
             {
                 if (offer.JobCode == code)
                 {
-                    _dalManager.JobOffersManager.JobOffers.Remove(offer);
+                    dataBase.JobOffers.Remove(offer);
+                    dataBase.SaveChanges();
                 }
             }
-            return Jobs.Remove(Jobs.FirstOrDefault(j=>j.Code == code));
+            if (dataBase.Jobs.FirstOrDefault(j => j.Code == code) != null)
+            {
+                dataBase.Jobs.Remove(dataBase.Jobs.FirstOrDefault(j => j.Code == code));
+                dataBase.SaveChanges();
+                return true;
+            }
+            return false;          
         }
     }
 }

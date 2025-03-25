@@ -8,39 +8,47 @@ using System.Threading.Tasks;
 
 namespace DAL.Services
 {
-    public class JobSeekerService: IJobSeeker
+    public class JobSeekerService : IJobSeeker
     {
-        public List<JobSeeker> JobSeekers { get; set; }
-
-        IDalManager _dalManager;
-        public JobSeekerService(IDalManager dalManager)
+        IJobOffers jobOffersService;
+        dbClass dataBase;
+        public JobSeekerService(IJobOffers jobOffersService, dbClass dataBase)
         {
-            _dalManager = dalManager;
+            this.jobOffersService = jobOffersService;
+            this.dataBase = dataBase;
         }
         public bool AddJobSeeker(JobSeeker jobSeeker)
         {
-            JobSeekers.Add(jobSeeker);
-            _dalManager.JobOffersManager.AddJobs(jobSeeker);
+            dataBase.JobSeekers.Add(jobSeeker);
+            dataBase.SaveChanges();
+            jobOffersService.AddJobs(jobSeeker);
             return false;
         }
 
         public List<Job> FindMatchingJobs(int jobId)
         {
             List<Job> jobMatches = new List<Job>();
-            jobMatches = _dalManager.JobOffersManager.FindMatchesById(jobId);
+            jobMatches = jobOffersService.FindMatchesById(jobId);
             return jobMatches;
         }
 
         public bool NotSeekingJob(int id)
         {
-            foreach (JobOffer offer in _dalManager.JobOffersManager.JobOffers)
+            foreach (JobOffer offer in dataBase.JobOffers)
             {
                 if (offer.CandidateId == id)
                 {
-                    _dalManager.JobOffersManager.JobOffers.Remove(offer);
+                    dataBase.JobOffers.Remove(offer);
+                    dataBase.SaveChanges();
                 }
             }
-            return JobSeekers.Remove(JobSeekers.FirstOrDefault(s => s.Id == id));
+            if(dataBase.JobSeekers.FirstOrDefault(s => s.Id == id) != null)
+            {
+                dataBase.JobSeekers.Remove(dataBase.JobSeekers.FirstOrDefault(s => s.Id == id));
+                dataBase.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }
