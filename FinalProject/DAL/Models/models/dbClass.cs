@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinalProject.models;
+namespace DAL.Models;
 
 public partial class dbClass : DbContext
 {

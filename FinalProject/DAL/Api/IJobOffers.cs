@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DAL.Models;
+using DAL.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,13 @@ using System.Threading.Tasks;
 
 namespace DAL.Api
 {
-    internal interface IJobOffers
+    public interface IJobOffers
     {
+        List<JobOffer> JobOffers { get; set; }
+        bool AddJobs(JobSeeker seeker);
+        bool AddCandidates(Job job);
+        bool IsMatch(JobSeeker seeker, Job job);
+        List<Job> FindMatchesById(int id);
+        List<JobSeeker> FindCandidatesByJobCode(int jobCode);
     }
 }

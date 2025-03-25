@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FinalProject.models;
+namespace DAL.Models;
 
 public partial class JobOffer
 {
@@ -15,5 +15,7 @@ public partial class JobOffer
 
     public virtual JobSeeker Candidate { get; set; } = null!;
 
-    public virtual Job JobCodeNavigation { get; set; } = null!;
+    public virtual Job JobMatch { get; set; } = null!;
+
+   
 }

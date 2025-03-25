@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    internal class JobSeeker
+    public partial class JobSeeker
     {
     }
 }

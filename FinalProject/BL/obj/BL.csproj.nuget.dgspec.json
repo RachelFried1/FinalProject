@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "H:\\FinalProject\\FinalProject\\BL\\BL.csproj": {}
+    "H:\\Final Project\\FinalProject\\FinalProject\\BL\\BL.csproj": {}
   },
   "projects": {
-    "H:\\FinalProject\\FinalProject\\BL\\BL.csproj": {
+    "H:\\Final Project\\FinalProject\\FinalProject\\BL\\BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\FinalProject\\FinalProject\\BL\\BL.csproj",
+        "projectUniqueName": "H:\\Final Project\\FinalProject\\FinalProject\\BL\\BL.csproj",
         "projectName": "BL",
-        "projectPath": "H:\\FinalProject\\FinalProject\\BL\\BL.csproj",
-        "packagesPath": "C:\\Users\\פריד רחל\\.nuget\\packages\\",
-        "outputPath": "H:\\FinalProject\\FinalProject\\BL\\obj\\",
+        "projectPath": "H:\\Final Project\\FinalProject\\FinalProject\\BL\\BL.csproj",
+        "packagesPath": "C:\\Users\\פינס לאה\\.nuget\\packages\\",
+        "outputPath": "H:\\Final Project\\FinalProject\\FinalProject\\BL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\פריד רחל\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\פינס לאה\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,8 +27,7 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://packagesource": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {

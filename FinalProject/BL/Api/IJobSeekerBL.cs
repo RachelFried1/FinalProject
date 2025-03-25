@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BL.Api
 {
-    internal interface IJobSeekerBL
+    public interface IJobSeekerBL
     {
     }
 }
