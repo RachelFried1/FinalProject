@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace BL.Models
 {
-    internal class JobSeekerBL
+    public class JobSeekerBL
     {
+        public int Id { get; set; }
+        public string Name { get; set; } = null!;
+        public string SirName { get; set; } = null!;
+        public string Email { get; set; } = null!;
+        public string Country { get; set; } = null!;
+        public double DailyWorkHours { get; set; }
+        public int YearsOfExperience { get; set; }
+        public bool HasDegree { get; set; }
+        public string Field { get; set; } = null!;
     }
 }

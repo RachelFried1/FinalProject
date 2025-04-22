@@ -32,7 +32,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "H:\\Final Project\\FinalProject\\FinalProject\\DAL\\DAL.csproj": {
+                "projectPath": "H:\\Final Project\\FinalProject\\FinalProject\\DAL\\DAL.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -209,9 +213,6 @@
             "projectReferences": {
               "H:\\Final Project\\FinalProject\\FinalProject\\BL\\BL.csproj": {
                 "projectPath": "H:\\Final Project\\FinalProject\\FinalProject\\BL\\BL.csproj"
-              },
-              "H:\\Final Project\\FinalProject\\FinalProject\\DAL\\DAL.csproj": {
-                "projectPath": "H:\\Final Project\\FinalProject\\FinalProject\\DAL\\DAL.csproj"
               }
             }
           }

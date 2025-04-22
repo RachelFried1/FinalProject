@@ -8,5 +8,8 @@ namespace BL.Api
 {
     public interface IJobSeekerBL
     {
+        bool AddJobSeeker(JobSeeker jobSeeker);
+        List<Job> FindMatchingJobs(int jobId);
+        bool NotSeekingJob(int id);
     }
 }

@@ -11,9 +11,9 @@ namespace DAL.Services
     public class JobOffersService : IJobOffers
     {
         dbClass dataBase;
-        public JobOffersService( dbClass dataBase)
+        public JobOffersService(dbClass dataBase)
         {
-            this.dataBase = dataBase;   
+            this.dataBase = dataBase;
         }
         public bool AddJobs(JobSeeker seeker)
         {
@@ -54,29 +54,13 @@ namespace DAL.Services
             if (seeker.YearsOfExperience < job.MinYearsExperience) return false;
             return true;
         }
-        public List<Job> FindMatchesById(int id)
+        public ICollection<JobOffer> FindMatchesById(int id)
         {
-            List<Job> jobMatches = new List<Job>();
-            foreach (JobOffer offer in dataBase.JobOffers)
-            {
-                if (offer.CandidateId == id)
-                {
-                    jobMatches.Add(offer.JobMatch);
-                }
-            }
-            return jobMatches;
+            return dataBase.JobSeekers.FirstOrDefault(s => s.Id == id).JobOffers;
         }
-        public List<JobSeeker> FindCandidatesByJobCode(int jobCode)
+        public ICollection<JobOffer> FindCandidatesByJobCode(int jobCode)
         {
-            List<JobSeeker> candidates = new List<JobSeeker>();
-            foreach (JobOffer offer in dataBase.JobOffers)
-            {
-                if (offer.JobCode == jobCode)
-                {
-                    candidates.Add(offer.Candidate);
-                }
-            }
-            return candidates;
+            return dataBase.Jobs.FirstOrDefault(j => j.Code == jobCode).JobOffers;
         }
     }
 }

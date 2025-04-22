@@ -10,7 +10,7 @@ namespace DAL.Api
     public interface IJob
     {
          bool AddJob(Job job);
-         List<JobSeeker> FindMatchingCandidates(int code);
+         ICollection<JobOffer> FindMatchingCandidates(int code);
          bool NotSeekingWorkers(int code);
     }
 }

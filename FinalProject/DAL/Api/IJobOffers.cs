@@ -13,7 +13,7 @@ namespace DAL.Api
         bool AddJobs(JobSeeker seeker);
         bool AddCandidates(Job job);
         bool IsMatch(JobSeeker seeker, Job job);
-        List<Job> FindMatchesById(int id);
-        List<JobSeeker> FindCandidatesByJobCode(int jobCode);
+        ICollection<JobOffer> FindMatchesById(int id);
+        ICollection<JobOffer> FindCandidatesByJobCode(int jobCode);
     }
 }

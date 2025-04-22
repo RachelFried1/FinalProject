@@ -25,26 +25,17 @@ namespace DAL.Services
             return false;
         }
 
-        public List<Job> FindMatchingJobs(int jobId)
+        public ICollection<JobOffer> FindMatchingJobs(int jobId)
         {
-            List<Job> jobMatches = new List<Job>();
-            jobMatches = jobOffersService.FindMatchesById(jobId);
-            return jobMatches;
+            return jobOffersService.FindMatchesById(jobId);
         }
 
         public bool NotSeekingJob(int id)
         {
-            foreach (JobOffer offer in dataBase.JobOffers)
+            if (dataBase.JobSeekers.FirstOrDefault(s => s.Id == id) != null)
             {
-                if (offer.CandidateId == id)
-                {
-                    dataBase.JobOffers.Remove(offer);
-                    dataBase.SaveChanges();
-                }
-            }
-            if(dataBase.JobSeekers.FirstOrDefault(s => s.Id == id) != null)
-            {
-                dataBase.JobSeekers.Remove(dataBase.JobSeekers.FirstOrDefault(s => s.Id == id));
+                dataBase.JobSeekers.FirstOrDefault(s => s.Id == id).JobOffers.Clear();
+                dataBase.Remove(dataBase.JobSeekers.FirstOrDefault(s => s.Id == id));
                 dataBase.SaveChanges();
                 return true;
             }

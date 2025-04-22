@@ -13,7 +13,7 @@ namespace DAL.Services
         IJobOffers jobOffersService;
         dbClass dataBase;
 
-        public JobService( IJobOffers jobOffersService, dbClass dataBase)
+        public JobService(IJobOffers jobOffersService, dbClass dataBase)
         {
             this.jobOffersService = jobOffersService;
             this.dataBase = dataBase;
@@ -27,30 +27,19 @@ namespace DAL.Services
             return true;
         }
 
-        public List<JobSeeker> FindMatchingCandidates(int code)
+        public ICollection<JobOffer> FindMatchingCandidates(int code)
         {
-            List<JobSeeker> candidates = new List<JobSeeker>();
-            candidates = jobOffersService.FindCandidatesByJobCode(code);
-            return candidates;
+            return jobOffersService.FindCandidatesByJobCode(code);
         }
 
         public bool NotSeekingWorkers(int code)
         {
-            foreach (JobOffer offer in dataBase.JobOffers)
-            {
-                if (offer.JobCode == code)
-                {
-                    dataBase.JobOffers.Remove(offer);
-                    dataBase.SaveChanges();
-                }
-            }
-            if (dataBase.Jobs.FirstOrDefault(j => j.Code == code) != null)
-            {
-                dataBase.Jobs.Remove(dataBase.Jobs.FirstOrDefault(j => j.Code == code));
-                dataBase.SaveChanges();
-                return true;
-            }
-            return false;          
+            if (dataBase.Jobs.FirstOrDefault(j => j.Code == code) == null)
+                return false;
+            dataBase.Jobs.FirstOrDefault(j=>j.Code == code).JobOffers.Clear();
+            dataBase.Jobs.Remove(dataBase.Jobs.FirstOrDefault(j => j.Code == code));
+            dataBase.SaveChanges();
+            return true;
         }
     }
 }
