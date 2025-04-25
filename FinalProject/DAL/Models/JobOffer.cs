@@ -9,11 +9,11 @@ namespace DAL.Models
     public partial class JobOffer
     {
         private static int StaticCode = 0;
-        public JobOffer(Job job, JobSeeker candidate)
+        public JobOffer(int jobCode, int candidateId)
         {
             OffersCode = StaticCode++;
-            JobMatch = job;
-            Candidate = candidate;
+            JobCode = jobCode;
+            CandidateId = candidateId;
             Date = DateOnly.FromDateTime(DateTime.Now);
         }
     }
