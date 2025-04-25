@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,8 @@ namespace BL.Api
 {
     public interface IJobSeekerBL
     {
-        bool AddJobSeeker(JobSeeker jobSeeker);
-        List<Job> FindMatchingJobs(int jobId);
+        bool AddJobSeeker(JobSeekerBL jobSeeker);
+        List<JobBL> FindMatchingJobs(int jobId);
         bool NotSeekingJob(int id);
     }
 }
