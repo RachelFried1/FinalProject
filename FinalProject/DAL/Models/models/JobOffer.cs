@@ -16,6 +16,5 @@ public partial class JobOffer
     public virtual JobSeeker Candidate { get; set; } = null!;
 
     public virtual Job JobMatch { get; set; } = null!;
-
    
 }

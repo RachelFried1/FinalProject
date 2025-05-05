@@ -10,6 +10,10 @@ namespace BL.Services
 {
     public class JobOffersServiceBL : IJobOffersBL
     {
+        public JobOffersServiceBL()
+        {
+            
+        }
         public bool AddCandidates(JobBL job)
         {
 

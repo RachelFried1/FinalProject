@@ -22,7 +22,7 @@ namespace DAL.Services
             {
                 if (IsMatch(seeker, job))
                 {
-                    dataBase.JobOffers.Add(new JobOffer(job, seeker));
+                    dataBase.JobOffers.Add(new JobOffer(job.Code, seeker.Id));
                     dataBase.SaveChanges();
                     found = true;
                 }
