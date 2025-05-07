@@ -1,13 +1,24 @@
 using BL;
 using DAL;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 
-builder.Services.AddSingleton<IDalManager, DalManager>();
+
+// Register AutoMapper and scan for profiles in the BL assembly
+var configuration = new MapperConfiguration(cfg =>
+{
+    cfg.AddProfile<MappingProfile>();
+});
+
+IMapper mapper = configuration.CreateMapper();
+builder.Services.AddSingleton(mapper);
+//builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+
+//builder.Services.AddSingleton<IDalManager, DalManager>();
 builder.Services.AddSingleton<IBlManager, BlManager>();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -15,7 +26,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

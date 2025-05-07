@@ -14,16 +14,6 @@ namespace BL.Services
         {
             
         }
-        public bool AddCandidates(JobBL job)
-        {
-
-            return true;
-        }
-
-        public bool AddJobs(JobSeekerBL seeker)
-        {
-            throw new NotImplementedException();
-        }
 
         public List<JobSeekerBL> FindCandidatesByJobCode(int jobCode)
         {

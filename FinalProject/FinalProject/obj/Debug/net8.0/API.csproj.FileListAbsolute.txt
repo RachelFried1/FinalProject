@@ -171,3 +171,5 @@ H:\Final Project\FinalProject\FinalProject\FinalProject\obj\Debug\net8.0\refint\
 H:\Final Project\FinalProject\FinalProject\FinalProject\obj\Debug\net8.0\API.pdb
 H:\Final Project\FinalProject\FinalProject\FinalProject\obj\Debug\net8.0\API.genruntimeconfig.cache
 H:\Final Project\FinalProject\FinalProject\FinalProject\obj\Debug\net8.0\ref\API.dll
+H:\Final Project\FinalProject\FinalProject\FinalProject\bin\Debug\net8.0\AutoMapper.dll
+H:\Final Project\FinalProject\FinalProject\FinalProject\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

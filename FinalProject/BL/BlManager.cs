@@ -1,5 +1,7 @@
-﻿using BL.Api;
+﻿using AutoMapper;
+using BL.Api;
 using BL.Services;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +18,13 @@ namespace BL
 
         public BlManager()
         {
+            IDalManager dalManager = new DalManager();
+            var config = new MapperConfiguration(cfg => {
+                cfg.AddProfile<MappingProfile>(); 
+            });
+            IMapper mapper = config.CreateMapper();
             JobBLManager = new JobServiceBL();
-            JobSeekerBLManager = new JobSeekerServiceBL();
+            JobSeekerBLManager = new JobSeekerServiceBL(mapper, dalManager);
             JobOffersBLManager = new JobOffersServiceBL();
         }
     }

@@ -19,10 +19,12 @@ namespace DAL.Services
         }
         public bool AddJobSeeker(JobSeeker jobSeeker)
         {
+            if (dataBase.JobSeekers.Contains(jobSeeker))
+                return false;
             dataBase.JobSeekers.Add(jobSeeker);
             dataBase.SaveChanges();
             jobOffersService.AddJobs(jobSeeker);
-            return false;
+            return true;
         }
 
         public ICollection<JobOffer> FindMatchingJobs(int jobId)
