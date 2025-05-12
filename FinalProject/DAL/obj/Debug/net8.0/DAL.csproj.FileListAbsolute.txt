@@ -27,3 +27,4 @@ H:\Final Project\FinalProject\FinalProject\DAL\obj\Debug\net8.0\refint\DAL.dll
 H:\Final Project\FinalProject\FinalProject\DAL\obj\Debug\net8.0\DAL.pdb
 H:\Final Project\FinalProject\FinalProject\DAL\obj\Debug\net8.0\DAL.genruntimeconfig.cache
 H:\Final Project\FinalProject\FinalProject\DAL\obj\Debug\net8.0\ref\DAL.dll
+H:\Final Project\FinalProject\FinalProject\DAL\bin\Debug\net8.0\Models\Data\DB.mdf

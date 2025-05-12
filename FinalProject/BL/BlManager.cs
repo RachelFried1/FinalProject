@@ -23,9 +23,9 @@ namespace BL
                 cfg.AddProfile<MappingProfile>(); 
             });
             IMapper mapper = config.CreateMapper();
-            JobBLManager = new JobServiceBL();
+            JobBLManager = new JobServiceBL(mapper, dalManager);
             JobSeekerBLManager = new JobSeekerServiceBL(mapper, dalManager);
-            JobOffersBLManager = new JobOffersServiceBL();
+            JobOffersBLManager = new JobOffersServiceBL(mapper, dalManager);
         }
     }
 }

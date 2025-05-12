@@ -1,4 +1,5 @@
 ﻿using DAL.Api;
+using DAL.Exceptions;
 using DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -17,14 +18,21 @@ namespace DAL.Services
             this.jobOffersService = jobOffersService;
             this.dataBase = dataBase;
         }
-        public bool AddJobSeeker(JobSeeker jobSeeker)
+
+        public JobSeeker GetJobSeekerById(int id)
+        {
+            var jobSeeker = dataBase.JobSeekers.FirstOrDefault(s => s.Id == id);
+            if (jobSeeker == null)
+                throw new SeekerNotFoundException(id);
+            return jobSeeker;
+        }
+        public void AddJobSeeker(JobSeeker jobSeeker)
         {
             if (dataBase.JobSeekers.Contains(jobSeeker))
-                return false;
+                throw new SeekerAlreadyExistsException(jobSeeker.Id);
             dataBase.JobSeekers.Add(jobSeeker);
             dataBase.SaveChanges();
             jobOffersService.AddJobs(jobSeeker);
-            return true;
         }
 
         public ICollection<JobOffer> FindMatchingJobs(int jobId)
@@ -32,16 +40,15 @@ namespace DAL.Services
             return jobOffersService.FindMatchesById(jobId);
         }
 
-        public bool NotSeekingJob(int id)
+        public void NotSeekingJob(int id)
         {
             if (dataBase.JobSeekers.FirstOrDefault(s => s.Id == id) != null)
             {
                 dataBase.JobSeekers.FirstOrDefault(s => s.Id == id).JobOffers.Clear();
                 dataBase.Remove(dataBase.JobSeekers.FirstOrDefault(s => s.Id == id));
                 dataBase.SaveChanges();
-                return true;
             }
-            return false;
+            else throw new SeekerNotFoundException(id);
         }
     }
 }

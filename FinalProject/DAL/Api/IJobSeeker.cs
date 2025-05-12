@@ -10,8 +10,9 @@ namespace DAL.Api
 {
     public interface IJobSeeker
     {
-        bool AddJobSeeker(JobSeeker jobSeeker);
+        JobSeeker GetJobSeekerById(int id);
+        void AddJobSeeker(JobSeeker jobSeeker);
         ICollection<JobOffer> FindMatchingJobs(int jobId);
-        bool NotSeekingJob(int id);
+        void NotSeekingJob(int id);
     }
 }

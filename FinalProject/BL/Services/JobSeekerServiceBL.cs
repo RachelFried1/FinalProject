@@ -16,26 +16,30 @@ namespace BL.Services
         private IMapper _mapper;
         IDalManager _dalManager;
 
-
         public JobSeekerServiceBL(IMapper mapper, IDalManager dalManager)
         {
             _dalManager = dalManager;
             _mapper = mapper;
         }
 
-        public bool AddJobSeeker(JobSeekerBL jobSeekerBL)
+        public JobSeekerBL GetJobSeekerById(int id)
+        {
+            return _mapper.Map<JobSeekerBL>(_dalManager.JobSeekerManager.GetJobSeekerById(id));
+        }
+
+        public void AddJobSeeker(JobSeekerBL jobSeekerBL)
         {
             JobSeeker jobSeeker = _mapper.Map<JobSeeker>(jobSeekerBL);
-            return _dalManager.JobSeekerManager.AddJobSeeker(jobSeeker);
+           _dalManager.JobSeekerManager.AddJobSeeker(jobSeeker);
         }
         public List<JobBL> FindMatchingJobs(int jobId)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<List<JobBL>>(_dalManager.JobSeekerManager.FindMatchingJobs(jobId));
         }
 
-        public bool NotSeekingJob(int id)
+        public void NotSeekingJob(int id)
         {
-            throw new NotImplementedException();
+            _dalManager.JobSeekerManager.NotSeekingJob(id);
         }
     }
 }

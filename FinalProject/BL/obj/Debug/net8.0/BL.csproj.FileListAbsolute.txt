@@ -30,3 +30,4 @@ H:\Final Project\FinalProject\FinalProject\BL\obj\Debug\net8.0\ref\BL.dll
 H:\Final Project\FinalProject\FinalProject\BL\bin\Debug\net8.0\DAL.dll
 H:\Final Project\FinalProject\FinalProject\BL\bin\Debug\net8.0\DAL.pdb
 H:\Final Project\FinalProject\FinalProject\BL\obj\Debug\net8.0\BL.csproj.Up2Date
+H:\Final Project\FinalProject\FinalProject\BL\bin\Debug\net8.0\Models\Data\DB.mdf

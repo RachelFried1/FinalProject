@@ -1,5 +1,8 @@
-﻿using BL.Api;
+﻿using AutoMapper;
+using BL.Api;
 using BL.Models;
+using DAL.Models;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +13,34 @@ namespace BL.Services
 {
     public class JobServiceBL : IJobBL
     {
-        public bool AddJob(JobBL job)
+        private IMapper _mapper;
+        IDalManager _dalManager;
+
+        public JobServiceBL(IMapper mapper, IDalManager dalManager)
         {
-            throw new NotImplementedException();
+            _dalManager = dalManager;
+            _mapper = mapper;
+        }
+
+        public JobBL GetJobByCode(int code)
+        {
+            return _mapper.Map<JobBL>(_dalManager.JobManager.GetJobByCode(code));
+        }
+
+        public void AddJob(JobBL jobBl)
+        {
+            Job job = _mapper.Map<Job>(jobBl);
+            _dalManager.JobManager.AddJob(job);
         }
 
         public List<JobSeekerBL> FindMatchingCandidates(int code)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<List<JobSeekerBL>>(_dalManager.JobManager.FindMatchingCandidates(code));
         }
 
-        public bool NotSeekingWorkers(int code)
+        public void NotSeekingWorkers(int code)
         {
-            throw new NotImplementedException();
+            _dalManager.JobManager.NotSeekingWorkers(code);
         }
     }
 }

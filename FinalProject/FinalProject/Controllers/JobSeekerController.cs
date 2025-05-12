@@ -15,6 +15,13 @@ namespace API.Controllers
         {
             _blManager = blManager;
         }
+
+        [HttpGet("GetJobSeekerById/{id}")]
+        public IActionResult GetJobSeekerById(int id)
+        {
+            return Ok(_blManager.JobSeekerBLManager.GetJobSeekerById(id));
+        }
+
         [HttpPost]
         [Route("AddJobSeeker")]
         public IActionResult AddJobSeeker([FromBody] JobSeekerBL jobSeeker)
@@ -23,15 +30,28 @@ namespace API.Controllers
             {
                 return BadRequest("Invalid job seeker data.");
             }
-            try
+
+            _blManager.JobSeekerBLManager.AddJobSeeker(jobSeeker);
+            return Ok($"Job seeker:{jobSeeker.Id} added successfully.");
+        }
+
+        [HttpGet("FindMatchingCandidates/{code}")]
+        public IActionResult FindMatchingCandidates(int code) {
+            var matchingCandidates = _blManager.JobBLManager.FindMatchingCandidates(code);
+
+            //maybe only check in react program:
+            if (matchingCandidates == null || matchingCandidates.Count == 0)
             {
-                _blManager.JobSeekerBLManager.AddJobSeeker(jobSeeker);
-                return Ok("Job seeker added successfully.");
+                return NotFound("No matching jobs found.");
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error adding job seeker: {ex.Message}");
-            }
+            return Ok(matchingCandidates);
+        }
+
+        [HttpDelete("NotSeekingWorkers/{code}")]
+        public IActionResult NotSeekingWorkers(int code)
+        {
+            _blManager.JobBLManager.NotSeekingWorkers(code);
+            return Ok($"Job : {code} is no longer seeking workers.");
         }
     }
 }

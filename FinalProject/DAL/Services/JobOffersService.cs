@@ -1,4 +1,5 @@
 ﻿using DAL.Api;
+using DAL.Exceptions;
 using DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -56,10 +57,14 @@ namespace DAL.Services
         }
         public ICollection<JobOffer> FindMatchesById(int id)
         {
+            if (dataBase.JobSeekers.FirstOrDefault(s => s.Id == id) == null)
+                throw new SeekerNotFoundException(id);
             return dataBase.JobSeekers.FirstOrDefault(s => s.Id == id).JobOffers;
         }
         public ICollection<JobOffer> FindCandidatesByJobCode(int jobCode)
         {
+            if (dataBase.Jobs.FirstOrDefault(j => j.Code == jobCode) == null)
+                throw new JobNotFoundException(jobCode);
             return dataBase.Jobs.FirstOrDefault(j => j.Code == jobCode).JobOffers;
         }
     }
