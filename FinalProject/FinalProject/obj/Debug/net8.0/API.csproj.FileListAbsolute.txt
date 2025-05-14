@@ -173,4 +173,3 @@ H:\Final Project\FinalProject\FinalProject\FinalProject\obj\Debug\net8.0\API.gen
 H:\Final Project\FinalProject\FinalProject\FinalProject\obj\Debug\net8.0\ref\API.dll
 H:\Final Project\FinalProject\FinalProject\FinalProject\bin\Debug\net8.0\AutoMapper.dll
 H:\Final Project\FinalProject\FinalProject\FinalProject\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-H:\Final Project\FinalProject\FinalProject\FinalProject\bin\Debug\net8.0\Models\Data\DB.mdf

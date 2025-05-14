@@ -47,11 +47,11 @@ namespace API.Controllers
             return Ok(matchingJobs);
         }
 
-        [HttpDelete("NotSeekingJob/{id}")]
-        public IActionResult NotSeekingJob(int id)
-        {
-            _blManager.JobSeekerBLManager.NotSeekingJob(id);
-            return Ok($"Job seeker: {id} is no longer seeking jobs.");
-        }
+        //[HttpDelete("NotSeekingJob/{id}")]
+        //public IActionResult NotSeekingJob(int id)
+        //{
+        //    _blManager.JobSeekerBLManager.NotSeekingJob(id);
+        //    return Ok($"Job seeker: {id} is no longer seeking jobs.");
+        //}
     }
 }

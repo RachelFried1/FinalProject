@@ -13,6 +13,6 @@ namespace DAL.Api
         JobSeeker GetJobSeekerById(int id);
         void AddJobSeeker(JobSeeker jobSeeker);
         ICollection<JobOffer> FindMatchingJobs(int jobId);
-        void NotSeekingJob(int id);
+        //void NotSeekingJob(int id);
     }
 }

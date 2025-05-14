@@ -40,15 +40,14 @@ namespace DAL.Services
             return jobOffersService.FindMatchesById(jobId);
         }
 
-        public void NotSeekingJob(int id)
-        {
-            if (dataBase.JobSeekers.FirstOrDefault(s => s.Id == id) != null)
-            {
-                dataBase.JobSeekers.FirstOrDefault(s => s.Id == id).JobOffers.Clear();
-                dataBase.Remove(dataBase.JobSeekers.FirstOrDefault(s => s.Id == id));
-                dataBase.SaveChanges();
-            }
-            else throw new SeekerNotFoundException(id);
-        }
+        //public void NotSeekingJob(int id)
+        //{
+        //    if (dataBase.JobSeekers.FirstOrDefault(s => s.Id == id) != null)
+        //    {
+        //        dataBase.JobSeekers.FirstOrDefault(s => s.Id == id).JobOffers.Clear();
+        //        dataBase.SaveChanges();
+        //    }
+        //    else throw new SeekerNotFoundException(id);
+        //}
     }
 }

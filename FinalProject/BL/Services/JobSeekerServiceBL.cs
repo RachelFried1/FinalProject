@@ -37,9 +37,9 @@ namespace BL.Services
             return _mapper.Map<List<JobBL>>(_dalManager.JobSeekerManager.FindMatchingJobs(jobId));
         }
 
-        public void NotSeekingJob(int id)
-        {
-            _dalManager.JobSeekerManager.NotSeekingJob(id);
-        }
+        //public void NotSeekingJob(int id)
+        //{
+        //    _dalManager.JobSeekerManager.NotSeekingJob(id);
+        //}
     }
 }

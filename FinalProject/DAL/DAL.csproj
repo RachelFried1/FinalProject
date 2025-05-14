@@ -19,10 +19,10 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="Models\Data\DB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Models\Data\DB.mdf" />
+	</ItemGroup>
+
 
 </Project>

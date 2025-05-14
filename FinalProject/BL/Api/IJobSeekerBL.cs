@@ -12,6 +12,6 @@ namespace BL.Api
         JobSeekerBL GetJobSeekerById(int id);
         void AddJobSeeker(JobSeekerBL jobSeeker);
         List<JobBL> FindMatchingJobs(int jobId);
-        void NotSeekingJob(int id);
+        //void NotSeekingJob(int id);
     }
 }
