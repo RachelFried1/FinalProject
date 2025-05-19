@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Final Project\\FinalProject\\FinalProject\\DAL\\DAL.csproj": {}
+    "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "H:\\Final Project\\FinalProject\\FinalProject\\DAL\\DAL.csproj": {
+    "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Final Project\\FinalProject\\FinalProject\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "H:\\Final Project\\FinalProject\\FinalProject\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\פינס לאה\\.nuget\\packages\\",
-        "outputPath": "H:\\Final Project\\FinalProject\\FinalProject\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\leahp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\פינס לאה\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\leahp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

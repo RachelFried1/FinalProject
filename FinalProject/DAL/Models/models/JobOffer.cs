@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DAL.Models;
+namespace DAL.Models.models;
 
 public partial class JobOffer
 {
@@ -13,8 +13,11 @@ public partial class JobOffer
 
     public DateOnly Date { get; set; }
 
+    public bool IsApplied { get; set; }
+
+    public DateTime ApplicationDate { get; set; }
+
     public virtual JobSeeker Candidate { get; set; } = null!;
 
-    public virtual Job JobMatch { get; set; } = null!;
-   
+    public virtual Job JobCodeNavigation { get; set; } = null!;
 }

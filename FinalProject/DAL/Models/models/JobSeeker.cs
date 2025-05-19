@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using DAL.Models.models;
 
-namespace DAL.Models;
+namespace DAL.Models.models;
 
 public partial class JobSeeker
 {
@@ -23,5 +24,9 @@ public partial class JobSeeker
 
     public string Field { get; set; } = null!;
 
+    public bool IsActive { get; set; }
+
     public virtual ICollection<JobOffer> JobOffers { get; set; } = new List<JobOffer>();
+
+    public virtual ICollection<UserPassword> UserPasswords { get; set; } = new List<UserPassword>();
 }

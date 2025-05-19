@@ -17,12 +17,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-
-	<ItemGroup>
-		<None Remove="Models\Data\DB.mdf" />
+		<None Update="DAL\Models\Data\DB.mdf">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
+
 
 
 </Project>
