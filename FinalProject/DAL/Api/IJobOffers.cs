@@ -1,4 +1,4 @@
-﻿using DAL.Models;
+﻿using DAL.Models.models;
 using DAL.Services;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,8 @@ namespace DAL.Api
         bool AddJobs(JobSeeker seeker);
         bool AddCandidates(Job job);
         bool IsMatch(JobSeeker seeker, Job job);
-        ICollection<JobOffer> FindMatchesById(int id);
-        ICollection<JobOffer> FindCandidatesByJobCode(int jobCode);
+        List<JobOffer> FindMatchesById(int id);
+        List<JobOffer> GetActiveAppliedCandidatesByJobCode(int jobCode);
+        List<JobOffer> FindOffersByJobCode(int jobCode);
     }
 }

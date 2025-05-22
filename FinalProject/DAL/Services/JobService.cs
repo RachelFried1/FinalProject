@@ -1,6 +1,7 @@
 ﻿using DAL.Api;
 using DAL.Exceptions;
 using DAL.Models;
+using DAL.Models.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,6 +1,7 @@
 ﻿using DAL.Api;
 using DAL.Exceptions;
 using DAL.Models;
+using DAL.Models.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace DAL.Services
         {
             this.dataBase = dataBase;
         }
+        //AddJobOffersForSeeker
         public bool AddJobs(JobSeeker seeker)
         {
             bool found = false;
@@ -30,6 +32,7 @@ namespace DAL.Services
             }
             return found;
         }
+        // AddJobOffersForJob
         public bool AddCandidates(Job job)
         {
             bool found = false;
@@ -55,17 +58,42 @@ namespace DAL.Services
             if (seeker.YearsOfExperience < job.MinYearsExperience) return false;
             return true;
         }
-        public ICollection<JobOffer> FindMatchesById(int id)
+        //GetJobOffersBySeekerId
+        public List<JobOffer> FindMatchesById(int id)
         {
             if (dataBase.JobSeekers.FirstOrDefault(s => s.Id == id) == null)
                 throw new SeekerNotFoundException(id);
-            return dataBase.JobSeekers.FirstOrDefault(s => s.Id == id).JobOffers;
+            return dataBase.JobSeekers.FirstOrDefault(s => s.Id == id).JobOffers.ToList();
         }
-        public ICollection<JobOffer> FindCandidatesByJobCode(int jobCode)
+        //GetJobOffersByJobCode
+        public List<JobOffer> FindOffersByJobCode(int jobCode)
         {
             if (dataBase.Jobs.FirstOrDefault(j => j.Code == jobCode) == null)
                 throw new JobNotFoundException(jobCode);
-            return dataBase.Jobs.FirstOrDefault(j => j.Code == jobCode).JobOffers;
+            return dataBase.Jobs.FirstOrDefault(j => j.Code == jobCode).JobOffers.ToList();
         }
+
+        //GetActiveAppliedCandidatesByJobCode
+        //public List<JobOffer> FindCandidatesByJobCode(int jobCode)
+        //{
+        //    List<JobOffer> allOffers = FindOffersByJobCode(jobCode);
+        //    List<JobOffer> candidates = new List<JobOffer>();
+        //    foreach (JobOffer offer in allOffers)
+        //    {
+        //        if (offer.Candidate.IsActive && offer.IsApplied)
+        //        {
+        //            candidates.Add(offer);
+        //        }
+        //    }
+        //    return candidates;
+        //}
+
+        public List<JobOffer> GetActiveAppliedCandidatesByJobCode(int jobCode)
+        {
+            return FindOffersByJobCode(jobCode)
+                .Where(offer => offer.Candidate.IsActive && offer.IsApplied)
+                .ToList();
+        }
+
     }
 }

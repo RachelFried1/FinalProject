@@ -3,36 +3,84 @@
   "WorkspaceRootPath": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\models\\joboffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\models\\joboffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\services\\companyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\services\\companyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\models\\jobseeker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\models\\jobseeker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\services\\jobservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\services\\jobservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\models\\userpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\models\\userpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\joboffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\joboffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\models\\dbclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\models\\dbclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\services\\jobseekerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\services\\jobseekerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\services\\jobseekerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\services\\jobseekerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\joboffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\joboffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\models\\userpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\models\\userpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\bl\\models\\companybl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|solutionrelative:bl\\models\\companybl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\bl\\models\\jobseekerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|solutionrelative:bl\\models\\jobseekerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\api\\ijobseeker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\api\\ijobseeker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\models\\jobseeker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\models\\jobseeker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\bl\\models\\jobofferbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|solutionrelative:bl\\models\\jobofferbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\models\\joboffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\models\\joboffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\bl\\models\\jobbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|solutionrelative:bl\\models\\jobbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\services\\joboffersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\services\\joboffersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\api\\ijoboffers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\api\\ijoboffers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Exceptions\\CompanyExceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DAL\\Exceptions\\CompanyExceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\api\\ijob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\api\\ijob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\exceptions\\jobsexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\exceptions\\jobsexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\models\\models\\dbclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\models\\models\\dbclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\dal.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -79,22 +127,6 @@
       "RelativeMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|solutionrelative:bl\\api\\ijobseekerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\services\\jobservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\services\\jobservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\services\\joboffersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\services\\joboffersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\api\\ijob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\api\\ijob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\api\\ijobseeker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\api\\ijobseeker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\bl\\exceptions\\jobsexceptionsbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|solutionrelative:bl\\exceptions\\jobsexceptionsbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -107,10 +139,6 @@
       "RelativeMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|solutionrelative:bl\\exceptions\\seekerexceptionsbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\bl\\models\\jobseekerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|solutionrelative:bl\\models\\jobseekerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8316897C-9877-4516-9B0B-AD86CF9A18EE}|FinalProject\\API.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\finalproject\\controllers\\handleexceptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8316897C-9877-4516-9B0B-AD86CF9A18EE}|FinalProject\\API.csproj|solutionrelative:finalproject\\controllers\\handleexceptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -121,14 +149,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\exceptions\\seekerexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\exceptions\\seekerexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\exceptions\\jobsexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\exceptions\\jobsexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\dal\\api\\ijoboffers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB69D827-16A8-46C3-B6E1-44EBAB3D79D6}|DAL\\DAL.csproj|solutionrelative:dal\\api\\ijoboffers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\bl\\bl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -159,14 +179,6 @@
       "RelativeMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|solutionrelative:bl\\api\\ijoboffersbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\bl\\models\\jobbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|solutionrelative:bl\\models\\jobbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\bl\\models\\jobofferbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C270670-E470-410E-B712-5767EBE861B1}|BL\\BL.csproj|solutionrelative:bl\\models\\jobofferbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8316897C-9877-4516-9B0B-AD86CF9A18EE}|FinalProject\\API.csproj|c:\\users\\public\\documents\\documents\\finalproject\\finalproject\\finalproject\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{8316897C-9877-4516-9B0B-AD86CF9A18EE}|FinalProject\\API.csproj|solutionrelative:finalproject\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -184,11 +196,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 42,
               "Title": "IDalManager.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\IDalManager.cs",
               "RelativeDocumentMoniker": "DAL\\IDalManager.cs",
@@ -202,6 +214,71 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "JobSeekerService.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\JobSeekerService.cs",
+              "RelativeDocumentMoniker": "DAL\\Services\\JobSeekerService.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\JobSeekerService.cs",
+              "RelativeToolTip": "DAL\\Services\\JobSeekerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T15:34:43.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JobService.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\JobService.cs",
+              "RelativeDocumentMoniker": "DAL\\Services\\JobService.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\JobService.cs",
+              "RelativeToolTip": "DAL\\Services\\JobService.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAgwBYAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T15:34:28.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CompanyService.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\CompanyService.cs",
+              "RelativeDocumentMoniker": "DAL\\Services\\CompanyService.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\CompanyService.cs",
+              "RelativeToolTip": "DAL\\Services\\CompanyService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T11:26:02.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Company.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\Company.cs",
+              "RelativeDocumentMoniker": "DAL\\Models\\models\\Company.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\Company.cs",
+              "RelativeToolTip": "DAL\\Models\\models\\Company.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T22:11:41.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "JobOffer.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\JobOffer.cs",
+              "RelativeDocumentMoniker": "DAL\\Models\\JobOffer.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\JobOffer.cs",
+              "RelativeToolTip": "DAL\\Models\\JobOffer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T22:10:30.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "UserPassword.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\UserPassword.cs",
               "RelativeDocumentMoniker": "DAL\\Models\\models\\UserPassword.cs",
@@ -214,59 +291,175 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "JobOffer.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\JobOffer.cs",
-              "RelativeDocumentMoniker": "DAL\\Models\\models\\JobOffer.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\JobOffer.cs",
-              "RelativeToolTip": "DAL\\Models\\models\\JobOffer.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAzwBYAAAABAAAA",
+              "DocumentIndex": 6,
+              "Title": "CompanyBL.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\CompanyBL.cs",
+              "RelativeDocumentMoniker": "BL\\Models\\CompanyBL.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\CompanyBL.cs",
+              "RelativeToolTip": "BL\\Models\\CompanyBL.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAABoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T08:27:21.737Z",
+              "WhenOpened": "2025-05-22T15:08:27.779Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "JobOffer.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\JobOffer.cs",
-              "RelativeDocumentMoniker": "DAL\\Models\\JobOffer.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\JobOffer.cs",
-              "RelativeToolTip": "DAL\\Models\\JobOffer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAABAAAA",
+              "DocumentIndex": 7,
+              "Title": "JobSeekerBL.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\JobSeekerBL.cs",
+              "RelativeDocumentMoniker": "BL\\Models\\JobSeekerBL.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\JobSeekerBL.cs",
+              "RelativeToolTip": "BL\\Models\\JobSeekerBL.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T22:10:30.245Z",
+              "WhenOpened": "2025-03-18T15:30:57.858Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
+              "Title": "IJobSeeker.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Api\\IJobSeeker.cs",
+              "RelativeDocumentMoniker": "DAL\\Api\\IJobSeeker.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Api\\IJobSeeker.cs",
+              "RelativeToolTip": "DAL\\Api\\IJobSeeker.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T15:33:42.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "JobSeeker.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\JobSeeker.cs",
               "RelativeDocumentMoniker": "DAL\\Models\\models\\JobSeeker.cs",
               "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\JobSeeker.cs",
               "RelativeToolTip": "DAL\\Models\\models\\JobSeeker.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAcAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAAAB8AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T08:51:53.348Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
+              "Title": "JobOfferBL.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\JobOfferBL.cs",
+              "RelativeDocumentMoniker": "BL\\Models\\JobOfferBL.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\JobOfferBL.cs",
+              "RelativeToolTip": "BL\\Models\\JobOfferBL.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAABoAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T15:30:38.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "JobOffer.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\JobOffer.cs",
+              "RelativeDocumentMoniker": "DAL\\Models\\models\\JobOffer.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\JobOffer.cs",
+              "RelativeToolTip": "DAL\\Models\\models\\JobOffer.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABUAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T08:27:21.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "JobBL.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\JobBL.cs",
+              "RelativeDocumentMoniker": "BL\\Models\\JobBL.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\JobBL.cs",
+              "RelativeToolTip": "BL\\Models\\JobBL.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAiwBEAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T15:30:24.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "Job.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\Job.cs",
               "RelativeDocumentMoniker": "DAL\\Models\\models\\Job.cs",
               "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\Job.cs",
               "RelativeToolTip": "DAL\\Models\\models\\Job.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAcAAAA",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAABoAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T08:22:03.148Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
+              "Title": "JobOffersService.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\JobOffersService.cs",
+              "RelativeDocumentMoniker": "DAL\\Services\\JobOffersService.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\JobOffersService.cs",
+              "RelativeToolTip": "DAL\\Services\\JobOffersService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGEAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T15:34:56.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IJobOffers.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Api\\IJobOffers.cs",
+              "RelativeDocumentMoniker": "DAL\\Api\\IJobOffers.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Api\\IJobOffers.cs",
+              "RelativeToolTip": "DAL\\Api\\IJobOffers.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T15:33:32.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CompanyExceptions.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Exceptions\\CompanyExceptions.cs",
+              "RelativeDocumentMoniker": "DAL\\Exceptions\\CompanyExceptions.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Exceptions\\CompanyExceptions.cs",
+              "RelativeToolTip": "DAL\\Exceptions\\CompanyExceptions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T11:27:49.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "JobsExceptions.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Exceptions\\JobsExceptions.cs",
+              "RelativeDocumentMoniker": "DAL\\Exceptions\\JobsExceptions.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Exceptions\\JobsExceptions.cs",
+              "RelativeToolTip": "DAL\\Exceptions\\JobsExceptions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T14:34:16.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IJob.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Api\\IJob.cs",
+              "RelativeDocumentMoniker": "DAL\\Api\\IJob.cs",
+              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Api\\IJob.cs",
+              "RelativeToolTip": "DAL\\Api\\IJob.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T15:33:21.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "dbClass.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\dbClass.cs",
               "RelativeDocumentMoniker": "DAL\\Models\\models\\dbClass.cs",
@@ -274,25 +467,11 @@
               "RelativeToolTip": "DAL\\Models\\models\\dbClass.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T07:34:26.027Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T07:34:26.027Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Company.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\Company.cs",
-              "RelativeDocumentMoniker": "DAL\\Models\\models\\Company.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\models\\Company.cs",
-              "RelativeToolTip": "DAL\\Models\\models\\Company.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T22:11:41.586Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 20,
               "Title": "DAL.csproj",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\DAL.csproj",
               "RelativeDocumentMoniker": "DAL\\DAL.csproj",
@@ -304,19 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "JobSeekerService.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\JobSeekerService.cs",
-              "RelativeDocumentMoniker": "DAL\\Services\\JobSeekerService.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\JobSeekerService.cs",
-              "RelativeToolTip": "DAL\\Services\\JobSeekerService.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAmwCAAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T15:34:43.294Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 25,
               "Title": "IBlManager.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\IBlManager.cs",
               "RelativeDocumentMoniker": "BL\\IBlManager.cs",
@@ -328,7 +495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 28,
               "Title": "JobSeekerServiceBL.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Services\\JobSeekerServiceBL.cs",
               "RelativeDocumentMoniker": "BL\\Services\\JobSeekerServiceBL.cs",
@@ -340,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 26,
               "Title": "JobServiceBL.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Services\\JobServiceBL.cs",
               "RelativeDocumentMoniker": "BL\\Services\\JobServiceBL.cs",
@@ -352,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 21,
               "Title": "JobSeekerController.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\FinalProject\\Controllers\\JobSeekerController.cs",
               "RelativeDocumentMoniker": "FinalProject\\Controllers\\JobSeekerController.cs",
@@ -364,7 +531,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 24,
               "Title": "BlManager.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\BlManager.cs",
               "RelativeDocumentMoniker": "BL\\BlManager.cs",
@@ -376,7 +543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 22,
               "Title": "JobController.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\FinalProject\\Controllers\\JobController.cs",
               "RelativeDocumentMoniker": "FinalProject\\Controllers\\JobController.cs",
@@ -388,7 +555,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 27,
               "Title": "IJobBL.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Api\\IJobBL.cs",
               "RelativeDocumentMoniker": "BL\\Api\\IJobBL.cs",
@@ -400,7 +567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 23,
               "Title": "JobOffersController.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\FinalProject\\Controllers\\JobOffersController.cs",
               "RelativeDocumentMoniker": "FinalProject\\Controllers\\JobOffersController.cs",
@@ -412,7 +579,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 29,
               "Title": "JobOffersServiceBL.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Services\\JobOffersServiceBL.cs",
               "RelativeDocumentMoniker": "BL\\Services\\JobOffersServiceBL.cs",
@@ -424,7 +591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 30,
               "Title": "IJobSeekerBL.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Api\\IJobSeekerBL.cs",
               "RelativeDocumentMoniker": "BL\\Api\\IJobSeekerBL.cs",
@@ -436,55 +603,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "JobService.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\JobService.cs",
-              "RelativeDocumentMoniker": "DAL\\Services\\JobService.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\JobService.cs",
-              "RelativeToolTip": "DAL\\Services\\JobService.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAQwBUAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T15:34:28.495Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "JobOffersService.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\JobOffersService.cs",
-              "RelativeDocumentMoniker": "DAL\\Services\\JobOffersService.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Services\\JobOffersService.cs",
-              "RelativeToolTip": "DAL\\Services\\JobOffersService.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAA6wDsAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T15:34:56.002Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "IJob.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Api\\IJob.cs",
-              "RelativeDocumentMoniker": "DAL\\Api\\IJob.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Api\\IJob.cs",
-              "RelativeToolTip": "DAL\\Api\\IJob.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T15:33:21.737Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "IJobSeeker.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Api\\IJobSeeker.cs",
-              "RelativeDocumentMoniker": "DAL\\Api\\IJobSeeker.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Api\\IJobSeeker.cs",
-              "RelativeToolTip": "DAL\\Api\\IJobSeeker.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T15:33:42.148Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 31,
               "Title": "JobsExceptionsBL.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Exceptions\\JobsExceptionsBL.cs",
               "RelativeDocumentMoniker": "BL\\Exceptions\\JobsExceptionsBL.cs",
@@ -496,7 +615,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 32,
               "Title": "JobOffersExceptionsBL.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Exceptions\\JobOffersExceptionsBL.cs",
               "RelativeDocumentMoniker": "BL\\Exceptions\\JobOffersExceptionsBL.cs",
@@ -508,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 33,
               "Title": "SeekerExceptionsBL.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Exceptions\\SeekerExceptionsBL.cs",
               "RelativeDocumentMoniker": "BL\\Exceptions\\SeekerExceptionsBL.cs",
@@ -520,19 +639,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "JobSeekerBL.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\JobSeekerBL.cs",
-              "RelativeDocumentMoniker": "BL\\Models\\JobSeekerBL.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\JobSeekerBL.cs",
-              "RelativeToolTip": "BL\\Models\\JobSeekerBL.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAQwBIAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T15:30:57.858Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 36,
               "Title": "SeekerExceptions.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Exceptions\\SeekerExceptions.cs",
               "RelativeDocumentMoniker": "DAL\\Exceptions\\SeekerExceptions.cs",
@@ -544,7 +651,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 35,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\FinalProject\\Program.cs",
               "RelativeDocumentMoniker": "FinalProject\\Program.cs",
@@ -556,7 +663,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 34,
               "Title": "HandleExceptionsController.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\FinalProject\\Controllers\\HandleExceptionsController.cs",
               "RelativeDocumentMoniker": "FinalProject\\Controllers\\HandleExceptionsController.cs",
@@ -568,31 +675,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "JobsExceptions.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Exceptions\\JobsExceptions.cs",
-              "RelativeDocumentMoniker": "DAL\\Exceptions\\JobsExceptions.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Exceptions\\JobsExceptions.cs",
-              "RelativeToolTip": "DAL\\Exceptions\\JobsExceptions.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAowBcAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T14:34:16.564Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "IJobOffers.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Api\\IJobOffers.cs",
-              "RelativeDocumentMoniker": "DAL\\Api\\IJobOffers.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Api\\IJobOffers.cs",
-              "RelativeToolTip": "DAL\\Api\\IJobOffers.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAMwA0AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T15:33:32.049Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 39,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\FinalProject\\appsettings.Development.json",
               "RelativeDocumentMoniker": "FinalProject\\appsettings.Development.json",
@@ -604,7 +687,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 40,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\FinalProject\\appsettings.json",
               "RelativeDocumentMoniker": "FinalProject\\appsettings.json",
@@ -616,7 +699,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 37,
               "Title": "BL.csproj",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\BL.csproj",
               "RelativeDocumentMoniker": "BL\\BL.csproj",
@@ -628,7 +711,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 38,
               "Title": "FinalProject.http",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\FinalProject\\FinalProject.http",
               "RelativeDocumentMoniker": "FinalProject\\FinalProject.http",
@@ -640,7 +723,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 41,
               "Title": "DalManager.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\DalManager.cs",
               "RelativeDocumentMoniker": "DAL\\DalManager.cs",
@@ -652,7 +735,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 43,
               "Title": "IJobOffersBL.cs",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Api\\IJobOffersBL.cs",
               "RelativeDocumentMoniker": "BL\\Api\\IJobOffersBL.cs",
@@ -664,31 +747,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "JobOfferBL.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\JobOfferBL.cs",
-              "RelativeDocumentMoniker": "BL\\Models\\JobOfferBL.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\JobOfferBL.cs",
-              "RelativeToolTip": "BL\\Models\\JobOfferBL.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAIBJwA4AAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T15:30:38.08Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "JobBL.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\JobBL.cs",
-              "RelativeDocumentMoniker": "BL\\Models\\JobBL.cs",
-              "ToolTip": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\BL\\Models\\JobBL.cs",
-              "RelativeToolTip": "BL\\Models\\JobBL.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAIBJwBQAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T15:30:24.701Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 44,
               "Title": "API.csproj",
               "DocumentMoniker": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\FinalProject\\API.csproj",
               "RelativeDocumentMoniker": "FinalProject\\API.csproj",
@@ -700,7 +759,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 45,
               "Title": "JobOffers.cs",
               "DocumentMoniker": "H:\\FinalProject\\FinalProject\\DAL\\Models\\JobOffers.cs",
               "ToolTip": "H:\\FinalProject\\FinalProject\\DAL\\Models\\JobOffers.cs",
@@ -709,7 +768,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 46,
               "Title": "IJobOffersBL1.cs",
               "DocumentMoniker": "H:\\FinalProject\\FinalProject\\BL\\Api\\IJobOffersBL1.cs",
               "ToolTip": "H:\\FinalProject\\FinalProject\\BL\\Api\\IJobOffersBL1.cs",

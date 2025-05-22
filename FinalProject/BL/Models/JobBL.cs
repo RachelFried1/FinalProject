@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models.models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,12 +13,15 @@ namespace BL.Models
         [Required]
         public int Code { get; set; }
         [Required]
-        public string CompanyName { get; set; } = null!;
+        public int CompanyId { get; set; }
         public string Field { get; set; } = null!;
-        public string Email { get; set; } = null!;
         public string Country { get; set; } = null!;
         public double WorkHours { get; set; }
         public int MinYearsExperience { get; set; }
         public bool RequiresDegree { get; set; }
+        public string JobDescription { get; set; } = null!;
+        public virtual Company Company { get; set; } = null!;
+        public virtual ICollection<JobOffer> JobOffers { get; set; } = new List<JobOffer>();
     }
+
 }
