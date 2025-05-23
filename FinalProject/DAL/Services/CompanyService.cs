@@ -1,4 +1,5 @@
-﻿using DAL.Exceptions;
+﻿using DAL.Api;
+using DAL.Exceptions;
 using DAL.Models.models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Services
 {
-    public class CompanyService
+    public class CompanyService:ICompany
     {
         dbClass dataBase;
         public CompanyService(dbClass dataBase)

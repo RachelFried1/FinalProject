@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+﻿using DAL.Exceptions;
+using DAL.Models;
 using DAL.Models.models;
 using DAL.Services;
 using System;
@@ -13,7 +14,11 @@ namespace DAL.Api
     {
         JobSeeker GetJobSeekerById(int id);
         void AddJobSeeker(JobSeeker jobSeeker);
-        ICollection<JobOffer> FindMatchingJobs(int jobId);
-        //void NotSeekingJob(int id);
+        bool AddJobOffersForSeeker(JobSeeker seeker);
+        List<JobOffer> GetJobOffersBySeekerId(int id);
+        void Activate(int id);
+        void NoLongerActive(int id);
+
+        void ApplyForOffer(int offerCode);
     }
 }

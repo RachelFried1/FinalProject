@@ -12,6 +12,6 @@ namespace DAL
     {
         IJob JobManager { get; set; }
         IJobSeeker JobSeekerManager { get; set; }
-        IJobOffers JobOffersManager { get; set; }
+        ICompany CompanyManager { get; set; }
     }
 }

@@ -13,9 +13,8 @@ namespace BL
     public class BlManager : IBlManager
     {
         public IJobBL JobBLManager { get; set; }
-        public IJobSeekerBL JobSeekerBLManager { get; set ; }
-        public IJobOffersBL JobOffersBLManager { get ; set; }
-
+        public IJobSeekerBL JobSeekerBLManager { get; set ; }      
+        public ICompanyBL CompanyBLManager { get; set; }
         public BlManager()
         {
             IDalManager dalManager = new DalManager();
@@ -25,7 +24,8 @@ namespace BL
             IMapper mapper = config.CreateMapper();
             JobBLManager = new JobServiceBL(mapper, dalManager);
             JobSeekerBLManager = new JobSeekerServiceBL(mapper, dalManager);
-            JobOffersBLManager = new JobOffersServiceBL(mapper, dalManager);
+            CompanyBLManager = new CompanyServiceBL(mapper, dalManager);
+            
         }
     }
 }

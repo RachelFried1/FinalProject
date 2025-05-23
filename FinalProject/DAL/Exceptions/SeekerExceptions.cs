@@ -23,5 +23,41 @@ namespace DAL.Exceptions
             StatusCode = 404;
         }
     }
-    
+
+    public class SeekerAlreadyActiveException : Exception
+    {
+        public int StatusCode { get; }
+        public SeekerAlreadyActiveException(int SeekerId) : base($"The seeker with Id {SeekerId} is already active, cannot activate!")
+        {
+            StatusCode = 409;
+        }
+    }
+
+    public class SeekerNotActiveException : Exception
+    {
+        public int StatusCode { get; }
+        public SeekerNotActiveException(int SeekerId) : base($"The seeker with Id {SeekerId} is not active!")
+        {
+            StatusCode = 404;
+        }
+    }
+
+    public class SeekerAlreadyAppliedException : Exception
+    {
+        public int StatusCode { get; }
+        public SeekerAlreadyAppliedException(int SeekerId) : base($"The seeker with Id {SeekerId} is already applied, cannot apply!")
+        {
+            StatusCode = 409;
+        }
+    }
+
+    public class SeekerNotAppliedException : Exception
+    {
+        public int StatusCode { get; }
+        public SeekerNotAppliedException(int SeekerId) : base($"The seeker with Id {SeekerId} is not applied!")
+        {
+            StatusCode = 404;
+        }
+    }
+
 }

@@ -42,5 +42,10 @@ namespace BL.Services
         {
             _dalManager.JobManager.NotSeekingWorkers(code);
         }
+
+        public List<JobSeekerBL> FindCandidatesByJobCode(int jobCode)
+        {
+            return _mapper.Map<List<JobSeekerBL>>(_dalManager.JobOffersManager.FindCandidatesByJobCode(jobCode));
+        }
     }
 }

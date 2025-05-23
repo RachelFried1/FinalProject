@@ -36,10 +36,11 @@ namespace BL.Services
         {
             return _mapper.Map<List<JobBL>>(_dalManager.JobSeekerManager.FindMatchingJobs(jobId));
         }
+        public List<JobBL> FindMatchesById(int id)
+        {
+            return _mapper.Map<List<JobBL>>(_dalManager.JobOffersManager.FindMatchesById(id));
+        }
 
-        //public void NotSeekingJob(int id)
-        //{
-        //    _dalManager.JobSeekerManager.NotSeekingJob(id);
-        //}
+        
     }
 }

@@ -13,14 +13,15 @@ namespace DAL
     {
         public IJob JobManager { get; set; }
         public IJobSeeker JobSeekerManager { get; set; }
-        public IJobOffers JobOffersManager { get; set; }
+        public ICompany CompanyManager { get; set; }
+        
         dbClass dataBase;
         public DalManager()
         {
             dataBase = new dbClass();
-            JobOffersManager = new JobOffersService(dataBase);
-            JobManager = new JobService(JobOffersManager, dataBase);
-            JobSeekerManager = new JobSeekerService(JobOffersManager, dataBase);
+            JobManager = new JobService(dataBase);
+            JobSeekerManager = new JobSeekerService(dataBase);
+            CompanyManager = new CompanyService(dataBase);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BL.Models;
+using DAL.Models.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace BL.Api
         void AddJob(JobBL job);
         List<JobSeekerBL> FindMatchingCandidates(int code);
         void NotSeekingWorkers(int code);
+        List<JobOffer> GetActiveAppliedCandidatesByJobCode(int jobCode);
     }
 }

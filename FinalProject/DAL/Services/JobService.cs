@@ -12,12 +12,12 @@ namespace DAL.Services
 {
     public class JobService : IJob
     {
-        IJobOffers jobOffersService;
+        
         dbClass dataBase;
 
-        public JobService(IJobOffers jobOffersService, dbClass dataBase)
+        public JobService( dbClass dataBase)
         {
-            this.jobOffersService = jobOffersService;
+            
             this.dataBase = dataBase;
         }
         public Job GetJobByCode(int code)
@@ -33,12 +33,48 @@ namespace DAL.Services
                throw new JobAlreadyExistsException(job.Code);
             dataBase.Jobs.Add(job);
             dataBase.SaveChanges();
-            jobOffersService.AddCandidates(job);
+            AddJobOffersForJob(job);
+        }
+        public bool AddJobOffersForJob(Job job)
+        {
+            bool found = false;
+            foreach (JobSeeker seeker in dataBase.JobSeekers)
+            {
+                if (seeker.IsActive && IsMatch(seeker, job))
+                {
+                    if (dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code) == null)
+                    {
+                        dataBase.JobOffers.Add(new JobOffer(job.Code, seeker.Id));
+                        dataBase.SaveChanges();
+                        found = true;
+                    }
+                }
+            }
+            return found;
         }
 
-        public ICollection<JobOffer> FindMatchingCandidates(int code)
+        private bool IsMatch(JobSeeker seeker, Job job)
         {
-            return jobOffersService.FindCandidatesByJobCode(code);
+            if (seeker == null) return false;
+            if (job == null) return false;
+            if (seeker.Field != job.Field) return false;
+            if (!seeker.HasDegree && job.RequiresDegree) return false;
+            if (seeker.DailyWorkHours + 2 < job.WorkHours) return false;
+            if (seeker.YearsOfExperience < job.MinYearsExperience) return false;
+            return true;
+        }
+        public List<JobOffer> GetJobOffersByJobCode(int jobCode)
+        {
+            if (dataBase.Jobs.FirstOrDefault(j => j.Code == jobCode) == null)
+                throw new JobNotFoundException(jobCode);
+            return dataBase.Jobs.FirstOrDefault(j => j.Code == jobCode).JobOffers.Where(offer => offer.Candidate.IsActive).ToList();
+        }
+
+        public List<JobOffer> GetActiveAppliedCandidatesByJobCode(int jobCode)
+        {
+            return GetJobOffersByJobCode(jobCode)
+                .Where(offer => offer.Candidate.IsActive && offer.IsApplied)
+                .ToList();
         }
 
         public void NotSeekingWorkers(int code)
