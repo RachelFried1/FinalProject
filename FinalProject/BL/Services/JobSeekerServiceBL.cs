@@ -2,7 +2,9 @@
 using BL.Api;
 using BL.Models;
 using DAL;
+using DAL.Exceptions;
 using DAL.Models;
+using DAL.Models.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,15 +34,37 @@ namespace BL.Services
             JobSeeker jobSeeker = _mapper.Map<JobSeeker>(jobSeekerBL);
            _dalManager.JobSeekerManager.AddJobSeeker(jobSeeker);
         }
-        public List<JobBL> FindMatchingJobs(int jobId)
+
+        //public bool AddJobOffersForSeeker(JobSeeker seeker)
+        //{
+        //    return _dalManager.JobSeekerManager.AddJobOffersForSeeker(_mapper.Map<JobSeeker>(seeker));
+        //}
+        //public List<JobBL> FindMatchingJobs(int jobId)
+        //{
+        //    return _mapper.Map<List<JobBL>>(_dalManager.JobSeekerManager.FindMatchingJobs(jobId));
+        //}
+        public List<JobBL> GetJobOffersBySeekerId(int id)
         {
-            return _mapper.Map<List<JobBL>>(_dalManager.JobSeekerManager.FindMatchingJobs(jobId));
-        }
-        public List<JobBL> FindMatchesById(int id)
-        {
-            return _mapper.Map<List<JobBL>>(_dalManager.JobOffersManager.FindMatchesById(id));
+            return _mapper.Map<List<JobBL>>(_dalManager.JobSeekerManager.GetJobOffersBySeekerId(id));
         }
 
-        
+        public void Activate(int id)
+        {
+            _dalManager.JobSeekerManager.Activate(id);
+
+        }
+        public void NoLongerActive(int id)
+        {
+            _dalManager.JobSeekerManager.NoLongerActive(id);
+        }
+
+        public void ApplyForOffer(int offerCode)
+        {
+            _dalManager.JobSeekerManager.ApplyForOffer(offerCode);
+        }
+
+
+
+
     }
 }

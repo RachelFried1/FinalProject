@@ -34,24 +34,32 @@ namespace API.Controllers
             return Ok($"Job: {job.Code} was added successfully.");
         }
 
-        [HttpGet("FindMatchingJobs/{id}")]
-        public IActionResult FindMatchingJobs(int id)
+        [HttpGet("FindMatchingCandidates/{code}")]
+        public IActionResult FindMatchingCandidates(int code)
         {
-            var matchingJobs = _blManager.JobSeekerBLManager.FindMatchingJobs(id);
+            var matchingCandidates = _blManager.JobBLManager.GetJobOffersByJobCode(code);
 
             //maybe only check in react program:
-            if (matchingJobs == null || matchingJobs.Count == 0)
+            if (matchingCandidates == null || matchingCandidates.Count == 0)
             {
                 return NotFound("No matching jobs found.");
             }
-            return Ok(matchingJobs);
+            return Ok(matchingCandidates);
         }
 
-        //[HttpDelete("NotSeekingJob/{id}")]
-        //public IActionResult NotSeekingJob(int id)
-        //{
-        //    _blManager.JobSeekerBLManager.NotSeekingJob(id);
-        //    return Ok($"Job seeker: {id} is no longer seeking jobs.");
-        //}
+        [HttpDelete("NotSeekingWorkers/{code}")]
+        public IActionResult NotSeekingWorkers(int code)
+        {
+            _blManager.JobBLManager.NotSeekingWorkers(code);
+            return Ok($"Job : {code} is no longer seeking workers.");
+        }
+
+        [HttpGet("GetAppliedCandidates/{int jobCode}")]
+        public IActionResult GetAppliedCandidate(int code)
+        {
+            return Ok(_blManager.JobBLManager.GetAppliedCandidatesByJobCode(code));
+        }
+
+
     }
 }

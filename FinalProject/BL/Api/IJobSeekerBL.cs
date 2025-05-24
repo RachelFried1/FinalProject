@@ -11,9 +11,10 @@ namespace BL.Api
     public interface IJobSeekerBL
     {
         JobSeekerBL GetJobSeekerById(int id);
-        void AddJobSeeker(JobSeekerBL jobSeeker);
-        List<JobBL> FindMatchingJobs(int jobId);
-        List<JobOffer> GetJobOffersBySeekerId(int id);
+        void AddJobSeeker(JobSeekerBL jobSeekerBL);
+        //List<JobBL> FindMatchingJobs(int jobId);
+        //bool AddJobOffersForSeeker(JobSeeker seeker)
+        List<JobBL> GetJobOffersBySeekerId(int id);
         void Activate(int id);
         void NoLongerActive(int id);
         void ApplyForOffer(int offerCode);

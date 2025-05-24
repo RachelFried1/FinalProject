@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.Models.models;
 
 namespace BL.Services
 {
@@ -33,19 +34,30 @@ namespace BL.Services
             _dalManager.JobManager.AddJob(job);
         }
 
-        public List<JobSeekerBL> FindMatchingCandidates(int code)
-        {
-            return _mapper.Map<List<JobSeekerBL>>(_dalManager.JobManager.FindMatchingCandidates(code));
-        }
+        //public List<JobSeekerBL> FindMatchingCandidates(int code)
+        //{
+        //    return _mapper.Map<List<JobSeekerBL>>(_dalManager.JobManager.FindMatchingCandidates(code));
+        //}
+
+        
+
+        //public bool AddJobOffersForJob(Job job)
+        //{
+        //    return _dalManager.JobManager.AddJobOffersForJob(_mapper.Map<Job>(job));
+        //}
 
         public void NotSeekingWorkers(int code)
         {
             _dalManager.JobManager.NotSeekingWorkers(code);
         }
 
-        public List<JobSeekerBL> FindCandidatesByJobCode(int jobCode)
+        public List<JobSeekerBL> GetJobOffersByJobCode(int jobCode)
         {
-            return _mapper.Map<List<JobSeekerBL>>(_dalManager.JobOffersManager.FindCandidatesByJobCode(jobCode));
+            return _mapper.Map<List<JobSeekerBL>>(_dalManager.JobManager.GetJobOffersByJobCode(jobCode));
+        }
+        public List<JobOfferBL> GetAppliedCandidatesByJobCode(int jobCode)
+        {
+            return _mapper.Map<List<JobOfferBL>>(_dalManager.JobManager.GetActiveAppliedCandidatesByJobCode(jobCode));
         }
     }
 }

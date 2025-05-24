@@ -34,24 +34,37 @@ namespace API.Controllers
             _blManager.JobSeekerBLManager.AddJobSeeker(jobSeeker);
             return Ok($"Job seeker:{jobSeeker.Id} added successfully.");
         }
-
-        [HttpGet("FindMatchingCandidates/{code}")]
-        public IActionResult FindMatchingCandidates(int code) {
-            var matchingCandidates = _blManager.JobBLManager.FindMatchingCandidates(code);
+        [HttpGet("FindMatchingJobs/{id}")]
+        public IActionResult FindMatchingJobs(int id)
+        {
+            var matchingJobs = _blManager.JobSeekerBLManager.GetJobOffersBySeekerId(id);
 
             //maybe only check in react program:
-            if (matchingCandidates == null || matchingCandidates.Count == 0)
+            if (matchingJobs == null || matchingJobs.Count == 0)
             {
                 return NotFound("No matching jobs found.");
             }
-            return Ok(matchingCandidates);
+            return Ok(matchingJobs);
         }
 
-        [HttpDelete("NotSeekingWorkers/{code}")]
-        public IActionResult NotSeekingWorkers(int code)
+        [HttpPut("Activate/{id}")]
+        public IActionResult Activate(int id)
         {
-            _blManager.JobBLManager.NotSeekingWorkers(code);
-            return Ok($"Job : {code} is no longer seeking workers.");
+            _blManager.JobSeekerBLManager.Activate(id);
+            return Ok($"Job Seeker {id} has been activated.");
         }
+        [HttpPut("Activate/{id}")]
+        public IActionResult DeActivate(int id)
+        {
+            _blManager.JobSeekerBLManager.NoLongerActive(id);
+            return Ok($"Job Seeker {id} has been deactivated.");
+        }
+        [HttpPut("Activate/{id}")]
+        public IActionResult ApplyForJOb(int offerCode)
+        {
+            _blManager.JobSeekerBLManager.ApplyForOffer(offerCode);
+            return Ok($"application for offer {offerCode} successfull.");
+        }
+
     }
 }

@@ -48,6 +48,54 @@ namespace API.Controllers
                 statusCode: jobAlreadyExists.StatusCode
                 );
             }
+            if (exceptionDetails?.Error is CompanyNotFoundException companyNotFound)
+            {
+                return Problem(
+                detail: exceptionDetails?.Error.Message,
+                title: "Job already exists!",
+                statusCode: companyNotFound.StatusCode
+                );
+            }
+            if (exceptionDetails?.Error is CompanyAlreadyExistsException companyAlreadyExists)
+            {
+                return Problem(
+                detail: exceptionDetails?.Error.Message,
+                title: "Job already exists!",
+                statusCode: companyAlreadyExists.StatusCode
+                );
+            }
+            if (exceptionDetails?.Error is SeekerAlreadyActiveException seekerAlreadyActive)
+            {
+                return Problem(
+                detail: exceptionDetails?.Error.Message,
+                title: "Job already exists!",
+                statusCode: seekerAlreadyActive.StatusCode
+                );
+            }
+            if (exceptionDetails?.Error is SeekerNotActiveException seekerNotActive)
+            {
+                return Problem(
+                detail: exceptionDetails?.Error.Message,
+                title: "Job already exists!",
+                statusCode: seekerNotActive.StatusCode
+                );
+            }
+            if (exceptionDetails?.Error is SeekerAlreadyAppliedException seekerAlreadyApplied)
+            {
+                return Problem(
+                detail: exceptionDetails?.Error.Message,
+                title: "Job already exists!",
+                statusCode: seekerAlreadyApplied.StatusCode
+                );
+            }
+            if (exceptionDetails?.Error is SeekerNotAppliedException seekerNotApplied)
+            {
+                return Problem(
+                detail: exceptionDetails?.Error.Message,
+                title: "Job already exists!",
+                statusCode: seekerNotApplied.StatusCode
+                );
+            }
             return Problem(
                 detail: "Unexpected error! try to restart the website...",
                 title: "An error occurred",

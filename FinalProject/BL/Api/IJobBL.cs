@@ -11,9 +11,12 @@ namespace BL.Api
     public interface IJobBL
     {
         JobBL GetJobByCode(int code);
-        void AddJob(JobBL job);
-        List<JobSeekerBL> FindMatchingCandidates(int code);
+        void AddJob(JobBL jobBl);
+
+        //List<JobSeekerBL> FindMatchingCandidates(int code);
+        //bool AddJobOffersForJob(Job job)
         void NotSeekingWorkers(int code);
-        List<JobOffer> GetActiveAppliedCandidatesByJobCode(int jobCode);
+        List<JobSeekerBL> GetJobOffersByJobCode(int jobCode);
+        List<JobOfferBL> GetAppliedCandidatesByJobCode(int jobCode);
     }
 }
