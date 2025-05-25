@@ -53,13 +53,13 @@ namespace API.Controllers
             _blManager.JobSeekerBLManager.Activate(id);
             return Ok($"Job Seeker {id} has been activated.");
         }
-        [HttpPut("Activate/{id}")]
+        [HttpPut("DeActivate/{id}")]
         public IActionResult DeActivate(int id)
         {
             _blManager.JobSeekerBLManager.NoLongerActive(id);
             return Ok($"Job Seeker {id} has been deactivated.");
         }
-        [HttpPut("Activate/{id}")]
+        [HttpPut("ApplyForJOb/{id}")]
         public IActionResult ApplyForJOb(int offerCode)
         {
             _blManager.JobSeekerBLManager.ApplyForOffer(offerCode);

@@ -22,6 +22,10 @@ namespace DAL.Exceptions
         {
             StatusCode = 404;
         }
+        public SeekerNotFoundException(string SeekeEmail) : base($"The seeker with email {SeekeEmail} was not found!")
+        {
+            StatusCode = 404;
+        }
     }
 
     public class SeekerAlreadyActiveException : Exception

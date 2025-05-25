@@ -5,7 +5,7 @@ using AutoMapper;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-
+AppDomain.CurrentDomain.SetData("DataDirectory", AppContext.BaseDirectory);
 
 // Register AutoMapper and scan for profiles in the BL assembly
 var configuration = new MapperConfiguration(cfg =>

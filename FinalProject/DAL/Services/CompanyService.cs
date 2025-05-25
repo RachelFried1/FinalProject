@@ -23,6 +23,13 @@ namespace DAL.Services
                 throw new CompanyNotFoundException(code);
             return company;
         }
+        public Company GetCompanyByEmail(string email)
+        {
+            var company = dataBase.Companies.FirstOrDefault(c => c.Email == email);
+            if (company == null)
+                throw new CompanyNotFoundException(email);
+            return company;
+        }
         public void AddCompany(Company company)
         {
             if (dataBase.Companies.FirstOrDefault(c => c.Code == company.Code) != null)

@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Http;
+
+
 public class ResumeService
 {
     private readonly string _uploadsFolder;
