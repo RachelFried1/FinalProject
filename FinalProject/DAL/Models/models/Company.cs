@@ -15,5 +15,6 @@ public partial class Company
 
     public virtual ICollection<Job> Jobs { get; set; } = new List<Job>();
 
-    public virtual ICollection<UserPassword> UserPasswords { get; set; } = new List<UserPassword>();
+    // One-to-one relationship with UserPassword
+    public virtual UserPassword? UserPassword { get; set; }
 }

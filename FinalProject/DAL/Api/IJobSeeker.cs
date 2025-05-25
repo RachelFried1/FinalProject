@@ -13,6 +13,7 @@ namespace DAL.Api
     public interface IJobSeeker
     {
         JobSeeker GetJobSeekerById(int id);
+        JobSeeker GetJobSeekerByEmail(string email);
         void AddJobSeeker(JobSeeker jobSeeker);
         bool AddJobOffersForSeeker(JobSeeker seeker);
         List<JobOffer> GetJobOffersBySeekerId(int id);

@@ -11,6 +11,7 @@ namespace DAL.Api
     public interface ICompany
     {
         Company GetCompanyById(int code);
+        Company GetCompanyByEmail(string email);
         void AddCompany(Company company);
     }
 }

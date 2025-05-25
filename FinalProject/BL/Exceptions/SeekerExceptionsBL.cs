@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace BL.Exceptions
 {
-    internal class SeekerExceptionsBL
+    public class SeekerAlreadyExistsException : Exception
     {
+        public int StatusCode { get; }
+        public SeekerAlreadyExistsException(int SeekerId) : base($"The seeker with Id {SeekerId} already exists!")
+        {
+            StatusCode = 409;
+        }
     }
 }

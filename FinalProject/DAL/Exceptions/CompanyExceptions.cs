@@ -13,6 +13,10 @@ namespace DAL.Exceptions
         {
             StatusCode = 404;
         }
+        public CompanyNotFoundException(string CompanyEmail) : base($"The company with email {CompanyEmail} was not found!")
+        {
+            StatusCode = 404;
+        }
     }
     public class CompanyAlreadyExistsException : Exception
     {

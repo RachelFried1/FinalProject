@@ -26,6 +26,13 @@ namespace DAL.Services
                 throw new SeekerNotFoundException(id);
             return jobSeeker;
         }
+        public JobSeeker GetJobSeekerByEmail(string email)
+        {
+            var jobSeeker = dataBase.JobSeekers.FirstOrDefault(s => s.Email == email);
+            if (jobSeeker == null)
+                throw new SeekerNotFoundException(email);
+            return jobSeeker;
+        }
         public void AddJobSeeker(JobSeeker jobSeeker)
         {
             if (dataBase.JobSeekers.Contains(jobSeeker))
@@ -69,8 +76,6 @@ namespace DAL.Services
                 throw new SeekerNotFoundException(id);
             return dataBase.JobSeekers.FirstOrDefault(s => s.Id == id).JobOffers.ToList();
         }
-
-
 
         public void Activate(int id)
         {
