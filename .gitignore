@@ -24,6 +24,13 @@ _ReSharper.*/
 packages/
 *.nuget.cache
 *.csproj.nuget.*
+# Explicitly add these common NuGet/build-related cache files that cause conflicts
+*.assets.cache
+*.csproj.AssemblyReference.cache
+*.csproj.CoreCompileInputs.cache
+*.AssemblyInfo.cs
+*.AssemblyInfoInputs.cache
+
 
 # Rider (JetBrains IDE)
 .idea/
@@ -40,3 +47,7 @@ node_modules/
 # Miscellaneous
 *.bak
 *~
+
+# Specific problematic .vs/ files (based on your conflicts)
+FinalProject/.vs/FinalProject/FileContentIndex/
+FinalProject/.vs/ProjectEvaluation/
