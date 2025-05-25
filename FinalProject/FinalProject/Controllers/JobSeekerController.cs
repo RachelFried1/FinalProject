@@ -69,7 +69,11 @@ namespace API.Controllers
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         [HttpPut("Deactivate/{id}")]
+=======
+        [HttpPut("DeActivate/{id}")]
+>>>>>>> 3ae3f28d46b373451615500a4b9d0cec785351be
 =======
         [HttpPut("DeActivate/{id}")]
 >>>>>>> 3ae3f28d46b373451615500a4b9d0cec785351be

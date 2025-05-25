@@ -51,3 +51,56 @@ node_modules/
 # Specific problematic .vs/ files (based on your conflicts)
 FinalProject/.vs/FinalProject/FileContentIndex/
 FinalProject/.vs/ProjectEvaluation/
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+*.pdb
+*.ilk
+
+# Packages
+*.nupkg
+# Ignore tools folder that contains nuget.exe
+/.nuget
+
+# Intellisense and ReSharper
+*.ncb
+*.opendb
+*.VC.db
+*.sdf
+*.cache
+*.aps
+*.ide
+*.log
+*.bak
+*.obj
+*.o
+*.lo
+*.rej
+*~
+*.ncrunch*
+*.resharper
+*.userprefs
+
+# Rider
+.idea/
+
+# macOS
+.DS_Store
+
+# Operating System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# For .NET Core
+project.lock.json
+project.assets.json
+.nuget/
