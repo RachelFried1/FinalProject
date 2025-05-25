@@ -1,19 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\DAL.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\DAL.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\DAL.csproj",
-        "projectName": "DAL",
-        "projectPath": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\leahp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\obj\\",
-=======
     "C:\\Users\\This User\\Documents\\FinalProject\\FinalProject\\DAL\\DAL.csproj": {}
   },
   "projects": {
@@ -25,22 +12,17 @@
         "projectPath": "C:\\Users\\This User\\Documents\\FinalProject\\FinalProject\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\This User\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\This User\\Documents\\FinalProject\\FinalProject\\DAL\\obj\\",
->>>>>>> 219e797 ( adjusted the BL and API layers to the changes of the DB and the DAl)
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\leahp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
           "C:\\Users\\This User\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 219e797 ( adjusted the BL and API layers to the changes of the DB and the DAl)
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -48,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -57,11 +39,17 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -100,11 +88,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
->>>>>>> 219e797 ( adjusted the BL and API layers to the changes of the DB and the DAl)
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -76,6 +76,14 @@ namespace DAL.Services
                 .Where(offer => offer.Candidate.IsActive && offer.IsApplied)
                 .ToList();
         }
+        public List<Job> GetCompanyJobs(int companyCode)
+        {
+            if (dataBase.Companies.FirstOrDefault(c => c.Code == companyCode) == null)
+            {
+                throw new CompanyNotFoundException(companyCode);
+            }
+           return dataBase.Companies.FirstOrDefault(c=>c.Code == companyCode).Jobs.ToList();
+        }
 
         public void NotSeekingWorkers(int code)
         {

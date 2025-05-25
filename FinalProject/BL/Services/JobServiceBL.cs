@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Models.models;
+using DAL.Exceptions;
 
 namespace BL.Services
 {
@@ -30,26 +31,13 @@ namespace BL.Services
 
         public void AddJob(JobBL jobBl)
         {
-            Job job = _mapper.Map<Job>(jobBl);
-            _dalManager.JobManager.AddJob(job);
+            _dalManager.JobManager.AddJob(_mapper.Map<Job>(jobBl));
         }
-
-        //public List<JobSeekerBL> FindMatchingCandidates(int code)
+        //public bool AddJobOffersForJob(JobBL jobBl)
         //{
-        //    return _mapper.Map<List<JobSeekerBL>>(_dalManager.JobManager.FindMatchingCandidates(code));
+        //    return _dalManager.JobManager.AddJobOffersForJob(_mapper.Map<Job>(jobBl));
         //}
-
-        
-
-        //public bool AddJobOffersForJob(Job job)
-        //{
-        //    return _dalManager.JobManager.AddJobOffersForJob(_mapper.Map<Job>(job));
-        //}
-
-        public void NotSeekingWorkers(int code)
-        {
-            _dalManager.JobManager.NotSeekingWorkers(code);
-        }
+       
 
         public List<JobSeekerBL> GetJobOffersByJobCode(int jobCode)
         {
@@ -58,6 +46,14 @@ namespace BL.Services
         public List<JobOfferBL> GetAppliedCandidatesByJobCode(int jobCode)
         {
             return _mapper.Map<List<JobOfferBL>>(_dalManager.JobManager.GetActiveAppliedCandidatesByJobCode(jobCode));
+        }
+        public List<JobBL> GetCompanyJobs(int companyCode)
+        {
+            return _mapper.Map<List<JobBL>>(_dalManager.JobManager.GetCompanyJobs(companyCode));
+        }
+        public void NotSeekingWorkers(int code)
+        {
+            _dalManager.JobManager.NotSeekingWorkers(code);
         }
     }
 }
