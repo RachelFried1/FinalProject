@@ -207,12 +207,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -221,7 +217,7 @@
               "RelativeDocumentMoniker": "FinalProject\\obj\\Debug\\net8.0\\API.AssemblyInfoInputs.cache",
               "ToolTip": "C:\\Users\\This User\\Documents\\FinalProject\\FinalProject\\FinalProject\\obj\\Debug\\net8.0\\API.AssemblyInfoInputs.cache",
               "RelativeToolTip": "FinalProject\\obj\\Debug\\net8.0\\API.AssemblyInfoInputs.cache",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002368|",
               "WhenOpened": "2025-05-25T15:40:53.51Z",
               "EditorCaption": ""
@@ -284,8 +280,7 @@
               "RelativeToolTip": "BL\\BL.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-25T15:00:52.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-25T15:00:52.658Z"
             },
             {
               "$type": "Document",
@@ -669,8 +664,7 @@
               "RelativeToolTip": "DAL\\DAL.csproj",
               "ViewState": "AQIAAAQAAAAAAAAAAAAQwBIAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-25T15:00:52.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-25T15:00:52.704Z"
             },
             {
               "$type": "Document",
@@ -790,8 +784,7 @@
               "RelativeToolTip": "FinalProject\\API.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-25T15:00:52.724Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-25T15:00:52.724Z"
             },
             {
               "$type": "Document",
