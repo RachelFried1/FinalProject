@@ -29,7 +29,7 @@ namespace BL.Models
 
         public bool IsActive { get; set; }
 
-        
+
 
     }
 }

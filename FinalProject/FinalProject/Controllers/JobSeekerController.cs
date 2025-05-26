@@ -68,7 +68,9 @@ namespace API.Controllers
             return Ok($"Job Seeker {id} has been activated.");
         }
 
+
         [HttpPut("Deactivate/{id}")]
+
 
         public IActionResult DeActivate(int id)
         {

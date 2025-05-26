@@ -17,6 +17,6 @@ namespace BL.Models
 
         public int Rate { get; set; }
 
-        
+
     }
 }
