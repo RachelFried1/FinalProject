@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BL.Api;
+using BL.Models;
 using DAL;
 using DAL.Exceptions;
 using DAL.Models.models;
@@ -25,9 +26,9 @@ namespace BL.Services
         {
             return _dalManager.CompanyManager.GetCompanyById(code);
         }
-        public void AddCompany(Company company)
+        public void AddCompany(CompanyBL company)
         {
-           _dalManager.CompanyManager.AddCompany(company);
+           _dalManager.CompanyManager.AddCompany(_mapper.Map<Company>(company));
         }
     }
 }

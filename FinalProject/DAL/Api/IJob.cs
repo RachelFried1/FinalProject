@@ -16,6 +16,7 @@ namespace DAL.Api
         bool AddJobOffersForJob(Job job);
         List<JobOffer> GetJobOffersByJobCode(int jobCode);
         List<JobOffer> GetActiveAppliedCandidatesByJobCode(int jobCode);
+        List<Job> GetCompanyJobs(int companyCode);
         void NotSeekingWorkers(int code);
     }
 }

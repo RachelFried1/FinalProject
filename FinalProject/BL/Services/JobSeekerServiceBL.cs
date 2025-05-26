@@ -31,18 +31,14 @@ namespace BL.Services
 
         public void AddJobSeeker(JobSeekerBL jobSeekerBL)
         {
-            JobSeeker jobSeeker = _mapper.Map<JobSeeker>(jobSeekerBL);
-           _dalManager.JobSeekerManager.AddJobSeeker(jobSeeker);
+           _dalManager.JobSeekerManager.AddJobSeeker(_mapper.Map<JobSeeker>(jobSeekerBL));
         }
 
-        //public bool AddJobOffersForSeeker(JobSeeker seeker)
+        //public bool AddJobOffersForSeeker(JobSeekerBL jobSeekerBL)
         //{
-        //    return _dalManager.JobSeekerManager.AddJobOffersForSeeker(_mapper.Map<JobSeeker>(seeker));
+        //    return _dalManager.JobSeekerManager.AddJobOffersForSeeker(_mapper.Map<JobSeeker>(jobSeekerBL));
         //}
-        //public List<JobBL> FindMatchingJobs(int jobId)
-        //{
-        //    return _mapper.Map<List<JobBL>>(_dalManager.JobSeekerManager.FindMatchingJobs(jobId));
-        //}
+
         public List<JobBL> GetJobOffersBySeekerId(int id)
         {
             return _mapper.Map<List<JobBL>>(_dalManager.JobSeekerManager.GetJobOffersBySeekerId(id));

@@ -9,5 +9,11 @@ public class MappingProfile : Profile
     {
         CreateMap<JobSeekerBL, JobSeeker>();
         CreateMap<JobSeeker, JobSeekerBL>();
+        CreateMap<JobBL,Job>();
+        CreateMap<Job,JobBL>();
+        CreateMap<CompanyBL, Company>();
+        CreateMap<Company, CompanyBL>();
+        CreateMap<JobOfferBL, JobOffer>();
+        CreateMap<JobOffer, CompanyBL>();
     }
 }

@@ -27,12 +27,24 @@ namespace API.Controllers
         {
             if (job == null)
             {
-                return BadRequest("Invalid job seeker data.");
+                return BadRequest("Invalid job data.");
             }
 
             _blManager.JobBLManager.AddJob(job);
             return Ok($"Job: {job.Code} was added successfully.");
         }
+        //[HttpPost]
+        //[Route("AddJoboffersForJobs")]
+        //public IActionResult AddJobOffersForJOb([FromBody] JobBL job)
+        //{
+        //    if (job == null)
+        //    {
+        //        return BadRequest("Invalid job data.");
+        //    }
+
+        //    _blManager.JobBLManager.AddJobOffersForJob(job);
+        //    return Ok($"Job offers for: {job.Code} were added successfully.");
+        //}
 
         [HttpGet("FindMatchingCandidates/{code}")]
         public IActionResult FindMatchingCandidates(int code)
@@ -46,6 +58,16 @@ namespace API.Controllers
             }
             return Ok(matchingCandidates);
         }
+        [HttpGet("GetAppliedCandidates/{jobCode}")]
+        public IActionResult GetAppliedCandidate(int code)
+        {
+            return Ok(_blManager.JobBLManager.GetAppliedCandidatesByJobCode(code));
+        }
+        [HttpGet("GetJobsForCompany/{companyCode}")]
+        public IActionResult GetJobsForCompany(int companyCode)
+        {
+            return Ok(_blManager.JobBLManager.GetCompanyJobs(companyCode));
+        }
 
         [HttpDelete("NotSeekingWorkers/{code}")]
         public IActionResult NotSeekingWorkers(int code)
@@ -54,11 +76,7 @@ namespace API.Controllers
             return Ok($"Job : {code} is no longer seeking workers.");
         }
 
-        [HttpGet("GetAppliedCandidates/{int jobCode}")]
-        public IActionResult GetAppliedCandidate(int code)
-        {
-            return Ok(_blManager.JobBLManager.GetAppliedCandidatesByJobCode(code));
-        }
+        
 
 
     }

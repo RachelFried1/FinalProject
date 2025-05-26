@@ -1,4 +1,5 @@
-﻿using DAL.Models.models;
+﻿using BL.Models;
+using DAL.Models.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace BL.Api
     public interface ICompanyBL
     {
         Company GetCompanyById(int code);
-        void AddCompany(Company company);
+        void AddCompany(CompanyBL company);
     }
 }

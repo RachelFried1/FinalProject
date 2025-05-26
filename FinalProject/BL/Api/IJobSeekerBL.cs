@@ -12,8 +12,7 @@ namespace BL.Api
     {
         JobSeekerBL GetJobSeekerById(int id);
         void AddJobSeeker(JobSeekerBL jobSeekerBL);
-        //List<JobBL> FindMatchingJobs(int jobId);
-        //bool AddJobOffersForSeeker(JobSeeker seeker)
+        //bool AddJobOffersForSeeker(JobSeekerBL jobSeekerBL);
         List<JobBL> GetJobOffersBySeekerId(int id);
         void Activate(int id);
         void NoLongerActive(int id);

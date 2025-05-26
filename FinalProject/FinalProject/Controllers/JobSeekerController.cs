@@ -34,6 +34,20 @@ namespace API.Controllers
             _blManager.JobSeekerBLManager.AddJobSeeker(jobSeeker);
             return Ok($"Job seeker:{jobSeeker.Id} added successfully.");
         }
+
+        //[HttpPost]
+        //[Route("AddJobOffersForSeeker")]
+        //public IActionResult AddJobOffersForSeeker([FromBody] JobSeekerBL jobSeekerBL)
+        //{
+        //    if (jobSeekerBL == null)
+        //    {
+        //        return BadRequest("Invalid job seeker data.");
+        //    }
+
+        //    _blManager.JobSeekerBLManager.AddJobOffersForSeeker(jobSeekerBL);
+        //    return Ok($"offers for Job seeker:{jobSeekerBL.Id} were added successfully.");
+        //}
+
         [HttpGet("FindMatchingJobs/{id}")]
         public IActionResult FindMatchingJobs(int id)
         {
@@ -53,7 +67,11 @@ namespace API.Controllers
             _blManager.JobSeekerBLManager.Activate(id);
             return Ok($"Job Seeker {id} has been activated.");
         }
-        [HttpPut("DeActivate/{id}")]
+
+
+        [HttpPut("Deactivate/{id}")]
+
+
         public IActionResult DeActivate(int id)
         {
             _blManager.JobSeekerBLManager.NoLongerActive(id);

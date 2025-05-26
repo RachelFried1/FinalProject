@@ -12,11 +12,10 @@ namespace BL.Api
     {
         JobBL GetJobByCode(int code);
         void AddJob(JobBL jobBl);
-
-        //List<JobSeekerBL> FindMatchingCandidates(int code);
-        //bool AddJobOffersForJob(Job job)
-        void NotSeekingWorkers(int code);
+        //bool AddJobOffersForJob(JobBL jobBL);       
         List<JobSeekerBL> GetJobOffersByJobCode(int jobCode);
         List<JobOfferBL> GetAppliedCandidatesByJobCode(int jobCode);
+        List<JobBL> GetCompanyJobs(int companyCode);
+        void NotSeekingWorkers(int code);
     }
 }
