@@ -29,9 +29,7 @@ namespace BL.Models
 
         public bool IsActive { get; set; }
 
-        public virtual ICollection<JobOffer> JobOffers { get; set; } = new List<JobOffer>();
-
-        public virtual UserPassword? UserPassword { get; set; }
+        
 
     }
 }

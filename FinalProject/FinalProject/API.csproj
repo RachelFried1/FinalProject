@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -10,14 +9,13 @@
 	  <TargetFramework>net8.0</TargetFramework>
 	  <Nullable>enable</Nullable>
 
-=======
+
 	  <TargetFramework>net8.0</TargetFramework>
 	  <Nullable>enable</Nullable>
->>>>>>> 3ae3f28d46b373451615500a4b9d0cec785351be
-=======
+
 	  <TargetFramework>net8.0</TargetFramework>
 	  <Nullable>enable</Nullable>
->>>>>>> 3ae3f28d46b373451615500a4b9d0cec785351be
+
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 

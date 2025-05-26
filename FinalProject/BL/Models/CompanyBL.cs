@@ -17,8 +17,6 @@ namespace BL.Models
 
         public int Rate { get; set; }
 
-        public virtual ICollection<Job> Jobs { get; set; } = new List<Job>();
-
-        public virtual UserPassword? UserPassword { get; set; }
+        
     }
 }
