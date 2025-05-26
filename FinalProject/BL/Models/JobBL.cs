@@ -21,7 +21,7 @@ namespace BL.Models
         public bool RequiresDegree { get; set; }
         public string JobDescription { get; set; } = null!;
         public virtual Company Company { get; set; } = null!;
-        public virtual ICollection<JobOffer> JobOffers { get; set; } = new List<JobOffer>();
+        //public virtual ICollection<JobOffer> JobOffers { get; set; } = new List<JobOffer>();
     }
 
 }
