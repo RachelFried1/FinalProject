@@ -17,6 +17,8 @@ public partial class JobOffer
 
     public DateTime ApplicationDate { get; set; }
 
+    public double MatchingScore { get; set; }
+
     public virtual JobSeeker Candidate { get; set; } = null!;
 
     public virtual Job JobCodeNavigation { get; set; } = null!;

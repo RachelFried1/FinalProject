@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using DAL.Models.models;
 
 namespace DAL.Models.models;
 
@@ -22,7 +21,7 @@ public partial class JobSeeker
 
     public bool HasDegree { get; set; }
 
-    public string Field { get; set; } = null!;
+    public int Field { get; set; }
 
     public bool IsActive { get; set; }
 
@@ -30,4 +29,3 @@ public partial class JobSeeker
 
     public virtual UserPassword? UserPassword { get; set; }
 }
-

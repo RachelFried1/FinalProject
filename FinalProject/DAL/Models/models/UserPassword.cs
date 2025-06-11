@@ -9,13 +9,11 @@ public partial class UserPassword
 
     public int UserId { get; set; }
 
-    public string UserType { get; set; } = null!; // "JobSeeker" or "Company"
+    public string UserType { get; set; } = null!;
 
     public string PasswordHash { get; set; } = null!;
 
-    // One-to-one relationship with Company
-    public virtual Company? Company { get; set; }
+    public virtual Company User { get; set; } = null!;
 
-    // One-to-one relationship with JobSeeker
-    public virtual JobSeeker? JobSeeker { get; set; }
+    public virtual JobSeeker UserNavigation { get; set; } = null!;
 }

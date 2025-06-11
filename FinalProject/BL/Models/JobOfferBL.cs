@@ -21,5 +21,8 @@ namespace BL.Models
         public bool IsApplied { get; set; }
 
         public DateTime ApplicationDate { get; set; }
+
+        public double MatchingScore { get; set; }
+
     }
 }
