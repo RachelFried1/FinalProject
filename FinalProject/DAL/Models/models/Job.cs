@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using DAL.Models.models;
 
 namespace DAL.Models.models;
 
@@ -10,7 +9,7 @@ public partial class Job
 
     public int CompanyId { get; set; }
 
-    public string Field { get; set; } = null!;
+    public int Field { get; set; }
 
     public string Country { get; set; } = null!;
 
