@@ -21,7 +21,7 @@ public partial class JobSeeker
 
     public bool HasDegree { get; set; }
 
-    public int Field { get; set; }
+    public JobField Field { get; set; }
 
     public bool IsActive { get; set; }
 

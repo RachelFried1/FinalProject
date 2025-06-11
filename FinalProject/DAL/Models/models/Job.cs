@@ -9,7 +9,7 @@ public partial class Job
 
     public int CompanyId { get; set; }
 
-    public int Field { get; set; }
+    public JobField Field { get; set; }
 
     public string Country { get; set; } = null!;
 

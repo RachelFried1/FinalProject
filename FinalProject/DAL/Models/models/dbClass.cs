@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using DAL.Models.models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Models.models;
@@ -27,7 +26,8 @@ public partial class dbClass : DbContext
     public virtual DbSet<UserPassword> UserPasswords { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    => optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\Data\\DB.mdf;Integrated Security=True;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Public\\Documents\\Documents\\FinalProject\\FinalProject\\DAL\\Models\\Data\\DB.mdf;Integrated Security=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -48,10 +48,11 @@ public partial class dbClass : DbContext
 
             entity.ToTable("Job");
 
+            entity.HasIndex(e => e.CompanyId, "IX_Job_CompanyID");
+
             entity.Property(e => e.Code).ValueGeneratedNever();
             entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
             entity.Property(e => e.Country).HasMaxLength(50);
-            entity.Property(e => e.Field).HasMaxLength(50);
 
             entity.HasOne(d => d.Company).WithMany(p => p.Jobs)
                 .HasForeignKey(d => d.CompanyId)
@@ -63,19 +64,27 @@ public partial class dbClass : DbContext
         {
             entity.HasKey(e => e.OffersCode).HasName("PK__JobOffer__F4BD6BD8585C6A1F");
 
+            entity.ToTable("JobOffer");
+
+            entity.HasIndex(e => e.CandidateId, "IX_JobOffer_CandidateId");
+
+            entity.HasIndex(e => e.JobCode, "IX_JobOffer_JobCode");
+
             entity.Property(e => e.OffersCode).ValueGeneratedNever();
             entity.Property(e => e.ApplicationDate).HasColumnType("datetime");
 
             entity.HasOne(d => d.Candidate).WithMany(p => p.JobOffers)
                 .HasForeignKey(d => d.CandidateId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_JobOffers_ToTable");
+                .HasConstraintName("FK_JobOffer_ToTable");
 
             entity.HasOne(d => d.JobCodeNavigation).WithMany(p => p.JobOffers)
                 .HasForeignKey(d => d.JobCode)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_JobOffers_ToTable_1");
+                .HasConstraintName("FK_JobOffer_ToTable_1");
         });
+
+
 
         modelBuilder.Entity<JobSeeker>(entity =>
         {
@@ -86,26 +95,19 @@ public partial class dbClass : DbContext
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Country).HasMaxLength(50);
             entity.Property(e => e.Email).HasMaxLength(50);
-            entity.Property(e => e.Field)
-                .HasMaxLength(10)
-                .IsFixedLength();
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.SirName).HasMaxLength(50);
         });
 
-        // One-to-one relationship between UserPassword and JobSeeker
-        modelBuilder.Entity<UserPassword>()
-            .HasOne(up => up.JobSeeker)
-            .WithOne(js => js.UserPassword)
-            .HasForeignKey<UserPassword>(up => up.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
+        modelBuilder.Entity<UserPassword>(entity =>
+        {
+            entity.HasIndex(e => e.UserId, "IX_UserPasswords_UserId").IsUnique();
 
-        // One-to-one relationship between UserPassword and Company
-        modelBuilder.Entity<UserPassword>()
-            .HasOne(up => up.Company)
-            .WithOne(c => c.UserPassword)
-            .HasForeignKey<UserPassword>(up => up.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
+            entity.HasOne(d => d.CompanyUser).WithOne(p => p.UserPassword).HasForeignKey<UserPassword>(d => d.UserId);
+
+            entity.HasOne(d => d.SeekerUser).WithOne(p => p.UserPassword).HasForeignKey<UserPassword>(d => d.UserId);
+        });
+
         OnModelCreatingPartial(modelBuilder);
     }
 

@@ -25,7 +25,7 @@ namespace BL.Models
 
         public bool HasDegree { get; set; }
 
-        public string Field { get; set; } = null!;
+        public JobField Field { get; set; }
 
         public bool IsActive { get; set; }
 
