@@ -13,7 +13,7 @@ public partial class UserPassword
 
     public string PasswordHash { get; set; } = null!;
 
-    public virtual Company User { get; set; } = null!;
+    public virtual Company CompanyUser { get; set; } = null!;
 
-    public virtual JobSeeker UserNavigation { get; set; } = null!;
+    public virtual JobSeeker SeekerUser { get; set; } = null!;
 }

@@ -52,7 +52,7 @@ namespace API.Controllers
             {
                 return Problem(
                 detail: exceptionDetails?.Error.Message,
-                title: "Job already exists!",
+                title: "Company not found!",
                 statusCode: companyNotFound.StatusCode
                 );
             }
@@ -60,7 +60,7 @@ namespace API.Controllers
             {
                 return Problem(
                 detail: exceptionDetails?.Error.Message,
-                title: "Job already exists!",
+                title: "Company already exists!",
                 statusCode: companyAlreadyExists.StatusCode
                 );
             }
@@ -76,7 +76,7 @@ namespace API.Controllers
             {
                 return Problem(
                 detail: exceptionDetails?.Error.Message,
-                title: "Job already exists!",
+                title: "Seeker is not active!",
                 statusCode: seekerNotActive.StatusCode
                 );
             }
@@ -84,7 +84,7 @@ namespace API.Controllers
             {
                 return Problem(
                 detail: exceptionDetails?.Error.Message,
-                title: "Job already exists!",
+                title: "Seeker already applied!",
                 statusCode: seekerAlreadyApplied.StatusCode
                 );
             }
@@ -92,7 +92,7 @@ namespace API.Controllers
             {
                 return Problem(
                 detail: exceptionDetails?.Error.Message,
-                title: "Job already exists!",
+                title: "Seeker is not applied!",
                 statusCode: seekerNotApplied.StatusCode
                 );
             }

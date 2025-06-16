@@ -14,7 +14,7 @@ namespace BL.Models
         public int Code { get; set; }
         [Required]
         public int CompanyId { get; set; }
-        public string Field { get; set; } = null!;
+        public JobField Field { get; set; }
         public string Country { get; set; } = null!;
         public double WorkHours { get; set; }
         public int MinYearsExperience { get; set; }
