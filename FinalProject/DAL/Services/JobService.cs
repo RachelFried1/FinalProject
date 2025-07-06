@@ -44,16 +44,18 @@ namespace DAL.Services
             MatchingService matchService = new MatchingService();
             foreach (JobSeeker seeker in dataBase.JobSeekers)
             {
-                double matchScore = matchService.CalculateMatchingScore(seeker, job);
-                if (matchScore >= 0.7)
+
+                if (seeker.IsActive)
                 {
-                    var existingOffer = dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code);
-                    if (existingOffer == null)
+                    double score = matchService.CalculateMatchingScore(seeker, job);
+                    if (score >= 0.7)
                     {
-                        JobOffer offer = new JobOffer(seeker.Id, job.Code, matchScore);
-                        dataBase.JobOffers.Add(offer);
-                        dataBase.SaveChanges();
-                        found = true;
+                        if (dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code) == null)
+                        {
+                            dataBase.JobOffers.Add(new JobOffer(job.Code, seeker.Id, score));
+                            dataBase.SaveChanges();
+                            found = true;
+                        }
                     }
                 }
             }
@@ -69,6 +71,7 @@ namespace DAL.Services
             if (seeker.DailyWorkHours + 2 < job.WorkHours) return false;
             if (seeker.YearsOfExperience < job.MinYearsExperience) return false;
             return true;
+
         }
         public List<JobOffer> GetJobOffersByJobCode(int jobCode)
         {

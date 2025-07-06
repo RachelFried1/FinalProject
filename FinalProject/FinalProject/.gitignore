@@ -111,7 +111,12 @@ node_modules/
 # dotenv environment files
 .env
 
+<<<<<<< HEAD:FinalProject/FinalProject/.gitignore
    # .gitignore
    *.mdf
    *.ldf
    
+=======
+*.mdf
+*.ldf
+>>>>>>> 5b2ee4eb27a5ae6e0701273b23e05412b50583ff:FinalProject/.gitignore

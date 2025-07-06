@@ -9,9 +9,9 @@ namespace BL
 {
     public interface IBlManager
     {
-        public IJobBL JobBLManager { get; set; }
-        public IJobSeekerBL JobSeekerBLManager { get; set; }
-        public ICompanyBL CompanyBLManager { get; set; }
-        public IAuth AuthManager { get; set; }
+        IJobBL JobBLManager { get; set; }
+        IJobSeekerBL JobSeekerBLManager { get; set; }
+        ICompanyBL CompanyBLManager { get; set; }
+        IAuth AuthManager { get; set; }
     }
 }

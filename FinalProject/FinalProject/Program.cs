@@ -7,6 +7,21 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("YourSuperSecretKey"))
+        };
+    });
+
+builder.Services.AddAuthorization();
 
 builder.Services.AddAuthentication(options =>
 {
@@ -37,7 +52,6 @@ IMapper mapper = configuration.CreateMapper();
 builder.Services.AddSingleton(mapper);
 //builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-
 //builder.Services.AddSingleton<IDalManager, DalManager>();
 builder.Services.AddSingleton<IBlManager, BlManager>();
 
@@ -52,6 +66,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthorization();
 app.UseExceptionHandler("/error"); 
 app.UseHttpsRedirection();
 app.UseAuthorization();

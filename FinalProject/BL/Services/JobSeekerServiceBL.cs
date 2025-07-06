@@ -48,9 +48,5 @@ namespace BL.Services
         {
             _dalManager.JobSeekerManager.ApplyForOffer(offerCode);
         }
-
-
-
-
     }
 }

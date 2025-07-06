@@ -25,7 +25,7 @@ public class AuthService:IAuth
         _mapper = mapper;
     }
 
-    // Sign Up for Job Seeker
+    
     public void SignUpJobSeeker(JobSeekerBL seeker, string password)
     {
         if (_dalManager.JobSeekerManager.GetJobSeekerById(seeker.Id) != null)
@@ -43,7 +43,7 @@ public class AuthService:IAuth
         _dalManager.JobSeekerManager.AddJobSeeker(jobSeekerEntity);
     }
 
-    // Sign Up for Company
+   
     public void SignUpCompany(CompanyBL company, string password)
     {
         if (_dalManager.CompanyManager.GetCompanyById(company.Code) != null)

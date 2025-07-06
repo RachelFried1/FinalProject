@@ -10,21 +10,23 @@ namespace API.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private IBlManager _blManager;
+        private readonly IBlManager _blManager;
         private readonly IMapper _mapper;
 
         public AuthController(IBlManager blManager, IMapper mapper)
         {
-           _blManager = blManager;
+            _blManager = blManager;
             _mapper = mapper;
         }
 
         [HttpPost("signup/jobseeker")]
+
         public IActionResult SignUpJobSeeker([FromBody] JobSeekerSignUpRequestDTO request)
         {
             try
             {
                 var jobSeeker = _mapper.Map<JobSeekerBL>(request);
+                jobSeeker.IsActive = true;
                 _blManager.AuthManager.SignUpJobSeeker(jobSeeker, request.Password);
                 return Ok("Job seeker registered successfully.");
             }
