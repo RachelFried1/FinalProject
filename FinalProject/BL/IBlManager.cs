@@ -12,5 +12,6 @@ namespace BL
         IJobBL JobBLManager { get; set; }
         IJobSeekerBL JobSeekerBLManager { get; set; }
         ICompanyBL CompanyBLManager { get; set; }
+        IAuth AuthManager { get; set; }
     }
 }
