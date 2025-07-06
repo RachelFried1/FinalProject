@@ -1,11 +1,28 @@
 using BL;
 using DAL;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-AppDomain.CurrentDomain.SetData("DataDirectory", AppContext.BaseDirectory);
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("YourSuperSecretKey"))
+        };
+    });
+
+builder.Services.AddAuthorization();
 
 // Register AutoMapper and scan for profiles in the BL assembly
 var configuration = new MapperConfiguration(cfg =>
@@ -16,7 +33,6 @@ var configuration = new MapperConfiguration(cfg =>
 IMapper mapper = configuration.CreateMapper();
 builder.Services.AddSingleton(mapper);
 //builder.Services.AddAutoMapper(typeof(MappingProfile));
-
 
 //builder.Services.AddSingleton<IDalManager, DalManager>();
 builder.Services.AddSingleton<IBlManager, BlManager>();
@@ -32,6 +48,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthorization();
 app.UseExceptionHandler("/error"); 
 app.UseHttpsRedirection();
 app.UseAuthorization();

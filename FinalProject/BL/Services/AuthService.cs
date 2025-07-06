@@ -9,8 +9,9 @@ using BL.Models;
 using DAL.Exceptions;
 using DAL.Models.models;
 using DAL.Api;
+using BL.Api;
 
-public class AuthService
+public class AuthService:IAuth
 {
     private readonly string _jwtSecret = "YourSuperSecretKey"; // Replace with a secure key
     private readonly int _jwtExpirationMinutes = 60;
@@ -24,7 +25,7 @@ public class AuthService
         _mapper = mapper;
     }
 
-    // Sign Up for Job Seeker
+    
     public void SignUpJobSeeker(JobSeekerBL seeker, string password)
     {
         if (_dalManager.JobSeekerManager.GetJobSeekerById(seeker.Id) != null)
@@ -42,7 +43,7 @@ public class AuthService
         _dalManager.JobSeekerManager.AddJobSeeker(jobSeekerEntity);
     }
 
-    // Sign Up for Company
+   
     public void SignUpCompany(CompanyBL company, string password)
     {
         if (_dalManager.CompanyManager.GetCompanyById(company.Code) != null)
@@ -52,7 +53,7 @@ public class AuthService
         var companyEntity = _mapper.Map<Company>(company);
         companyEntity.UserPassword = new UserPassword
         {
-            UserType = "JobSeeker",
+            UserType = "Company",
             PasswordHash = passwordHash,
             UserId = company.Code
         };

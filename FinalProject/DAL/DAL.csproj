@@ -4,6 +4,14 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Remove="Models\Data\DB.mdf" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="Models\Data\DB.mdf">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
 
 
 	<ItemGroup>
@@ -17,11 +25,6 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-
-
-		<None Update="Models\Data\DB.mdf">
-			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</None>
 
 	</ItemGroup>
 

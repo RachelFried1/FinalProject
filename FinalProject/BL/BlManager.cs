@@ -15,6 +15,7 @@ namespace BL
         public IJobBL JobBLManager { get; set; }
         public IJobSeekerBL JobSeekerBLManager { get; set ; }      
         public ICompanyBL CompanyBLManager { get; set; }
+        public IAuth AuthManager { get; set; }
         public BlManager()
         {
             IDalManager dalManager = new DalManager();
@@ -24,8 +25,9 @@ namespace BL
             IMapper mapper = config.CreateMapper();
             JobBLManager = new JobServiceBL(mapper, dalManager);
             JobSeekerBLManager = new JobSeekerServiceBL(mapper, dalManager);
-            CompanyBLManager = new CompanyServiceBL(mapper, dalManager);
-            
+            CompanyBLManager = new CompanyServiceBL( dalManager);
+            AuthManager = new AuthService(mapper,dalManager);
+
         }
     }
 }

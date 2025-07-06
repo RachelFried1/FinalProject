@@ -33,12 +33,6 @@ namespace BL.Services
         {
             _dalManager.JobManager.AddJob(_mapper.Map<Job>(jobBl));
         }
-        //public bool AddJobOffersForJob(JobBL jobBl)
-        //{
-        //    return _dalManager.JobManager.AddJobOffersForJob(_mapper.Map<Job>(jobBl));
-        //}
-       
-
         public List<JobSeekerBL> GetJobOffersByJobCode(int jobCode)
         {
             return _mapper.Map<List<JobSeekerBL>>(_dalManager.JobManager.GetJobOffersByJobCode(jobCode));

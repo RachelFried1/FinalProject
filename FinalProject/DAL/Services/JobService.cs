@@ -40,13 +40,17 @@ namespace DAL.Services
             bool found = false;
             foreach (JobSeeker seeker in dataBase.JobSeekers)
             {
-                if (seeker.IsActive && IsMatch(seeker, job))
+                if (seeker.IsActive)
                 {
-                    if (dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code) == null)
+                    double score = MatchingService.CalculateMatchingScore(seeker, job);
+                    if (score >= 0.7)
                     {
-                        dataBase.JobOffers.Add(new JobOffer(job.Code, seeker.Id));
-                        dataBase.SaveChanges();
-                        found = true;
+                        if (dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code) == null)
+                        {
+                            dataBase.JobOffers.Add(new JobOffer(job.Code, seeker.Id, score));
+                            dataBase.SaveChanges();
+                            found = true;
+                        }
                     }
                 }
             }
@@ -62,6 +66,7 @@ namespace DAL.Services
             if (seeker.DailyWorkHours + 2 < job.WorkHours) return false;
             if (seeker.YearsOfExperience < job.MinYearsExperience) return false;
             return true;
+
         }
         public List<JobOffer> GetJobOffersByJobCode(int jobCode)
         {
