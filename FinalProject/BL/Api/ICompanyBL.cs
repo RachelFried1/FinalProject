@@ -11,6 +11,5 @@ namespace BL.Api
     public interface ICompanyBL
     {
         Company GetCompanyById(int code);
-        void AddCompany(CompanyBL company);
     }
 }

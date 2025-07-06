@@ -14,21 +14,15 @@ namespace BL.Services
 {
     public class CompanyServiceBL:ICompanyBL
     {
-        private IMapper _mapper;
         IDalManager _dalManager;
 
-        public CompanyServiceBL(IMapper mapper, IDalManager dalManager)
+        public CompanyServiceBL(IDalManager dalManager)
         {
             _dalManager = dalManager;
-            _mapper = mapper;
         }
         public Company GetCompanyById(int code)
         {
             return _dalManager.CompanyManager.GetCompanyById(code);
-        }
-        public void AddCompany(CompanyBL company)
-        {
-           _dalManager.CompanyManager.AddCompany(_mapper.Map<Company>(company));
         }
     }
 }

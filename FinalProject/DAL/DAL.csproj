@@ -18,11 +18,6 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 
-
-		<None Update="Models\Data\DB.mdf">
-			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</None>
-
 	</ItemGroup>
 
 

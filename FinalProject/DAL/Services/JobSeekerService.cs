@@ -26,6 +26,7 @@ namespace DAL.Services
                 throw new SeekerNotFoundException(id);
             return jobSeeker;
         }
+
         public JobSeeker GetJobSeekerByEmail(string email)
         {
             var jobSeeker = dataBase.JobSeekers.FirstOrDefault(s => s.Email == email);
@@ -42,16 +43,21 @@ namespace DAL.Services
             dataBase.SaveChanges();
             AddJobOffersForSeeker(jobSeeker);
         }
+     
         public bool AddJobOffersForSeeker(JobSeeker seeker)
         {
             bool found = false;
+            MatchingService matchService = new MatchingService();
             foreach (Job job in dataBase.Jobs)
             {
-                if (IsMatch(seeker, job))
+                double matchScore = matchService.CalculateMatchingScore(seeker, job);
+                if (matchScore >= 0.7)
                 {
-                    if (dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code) == null)
+                    var existingOffer = dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code);
+                    if (existingOffer == null)
                     {
-                        dataBase.JobOffers.Add(new JobOffer(job.Code, seeker.Id));
+                        JobOffer offer = new JobOffer(seeker.Id, job.Code, matchScore);
+                        dataBase.JobOffers.Add(offer);
                         dataBase.SaveChanges();
                         found = true;
                     }
@@ -60,16 +66,18 @@ namespace DAL.Services
             return found;
         }
 
-        private bool IsMatch(JobSeeker seeker, Job job)
-        {
-            if (seeker == null) return false;
-            if (job == null) return false;
-            if (seeker.Field != job.Field) return false;
-            if (!seeker.HasDegree && job.RequiresDegree) return false;
-            if (seeker.DailyWorkHours + 2 < job.WorkHours) return false;
-            if (seeker.YearsOfExperience < job.MinYearsExperience) return false;
-            return true;
-        }
+        //private bool IsMatch(JobSeeker seeker, Job job)
+        //{
+        //    if (seeker == null) return false;
+        //    if (job == null) return false;
+        //    if (seeker.Field != job.Field) return false;
+        //    if (!seeker.HasDegree && job.RequiresDegree) return false;
+        //    if (seeker.DailyWorkHours + 2 < job.WorkHours) return false;
+        //    if (seeker.YearsOfExperience < job.MinYearsExperience) return false;
+        //    return true;
+        //}
+      
+
         public List<JobOffer> GetJobOffersBySeekerId(int id)
         {
             if (dataBase.JobSeekers.FirstOrDefault(s => s.Id == id) == null)

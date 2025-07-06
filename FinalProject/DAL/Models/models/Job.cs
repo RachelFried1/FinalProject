@@ -20,6 +20,7 @@ public partial class Job
     public bool RequiresDegree { get; set; }
 
     public string JobDescription { get; set; } = null!;
+    public bool IsActive { get; set; }
 
     public virtual Company Company { get; set; } = null!;
 

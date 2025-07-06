@@ -110,3 +110,8 @@ node_modules/
 
 # dotenv environment files
 .env
+
+   # .gitignore
+   *.mdf
+   *.ldf
+   

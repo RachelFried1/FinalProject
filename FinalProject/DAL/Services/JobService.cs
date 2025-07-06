@@ -20,6 +20,7 @@ namespace DAL.Services
             
             this.dataBase = dataBase;
         }
+
         public Job GetJobByCode(int code)
         {
             Job job = dataBase.Jobs.FirstOrDefault(j => j.Code == code);
@@ -27,6 +28,7 @@ namespace DAL.Services
                 throw new JobNotFoundException(code);
             return job;
         }
+
         public void AddJob(Job job)
         {
             if (dataBase.Jobs.FirstOrDefault(j => j.Code == job.Code) != null)
@@ -35,16 +37,21 @@ namespace DAL.Services
             dataBase.SaveChanges();
             AddJobOffersForJob(job);
         }
+     
         public bool AddJobOffersForJob(Job job)
         {
             bool found = false;
+            MatchingService matchService = new MatchingService();
             foreach (JobSeeker seeker in dataBase.JobSeekers)
             {
-                if (seeker.IsActive && IsMatch(seeker, job))
+                double matchScore = matchService.CalculateMatchingScore(seeker, job);
+                if (matchScore >= 0.7)
                 {
-                    if (dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code) == null)
+                    var existingOffer = dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code);
+                    if (existingOffer == null)
                     {
-                        dataBase.JobOffers.Add(new JobOffer(job.Code, seeker.Id));
+                        JobOffer offer = new JobOffer(seeker.Id, job.Code, matchScore);
+                        dataBase.JobOffers.Add(offer);
                         dataBase.SaveChanges();
                         found = true;
                     }
@@ -76,6 +83,7 @@ namespace DAL.Services
                 .Where(offer => offer.Candidate.IsActive && offer.IsApplied)
                 .ToList();
         }
+
         public List<Job> GetCompanyJobs(int companyCode)
         {
             if (dataBase.Companies.FirstOrDefault(c => c.Code == companyCode) == null)

@@ -1,6 +1,7 @@
 ﻿using BL;
 using BL.Api;
 using BL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "JobSeeker")]
     public class JobSeekerController : ControllerBase
     {
         private IBlManager _blManager;
@@ -21,32 +23,6 @@ namespace API.Controllers
         {
             return Ok(_blManager.JobSeekerBLManager.GetJobSeekerById(id));
         }
-
-        [HttpPost]
-        [Route("AddJobSeeker")]
-        public IActionResult AddJobSeeker([FromBody] JobSeekerBL jobSeeker)
-        {
-            if (jobSeeker == null)
-            {
-                return BadRequest("Invalid job seeker data.");
-            }
-
-            _blManager.JobSeekerBLManager.AddJobSeeker(jobSeeker);
-            return Ok($"Job seeker:{jobSeeker.Id} added successfully.");
-        }
-
-        //[HttpPost]
-        //[Route("AddJobOffersForSeeker")]
-        //public IActionResult AddJobOffersForSeeker([FromBody] JobSeekerBL jobSeekerBL)
-        //{
-        //    if (jobSeekerBL == null)
-        //    {
-        //        return BadRequest("Invalid job seeker data.");
-        //    }
-
-        //    _blManager.JobSeekerBLManager.AddJobOffersForSeeker(jobSeekerBL);
-        //    return Ok($"offers for Job seeker:{jobSeekerBL.Id} were added successfully.");
-        //}
 
         [HttpGet("FindMatchingJobs/{id}")]
         public IActionResult FindMatchingJobs(int id)
