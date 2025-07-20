@@ -4,13 +4,16 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using API.DTO;
+using DAL.Models.models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
-
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
@@ -24,18 +27,22 @@ builder.Services.AddAuthentication("Bearer")
 
 builder.Services.AddAuthorization();
 
-// Register AutoMapper and scan for profiles in the BL assembly
-var configuration = new MapperConfiguration(cfg =>
+// AutoMapper configuration and registration
+var mapperConfig = new MapperConfiguration(cfg =>
 {
     cfg.AddProfile<MappingProfile>();
+    cfg.AddProfile<APIMappingProfile>();
 });
-
-IMapper mapper = configuration.CreateMapper();
+IMapper mapper = mapperConfig.CreateMapper();
 builder.Services.AddSingleton(mapper);
-//builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-//builder.Services.AddSingleton<IDalManager, DalManager>();
-builder.Services.AddSingleton<IBlManager, BlManager>();
+// Register DbContext with Scoped lifetime (recommended)
+builder.Services.AddDbContext<dbClass>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Register DalManager and BlManager as Scoped, and pass dependencies via constructor
+builder.Services.AddScoped<IDalManager, DalManager>();
+builder.Services.AddScoped<IBlManager, BlManager>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -48,11 +55,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseAuthorization();
-app.UseExceptionHandler("/error"); 
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
+app.UseExceptionHandler("/error");
 
+app.UseHttpsRedirection();
+
+app.UseAuthentication();  // <-- Add authentication middleware here
+app.UseAuthorization();
+
+app.MapControllers();
 
 app.Run();

@@ -5,12 +5,9 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 	<ItemGroup>
-	  <None Remove="Models\Data\DB.mdf" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Content Include="Models\Data\DB.mdf">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
+	  <Compile Remove="Models\Data\**" />
+	  <EmbeddedResource Remove="Models\Data\**" />
+	  <None Remove="Models\Data\**" />
 	</ItemGroup>
 
 

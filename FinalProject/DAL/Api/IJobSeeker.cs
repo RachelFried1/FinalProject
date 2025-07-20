@@ -19,7 +19,6 @@ namespace DAL.Api
         List<JobOffer> GetJobOffersBySeekerId(int id);
         void Activate(int id);
         void NoLongerActive(int id);
-
         void ApplyForOffer(int offerCode);
     }
 }

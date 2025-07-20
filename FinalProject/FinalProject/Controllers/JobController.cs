@@ -2,6 +2,7 @@
 using BL;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
@@ -23,6 +24,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("AddJob")]
+        [Authorize(Roles = "Company")]
         public IActionResult AddJobSeeker([FromBody] JobBL job)
         {
             if (job == null)
@@ -33,36 +35,29 @@ namespace API.Controllers
             _blManager.JobBLManager.AddJob(job);
             return Ok($"Job: {job.Code} was added successfully.");
         }
-        //[HttpPost]
-        //[Route("AddJoboffersForJobs")]
-        //public IActionResult AddJobOffersForJOb([FromBody] JobBL job)
-        //{
-        //    if (job == null)
-        //    {
-        //        return BadRequest("Invalid job data.");
-        //    }
-
-        //    _blManager.JobBLManager.AddJobOffersForJob(job);
-        //    return Ok($"Job offers for: {job.Code} were added successfully.");
-        //}
+        
 
         [HttpGet("FindMatchingCandidates/{code}")]
+        [Authorize(Roles = "Company")]
         public IActionResult FindMatchingCandidates(int code)
         {
             var matchingCandidates = _blManager.JobBLManager.GetJobOffersByJobCode(code);
 
-            //maybe only check in react program:
+            
             if (matchingCandidates == null || matchingCandidates.Count == 0)
             {
                 return NotFound("No matching jobs found.");
             }
             return Ok(matchingCandidates);
         }
+
         [HttpGet("GetAppliedCandidates/{jobCode}")]
+        [Authorize(Roles = "Company")]
         public IActionResult GetAppliedCandidate(int code)
         {
             return Ok(_blManager.JobBLManager.GetAppliedCandidatesByJobCode(code));
         }
+
         [HttpGet("GetJobsForCompany/{companyCode}")]
         public IActionResult GetJobsForCompany(int companyCode)
         {
@@ -70,6 +65,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("NotSeekingWorkers/{code}")]
+        [Authorize(Roles = "Company")]
         public IActionResult NotSeekingWorkers(int code)
         {
             _blManager.JobBLManager.NotSeekingWorkers(code);

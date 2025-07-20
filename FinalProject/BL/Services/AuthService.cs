@@ -13,7 +13,7 @@ using BL.Api;
 
 public class AuthService:IAuth
 {
-    private readonly string _jwtSecret = "YourSuperSecretKey"; // Replace with a secure key
+    private readonly string _jwtSecret = "YourSuperSecretKey"; 
     private readonly int _jwtExpirationMinutes = 60;
 
     private IMapper _mapper;

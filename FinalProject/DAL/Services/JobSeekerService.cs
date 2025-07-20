@@ -19,10 +19,7 @@ namespace DAL.Services
 
         public JobSeeker GetJobSeekerById(int id)
         {
-            var jobSeeker = dataBase.JobSeekers.FirstOrDefault(s => s.Id == id);
-            if (jobSeeker == null)
-                throw new SeekerNotFoundException(id);
-            return jobSeeker;
+            return dataBase.JobSeekers.FirstOrDefault(s => s.Id == id);
         }
 
         public JobSeeker GetJobSeekerByEmail(string email)

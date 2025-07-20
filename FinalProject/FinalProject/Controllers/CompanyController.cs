@@ -1,5 +1,6 @@
 ﻿using BL;
 using BL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Company")]
     public class CompanyController : ControllerBase
     {
         private IBlManager _blManager;

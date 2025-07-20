@@ -52,7 +52,7 @@ public class ResumeService
         {
         "application/pdf",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-    };
+        };
 
         if (!allowedExtensions.Contains(extension) || !allowedMimeTypes.Contains(contentType))
             throw new ArgumentException("Only PDF or DOCX files are allowed.");

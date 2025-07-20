@@ -3,6 +3,7 @@ using BL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BL;
+using API.DTO;
 
 namespace API.Controllers
 {
@@ -20,7 +21,7 @@ namespace API.Controllers
         }
 
         [HttpPost("signup/jobseeker")]
-        public IActionResult SignUpJobSeeker([FromBody] JobSeekerSignUpRequest request)
+        public IActionResult SignUpJobSeeker([FromBody] JobSeekerSignUpRequestDTO request)
         {
             try
             {
@@ -36,7 +37,7 @@ namespace API.Controllers
         }
 
         [HttpPost("signup/company")]
-        public IActionResult SignUpCompany([FromBody] CompanySignUpRequest request)
+        public IActionResult SignUpCompany([FromBody] CompanySignUpRequestDTO request)
         {
             try
             {
@@ -51,7 +52,7 @@ namespace API.Controllers
         }
 
         [HttpPost("signin")]
-        public IActionResult SignIn([FromBody] SignInRequest request)
+        public IActionResult SignIn([FromBody] SignInRequestDTO request)
         {
             try
             {

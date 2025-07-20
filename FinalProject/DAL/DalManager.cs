@@ -16,11 +16,10 @@ namespace DAL
         public IJob JobManager { get; set; }
         public IJobSeeker JobSeekerManager { get; set; }
         public ICompany CompanyManager { get; set; }
-        
         dbClass dataBase;
-        public DalManager()
+        public DalManager(dbClass contex)
         {
-            dataBase = new dbClass();
+            dataBase = contex;
             JobManager = new JobService(dataBase);
             JobSeekerManager = new JobSeekerService(dataBase);
             CompanyManager = new CompanyService(dataBase);
