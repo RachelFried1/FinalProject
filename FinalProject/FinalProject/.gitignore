@@ -115,5 +115,13 @@ node_modules/
 # dotenv environment files
 .env
 
+<<<<<<< HEAD
 *.mdf
 *.ldf
+=======
+
+
+*.mdf
+*.ldf
+
+>>>>>>> b2aeeae4e477dab49c787d3cb73aac15c2f3d483
