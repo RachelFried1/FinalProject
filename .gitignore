@@ -1,0 +1,119 @@
+## Ignore Visual Studio temporary files, build results, and
+## user-specific files.
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+*.log
+
+# Uncomment if you have tasks that create the TestResults folder
+# TestResults/
+[Tt]est[Rr]esult*/
+*.vspscc
+*.vssscc
+
+# Visual Studio 2019/2022
+.vs/
+Generated_Code/
+
+# Backup & report files from converting an old project
+_UpgradeReport_Files/
+Backup*/
+UpgradeLog*.XML
+UpgradeLog*.htm
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# TFS
+$tf/
+
+#VS
+.vs/
+
+
+# Rider
+.idea/
+*.sln.iml
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# dotCover
+.idea/
+*.dotCover
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# StyleCop
+StyleCopReport.xml
+
+# File-based packages
+*.nupkg
+# NuGet Packages
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# Microsoft Azure Web App publish settings
+PublishScripts/
+*.Publish.xml
+*.azurePubxml
+*.pubxml
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# VS Code
+.vscode/
+
+# Others
+*.dbmdl
+*.jfm
+*.pdb
+*.cache
+*.pidb
+
+# Rider
+.idea/
+*.sln.iml
+
+# Local history
+.localhistory/
+
+# Windows crash logs
+*.stackdump
+
+# Godot
+.import/
+export.cfg
+export_presets.cfg
+
+# Logs
+*.log
+
+# JetBrains Rider caches
+.idea/
+
+# Node
+node_modules/
+
+# dotenv environment files
+.env
+
+*.mdf
+*.ldf
