@@ -5075,23 +5075,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\leahp\\.nuget\\packages\\": {},
+    "C:\\Users\\This User\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\leahp\\Desktop\\FinalProject\\FinalProject\\BL\\BL.csproj",
+      "projectUniqueName": "C:\\Users\\This User\\Documents\\Projects\\FinalProject\\FinalProject\\BL\\BL.csproj",
       "projectName": "BL",
-      "projectPath": "C:\\Users\\leahp\\Desktop\\FinalProject\\FinalProject\\BL\\BL.csproj",
-      "packagesPath": "C:\\Users\\leahp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\leahp\\Desktop\\FinalProject\\FinalProject\\BL\\obj\\",
+      "projectPath": "C:\\Users\\This User\\Documents\\Projects\\FinalProject\\FinalProject\\BL\\BL.csproj",
+      "packagesPath": "C:\\Users\\This User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\This User\\Documents\\Projects\\FinalProject\\FinalProject\\BL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\leahp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\This User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5107,8 +5107,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\leahp\\Desktop\\FinalProject\\FinalProject\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\leahp\\Desktop\\FinalProject\\FinalProject\\DAL\\DAL.csproj"
+            "C:\\Users\\This User\\Documents\\Projects\\FinalProject\\FinalProject\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\This User\\Documents\\Projects\\FinalProject\\FinalProject\\DAL\\DAL.csproj"
             }
           }
         }
@@ -5122,7 +5122,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -5181,7 +5182,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

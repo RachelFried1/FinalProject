@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace BL.Api
 {
-    public interface ICompanyBL
+    public interface ICompanyBL    
     {
-        Company GetCompanyById(int code);
+        Company GetCompanyById(int code);       
     }
 }

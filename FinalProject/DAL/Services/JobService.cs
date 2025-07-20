@@ -62,17 +62,7 @@ namespace DAL.Services
             return found;
         }
 
-        private bool IsMatch(JobSeeker seeker, Job job)
-        {
-            if (seeker == null) return false;
-            if (job == null) return false;
-            if (seeker.Field != job.Field) return false;
-            if (!seeker.HasDegree && job.RequiresDegree) return false;
-            if (seeker.DailyWorkHours + 2 < job.WorkHours) return false;
-            if (seeker.YearsOfExperience < job.MinYearsExperience) return false;
-            return true;
-
-        }
+       
         public List<JobOffer> GetJobOffersByJobCode(int jobCode)
         {
             if (dataBase.Jobs.FirstOrDefault(j => j.Code == jobCode) == null)

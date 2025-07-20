@@ -20,7 +20,6 @@ namespace API.Controllers
         }
 
         [HttpPost("signup/jobseeker")]
-
         public IActionResult SignUpJobSeeker([FromBody] JobSeekerSignUpRequestDTO request)
         {
             try

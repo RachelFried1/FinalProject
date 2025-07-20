@@ -9,7 +9,8 @@ namespace API.Controllers
     [ApiController]
     public class JobController : ControllerBase
     {
-        private IBlManager _blManager;
+        private readonly IBlManager _blManager;
+
         public JobController(IBlManager blManager)
         {
             _blManager = blManager;
@@ -21,10 +22,9 @@ namespace API.Controllers
             return Ok(_blManager.JobBLManager.GetJobByCode(code));
         }
 
-        [HttpPost]
-        [Route("AddJob")]
+        [HttpPost("AddJob")]
         [Authorize(Roles = "Company")]
-        public IActionResult AddJobSeeker([FromBody] JobBL job)
+        public IActionResult AddJob([FromBody] JobBL job)
         {
             if (job == null)
             {
@@ -41,18 +41,19 @@ namespace API.Controllers
         {
             var matchingCandidates = _blManager.JobBLManager.GetJobOffersByJobCode(code);
 
-            //maybe only check in react program:
             if (matchingCandidates == null || matchingCandidates.Count == 0)
             {
                 return NotFound("No matching jobs found.");
             }
+
             return Ok(matchingCandidates);
         }
+
         [HttpGet("GetAppliedCandidates/{jobCode}")]
         [Authorize(Roles = "Company")]
-        public IActionResult GetAppliedCandidate(int code)
+        public IActionResult GetAppliedCandidate(int jobCode)
         {
-            return Ok(_blManager.JobBLManager.GetAppliedCandidatesByJobCode(code));
+            return Ok(_blManager.JobBLManager.GetAppliedCandidatesByJobCode(jobCode));
         }
 
         [HttpGet("GetJobsForCompany/{companyCode}")]
