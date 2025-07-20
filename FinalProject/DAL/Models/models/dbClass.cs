@@ -26,24 +26,10 @@ public partial class dbClass : DbContext
     public virtual DbSet<UserPassword> UserPasswords { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-<<<<<<< HEAD
+
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\leahp\\Desktop\\end to end project\\FinalProject\\FinalProject\\DAL\\Models\\Data\\DB.mdf;Integrated Security=True;");
-    
-=======
-    {
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseSqlServer(
-                "Data Source=(LocalDB)\\MSSQLLocalDB;" +
-                "AttachDbFilename=|DataDirectory|\\Models\\Data\\DB.mdf;" +
-                "Integrated Security=True;" +
-                "MultipleActiveResultSets=True;"
-            );
-        }
-    }
-
->>>>>>> 5b2ee4eb27a5ae6e0701273b23e05412b50583ff
+   
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Company>(entity =>
@@ -55,6 +41,7 @@ public partial class dbClass : DbContext
             entity.Property(e => e.Code).ValueGeneratedNever();
             entity.Property(e => e.Email).HasMaxLength(50);
             entity.Property(e => e.Name).HasMaxLength(50);
+            entity.HasIndex(js => js.Email).IsUnique();
         });
 
         modelBuilder.Entity<Job>(entity =>
@@ -110,6 +97,7 @@ public partial class dbClass : DbContext
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Country).HasMaxLength(50);
             entity.Property(e => e.Email).HasMaxLength(50);
+            entity.HasIndex(js => js.Email).IsUnique();
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.SirName).HasMaxLength(50);
         });
