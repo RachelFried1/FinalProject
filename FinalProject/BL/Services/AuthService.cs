@@ -59,6 +59,7 @@ public class AuthService:IAuth
         };
         _dalManager.CompanyManager.AddCompany(companyEntity);
     }
+
     public string SignIn(string email, string password)
     {
         var jobSeeker = _dalManager.JobSeekerManager.GetJobSeekerByEmail(email);

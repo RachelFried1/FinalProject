@@ -18,6 +18,7 @@ namespace BL
             JobSeekerBLManager = new JobSeekerServiceBL(mapper, dalManager);
             CompanyBLManager = new CompanyServiceBL(dalManager);
             AuthManager = new AuthService(mapper, dalManager);
+
         }
     }
 }

@@ -24,8 +24,6 @@ namespace API.Controllers
             return Ok(_blManager.JobSeekerBLManager.GetJobSeekerById(id));
         }
 
-        
-
         [HttpGet("FindMatchingJobs/{id}")]
         public IActionResult FindMatchingJobs(int id)
         {

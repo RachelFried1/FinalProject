@@ -39,19 +39,16 @@ namespace DAL.Services
             dataBase.SaveChanges();
             AddJobOffersForSeeker(jobSeeker);
         }
-
         public bool AddJobOffersForSeeker(JobSeeker seeker)
         {
             bool found = false;
+            MatchingService matchService = new MatchingService();
             foreach (Job job in dataBase.Jobs)
             {
-                double matchScore = MatchingService.CalculateMatchingScore(seeker, job);
-
+                double matchScore = matchService.CalculateMatchingScore(seeker, job);
                 if (matchScore >= 0.7)
                 {
-                    var existingOffer = dataBase.JobOffers
-                        .FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code);
-
+                    var existingOffer = dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code);
                     if (existingOffer == null)
                     {
                         JobOffer offer = new JobOffer(seeker.Id, job.Code, matchScore);

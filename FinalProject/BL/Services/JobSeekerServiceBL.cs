@@ -29,8 +29,6 @@ namespace BL.Services
             return _mapper.Map<JobSeekerBL>(_dalManager.JobSeekerManager.GetJobSeekerById(id));
         }
 
-
-
         public List<JobBL> GetJobOffersBySeekerId(int id)
         {
             return _mapper.Map<List<JobBL>>(_dalManager.JobSeekerManager.GetJobOffersBySeekerId(id));
@@ -50,9 +48,5 @@ namespace BL.Services
         {
             _dalManager.JobSeekerManager.ApplyForOffer(offerCode);
         }
-
-
-
-
     }
 }

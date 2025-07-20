@@ -14,10 +14,10 @@ namespace BL.Api
 {
     public interface IAuth
     {
-        public void SignUpJobSeeker(JobSeekerBL seeker, string password);
-        public void SignUpCompany(CompanyBL company, string password);
-        public string SignIn(string email, string password);
+        void SignUpJobSeeker(JobSeekerBL seeker, string password);
 
-       
+        void SignUpCompany(CompanyBL company, string password);
+
+        public string SignIn(string email, string password);
     }
 }

@@ -16,6 +16,12 @@ namespace DAL.Models.models
         public virtual DbSet<JobSeeker> JobSeekers { get; set; }
         public virtual DbSet<UserPassword> UserPasswords { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\leahp\\Desktop\\end to end project\\FinalProject\\FinalProject\\DAL\\Models\\Data\\DB.mdf;Integrated Security=True;");
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Company>(entity =>
@@ -89,11 +95,13 @@ namespace DAL.Models.models
             {
                 entity.HasIndex(e => e.UserId, "IX_UserPasswords_UserId").IsUnique();
 
-                entity.HasOne(d => d.CompanyUser).WithOne(p => p.UserPassword)
-                      .HasForeignKey<UserPassword>(d => d.UserId);
+                entity.HasOne(d => d.CompanyUser)
+                    .WithOne(p => p.UserPassword)
+                    .HasForeignKey<UserPassword>(d => d.UserId);
 
-                entity.HasOne(d => d.SeekerUser).WithOne(p => p.UserPassword)
-                      .HasForeignKey<UserPassword>(d => d.UserId);
+                entity.HasOne(d => d.SeekerUser)
+                    .WithOne(p => p.UserPassword)
+                    .HasForeignKey<UserPassword>(d => d.UserId);
             });
 
             OnModelCreatingPartial(modelBuilder);
@@ -102,14 +110,3 @@ namespace DAL.Models.models
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -38,6 +38,10 @@ artifacts/
 # TFS
 $tf/
 
+#VS
+.vs/
+
+
 # Rider
 .idea/
 *.sln.iml

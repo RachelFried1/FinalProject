@@ -1,9 +1,8 @@
-﻿using AutoMapper;
-using BL.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using API.DTO;
+using AutoMapper;
 using BL;
-using API.DTO;
+using BL.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
@@ -65,5 +64,4 @@ namespace API.Controllers
             }
         }
     }
-
 }

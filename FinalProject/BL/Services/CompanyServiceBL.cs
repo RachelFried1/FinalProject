@@ -16,7 +16,7 @@ namespace BL.Services
     {
         IDalManager _dalManager;
 
-        public CompanyServiceBL( IDalManager dalManager)
+        public CompanyServiceBL(IDalManager dalManager)
         {
             _dalManager = dalManager;
         }
@@ -24,6 +24,5 @@ namespace BL.Services
         {
             return _dalManager.CompanyManager.GetCompanyById(code);
         }
-        
     }
 }

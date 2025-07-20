@@ -21,7 +21,5 @@ namespace API.Controllers
         {
             return Ok(_blManager.CompanyBLManager.GetCompanyById(id));
         }
-
-        
     }
 }
