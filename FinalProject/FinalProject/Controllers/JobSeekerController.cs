@@ -46,6 +46,7 @@ namespace API.Controllers
             return Ok(matchingJobs);
         }
 
+
         [HttpGet("FindMatchingJobsDetailed")]
         public IActionResult GetJobOffersWithJobsForSeeker()
         {
@@ -57,6 +58,15 @@ namespace API.Controllers
             }
             return Ok(matchingJobs);
         }
+
+        [HttpPut("Activate")]
+        public IActionResult Activate()
+        {
+            int jobSeekerId = GetUserIdFromToken();
+            _blManager.JobSeekerBLManager.Activate(jobSeekerId);
+            return Ok($"Job Seeker {jobSeekerId} has been activated.");
+        }
+
 
         [HttpPut("Activate")]
         public IActionResult Activate()

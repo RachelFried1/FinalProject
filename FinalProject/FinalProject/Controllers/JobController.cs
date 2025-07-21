@@ -80,6 +80,7 @@ namespace API.Controllers
 
             return Ok(appliedCandidates);
         }
+        
         [HttpGet("GetAppliedCandidatesWithDetails/{jobCode}")]
         [Authorize(Roles = "Company")]
         public IActionResult GetAppliedCandidateWithDetails(int jobCode)

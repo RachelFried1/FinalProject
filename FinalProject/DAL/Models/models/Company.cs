@@ -10,5 +10,6 @@ public partial class Company
     public string Email { get; set; } = null!;
     public int Rate { get; set; }
     public virtual ICollection<Job> Jobs { get; set; } = new List<Job>();
+
     public virtual CompanyPassword? UserPassword { get; set; }
 }
