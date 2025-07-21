@@ -1,5 +1,4 @@
 ﻿using API.DTO;
-using AutoMapper;
 using BL;
 using BL.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,22 +10,24 @@ namespace API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IBlManager _blManager;
-        private readonly IMapper _mapper;
 
-        public AuthController(IBlManager blManager, IMapper mapper)
+        public AuthController(IBlManager blManager)
         {
             _blManager = blManager;
-            _mapper = mapper;
         }
 
-        [HttpPost("signup/jobseeker")]
-        public IActionResult SignUpJobSeeker([FromBody] JobSeekerSignUpRequestDTO request)
+        [HttpPost("SignUpJobSeeker")]
+        public IActionResult SignUpJobSeeker([FromBody] JobSeekerBL seeker, [FromQuery] string password)
         {
             try
             {
+<<<<<<< HEAD
                 var jobSeeker = _mapper.Map<JobSeekerBL>(request);
                 jobSeeker.IsActive = true;
                 var token = _blManager.AuthManager.SignUpJobSeeker(jobSeeker, request.Password);
+=======
+                var token = _blManager.AuthManager.SignUpJobSeeker(seeker, password);
+>>>>>>> b30581dcf064fb04ced3d8fd221c8ae4a56cff17
                 return Ok(new { Token = token });
             }
             catch (Exception ex)
@@ -35,13 +36,17 @@ namespace API.Controllers
             }
         }
 
-        [HttpPost("signup/company")]
-        public IActionResult SignUpCompany([FromBody] CompanySignUpRequestDTO request)
+        [HttpPost("SignUpCompany")]
+        public IActionResult SignUpCompany([FromBody] CompanyBL company, [FromQuery] string password)
         {
             try
             {
+<<<<<<< HEAD
                 var company = _mapper.Map<CompanyBL>(request);
                 var token = _blManager.AuthManager.SignUpCompany(company, request.Password);
+=======
+                var token = _blManager.AuthManager.SignUpCompany(company, password);
+>>>>>>> b30581dcf064fb04ced3d8fd221c8ae4a56cff17
                 return Ok(new { Token = token });
             }
             catch (Exception ex)
@@ -50,7 +55,7 @@ namespace API.Controllers
             }
         }
 
-        [HttpPost("signin/jobseeker")]
+        [HttpPost("SignInJobSeeker")]
         public IActionResult SignInJobSeeker([FromBody] SignInRequestDTO request)
         {
             try
@@ -60,11 +65,11 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                return Unauthorized(ex.Message);
+                return BadRequest(ex.Message);
             }
         }
 
-        [HttpPost("signin/company")]
+        [HttpPost("SignInCompany")]
         public IActionResult SignInCompany([FromBody] SignInRequestDTO request)
         {
             try
@@ -74,7 +79,7 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                return Unauthorized(ex.Message);
+                return BadRequest(ex.Message);
             }
         }
     }

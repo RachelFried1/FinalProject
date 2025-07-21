@@ -53,7 +53,7 @@ namespace DAL.Services
                     var existingOffer = dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code);
                     if (existingOffer == null)
                     {
-                        JobOffer offer = new JobOffer(seeker.Id, job.Code, matchScore);
+                        JobOffer offer = new JobOffer(job.Code,seeker.Id, matchScore);
                         dataBase.JobOffers.Add(offer);
                         dataBase.SaveChanges();
                         found = true;

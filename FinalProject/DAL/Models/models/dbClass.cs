@@ -54,8 +54,8 @@ namespace DAL.Models.models
                 entity.ToTable("JobOffer");
                 entity.HasIndex(e => e.CandidateId, "IX_JobOffer_CandidateId");
                 entity.HasIndex(e => e.JobCode, "IX_JobOffer_JobCode");
-                entity.Property(e => e.OffersCode).ValueGeneratedNever();
-                entity.Property(e => e.ApplicationDate).HasColumnType("datetime");
+                entity.Property(e => e.OffersCode).ValueGeneratedOnAdd();
+                entity.Property(e => e.ApplicationDate).HasColumnType("datetime").IsRequired(false);
 
                 entity.HasOne(d => d.Candidate).WithMany(p => p.JobOffers)
                     .HasForeignKey(d => d.CandidateId)

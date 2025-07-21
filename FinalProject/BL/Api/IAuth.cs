@@ -8,6 +8,5 @@ namespace BL.Api
         string SignUpCompany(CompanyBL company, string password);
         string SignInJobSeeker(string email, string password);
         string SignInCompany(string email, string password); 
-
     }
 }

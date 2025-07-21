@@ -2,8 +2,8 @@
 using BL.Api;
 using BL.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -18,18 +18,27 @@ namespace API.Controllers
             _blManager = blManager;
         }
 
-        [HttpGet("GetJobSeekerById/{id}")]
-        public IActionResult GetJobSeekerById(int id)
+        private int GetUserIdFromToken()
         {
-            return Ok(_blManager.JobSeekerBLManager.GetJobSeekerById(id));
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            return userIdClaim != null ? int.Parse(userIdClaim.Value) : 0;
         }
 
-        [HttpGet("FindMatchingJobs/{id}")]
-        public IActionResult FindMatchingJobs(int id)
+        [HttpGet("GetJobSeekerById")]
+        public IActionResult GetJobSeekerById()
         {
-            var matchingJobs = _blManager.JobSeekerBLManager.GetJobOffersBySeekerId(id);
+            int jobSeekerId = GetUserIdFromToken();
+            var jobSeeker = _blManager.JobSeekerBLManager.GetJobSeekerById(jobSeekerId);
+            if (jobSeeker == null)
+                return NotFound($"Job seeker with id {jobSeekerId} not found.");
+            return Ok(jobSeeker);
+        }
 
-            //maybe only check in react program:
+        [HttpGet("FindMatchingJobs")]
+        public IActionResult FindMatchingJobs()
+        {
+            int jobSeekerId = GetUserIdFromToken();
+            var matchingJobs = _blManager.JobSeekerBLManager.GetJobOffersBySeekerId(jobSeekerId);
             if (matchingJobs == null || matchingJobs.Count == 0)
             {
                 return NotFound("No matching jobs found.");
@@ -37,28 +46,27 @@ namespace API.Controllers
             return Ok(matchingJobs);
         }
 
-        [HttpPut("Activate/{id}")]
-        public IActionResult Activate(int id)
+        [HttpPut("Activate")]
+        public IActionResult Activate()
         {
-            _blManager.JobSeekerBLManager.Activate(id);
-            return Ok($"Job Seeker {id} has been activated.");
+            int jobSeekerId = GetUserIdFromToken();
+            _blManager.JobSeekerBLManager.Activate(jobSeekerId);
+            return Ok($"Job Seeker {jobSeekerId} has been activated.");
         }
 
-
-        [HttpPut("Deactivate/{id}")]
-
-
-        public IActionResult DeActivate(int id)
+        [HttpPut("Deactivate")]
+        public IActionResult DeActivate()
         {
-            _blManager.JobSeekerBLManager.NoLongerActive(id);
-            return Ok($"Job Seeker {id} has been deactivated.");
+            int jobSeekerId = GetUserIdFromToken();
+            _blManager.JobSeekerBLManager.NoLongerActive(jobSeekerId);
+            return Ok($"Job Seeker {jobSeekerId} has been deactivated.");
         }
-        [HttpPut("ApplyForJOb/{id}")]
-        public IActionResult ApplyForJOb(int offerCode)
+
+        [HttpPut("ApplyForJob/{offerCode}")]
+        public IActionResult ApplyForJob(int offerCode)
         {
             _blManager.JobSeekerBLManager.ApplyForOffer(offerCode);
-            return Ok($"application for offer {offerCode} successfull.");
+            return Ok($"Application for offer {offerCode} successful.");
         }
-
     }
 }

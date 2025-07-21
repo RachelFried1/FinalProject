@@ -15,7 +15,11 @@ public partial class JobOffer
 
     public bool IsApplied { get; set; }
 
+<<<<<<< HEAD
     public DateTime ApplicationDate { get; set; } = DateTime.Now;
+=======
+    public DateTime? ApplicationDate { get; set; } = null;
+>>>>>>> b30581dcf064fb04ced3d8fd221c8ae4a56cff17
 
     public double MatchingScore { get; set; }
 

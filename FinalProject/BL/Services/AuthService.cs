@@ -11,7 +11,12 @@ using DAL.Models.models;
 using DAL.Api;
 using BL.Api;
 
+<<<<<<< HEAD
 public class AuthService : IAuth
+=======
+
+public class AuthService :IAuth
+>>>>>>> b30581dcf064fb04ced3d8fd221c8ae4a56cff17
 {
     private readonly string _jwtSecret = "YourSuperSecretKeyThatIsAtLeast32Chars!";
     private readonly int _jwtExpirationMinutes = 60;
@@ -39,7 +44,11 @@ public class AuthService : IAuth
             PasswordHash = passwordHash
         };
         _dalManager.JobSeekerManager.AddJobSeeker(jobSeekerEntity);
+<<<<<<< HEAD
         return GenerateJwtToken(seeker.Email, "JobSeeker");
+=======
+        return GenerateJwtToken(seeker.Id, seeker.Email, "JobSeeker");
+>>>>>>> b30581dcf064fb04ced3d8fd221c8ae4a56cff17
     }
 
     public string SignUpCompany(CompanyBL company, string password)
@@ -55,7 +64,11 @@ public class AuthService : IAuth
             PasswordHash = passwordHash
         };
         _dalManager.CompanyManager.AddCompany(companyEntity);
+<<<<<<< HEAD
         return GenerateJwtToken(company.Email, "Company");
+=======
+        return GenerateJwtToken(company.Code, company.Email, "Company");
+>>>>>>> b30581dcf064fb04ced3d8fd221c8ae4a56cff17
     }
 
     public string SignInJobSeeker(string email, string password)
@@ -64,7 +77,7 @@ public class AuthService : IAuth
         if (jobSeeker != null && jobSeeker.UserPassword != null &&
             BCrypt.Net.BCrypt.Verify(password, jobSeeker.UserPassword.PasswordHash))
         {
-            return GenerateJwtToken(email, "JobSeeker");
+            return GenerateJwtToken(jobSeeker.Id, email, "JobSeeker");
         }
         throw new ArgumentException("Invalid email or password.");
     }
@@ -75,12 +88,12 @@ public class AuthService : IAuth
         if (company != null && company.UserPassword != null &&
             BCrypt.Net.BCrypt.Verify(password, company.UserPassword.PasswordHash))
         {
-            return GenerateJwtToken(email, "Company");
+            return GenerateJwtToken(company.Code, email, "Company");
         }
         throw new ArgumentException("Invalid email or password.");
     }
 
-    private string GenerateJwtToken(string email, string role)
+    private string GenerateJwtToken(int id, string email, string role)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(_jwtSecret);
@@ -89,6 +102,7 @@ public class AuthService : IAuth
         {
             Subject = new ClaimsIdentity(new[]
             {
+                new Claim(ClaimTypes.NameIdentifier, id.ToString()),
                 new Claim(ClaimTypes.Email, email),
                 new Claim(ClaimTypes.Role, role)
             }),

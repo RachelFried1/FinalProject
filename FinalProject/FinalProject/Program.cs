@@ -46,6 +46,7 @@ builder.Services.AddDbContext<dbClass>(options =>
 builder.Services.AddScoped<IDalManager, DalManager>();
 builder.Services.AddScoped<IBlManager, BlManager>();
 
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -89,7 +90,7 @@ if (app.Environment.IsDevelopment())
 app.UseExceptionHandler("/error");
 app.UseHttpsRedirection();
 
-app.UseAuthentication();
+app.UseAuthentication(); 
 app.UseAuthorization();
 
 app.MapControllers();
