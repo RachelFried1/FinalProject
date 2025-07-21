@@ -18,6 +18,8 @@ namespace BL.Api
 
         void SignUpCompany(CompanyBL company, string password);
 
-        public string SignIn(string email, string password);
+        string SignInJobSeeker(string email, string password);
+
+        string SignInCompany(string email, string password); 
     }
 }

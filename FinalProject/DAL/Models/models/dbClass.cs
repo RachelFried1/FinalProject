@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace DAL.Models.models
 {
     public partial class dbClass : DbContext
     {
+        public dbClass()
+        {
+        }
+
         public dbClass(DbContextOptions<dbClass> options)
-            : base(options)
+        : base(options)
         {
         }
 
@@ -14,13 +17,10 @@ namespace DAL.Models.models
         public virtual DbSet<Job> Jobs { get; set; }
         public virtual DbSet<JobOffer> JobOffers { get; set; }
         public virtual DbSet<JobSeeker> JobSeekers { get; set; }
-        public virtual DbSet<UserPassword> UserPasswords { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\leahp\\Desktop\\end to end project\\FinalProject\\FinalProject\\DAL\\Models\\Data\\DB.mdf;Integrated Security=True;");
-        }
+        // ✅ NEW PASSWORD TABLES
+        public virtual DbSet<CompanyPassword> CompanyPasswords { get; set; }
+        public virtual DbSet<JobSeekerPassword> JobSeekerPasswords { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -91,22 +91,32 @@ namespace DAL.Models.models
                 entity.HasIndex(e => e.Email).IsUnique();
             });
 
-            modelBuilder.Entity<UserPassword>(entity =>
+            // ✅ NEW RELATION: Company <-> CompanyPassword
+            modelBuilder.Entity<CompanyPassword>(entity =>
             {
-                entity.HasIndex(e => e.UserId, "IX_UserPasswords_UserId").IsUnique();
+                entity.HasKey(e => e.Id);
+                entity.HasIndex(e => e.CompanyId).IsUnique();
 
-                entity.HasOne(d => d.CompanyUser)
-                    .WithOne(p => p.UserPassword)
-                    .HasForeignKey<UserPassword>(d => d.UserId);
+                entity.HasOne(cp => cp.Company)
+                      .WithOne(c => c.Password)
+                      .HasForeignKey<CompanyPassword>(cp => cp.CompanyId)
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
 
-                entity.HasOne(d => d.SeekerUser)
-                    .WithOne(p => p.UserPassword)
-                    .HasForeignKey<UserPassword>(d => d.UserId);
+            // ✅ NEW RELATION: JobSeeker <-> JobSeekerPassword
+            modelBuilder.Entity<JobSeekerPassword>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.HasIndex(e => e.JobSeekerId).IsUnique();
+
+                entity.HasOne(jp => jp.JobSeeker)
+                      .WithOne(js => js.Password)
+                      .HasForeignKey<JobSeekerPassword>(jp => jp.JobSeekerId)
+                      .OnDelete(DeleteBehavior.Cascade);
             });
 
             OnModelCreatingPartial(modelBuilder);
         }
-
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

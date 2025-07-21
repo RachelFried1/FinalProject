@@ -15,5 +15,5 @@ public partial class Company
 
     public virtual ICollection<Job> Jobs { get; set; } = new List<Job>();
 
-    public virtual UserPassword? UserPassword { get; set; }
+    public virtual CompanyPassword? Password { get; set; }
 }

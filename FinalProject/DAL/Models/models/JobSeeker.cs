@@ -28,5 +28,6 @@ public partial class JobSeeker
 
     public virtual ICollection<JobOffer> JobOffers { get; set; } = new List<JobOffer>();
 
-    public virtual UserPassword? UserPassword { get; set; }
+    public virtual JobSeekerPassword? Password { get; set; }
+
 }

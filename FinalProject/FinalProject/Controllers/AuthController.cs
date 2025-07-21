@@ -50,12 +50,26 @@ namespace API.Controllers
             }
         }
 
-        [HttpPost("signin")]
-        public IActionResult SignIn([FromBody] SignInRequestDTO request)
+        [HttpPost("signin/jobseeker")]
+        public IActionResult SignInJobSeeker([FromBody] SignInRequestDTO request)
         {
             try
             {
-                var token = _blManager.AuthManager.SignIn(request.Email, request.Password);
+                var token = _blManager.AuthManager.SignInJobSeeker(request.Email, request.Password);
+                return Ok(new { Token = token });
+            }
+            catch (Exception ex)
+            {
+                return Unauthorized(ex.Message);
+            }
+        }
+
+        [HttpPost("signin/company")]
+        public IActionResult SignInCompany([FromBody] SignInRequestDTO request)
+        {
+            try
+            {
+                var token = _blManager.AuthManager.SignInCompany(request.Email, request.Password);
                 return Ok(new { Token = token });
             }
             catch (Exception ex)
