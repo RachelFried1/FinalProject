@@ -13,10 +13,6 @@ namespace DAL.Models.models
         public string? PasswordHash { get; set; }
         public int JobSeekerId { get; set; }
         [JsonIgnore]
-<<<<<<< HEAD
-        public JobSeeker? JobSeeker { get; set; }
-=======
         public JobSeeker JobSeeker { get; set; }
->>>>>>> b30581dcf064fb04ced3d8fd221c8ae4a56cff17
     }
 }

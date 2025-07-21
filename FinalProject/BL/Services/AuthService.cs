@@ -11,12 +11,8 @@ using DAL.Models.models;
 using DAL.Api;
 using BL.Api;
 
-<<<<<<< HEAD
-public class AuthService : IAuth
-=======
 
 public class AuthService :IAuth
->>>>>>> b30581dcf064fb04ced3d8fd221c8ae4a56cff17
 {
     private readonly string _jwtSecret = "YourSuperSecretKeyThatIsAtLeast32Chars!";
     private readonly int _jwtExpirationMinutes = 60;
@@ -44,11 +40,7 @@ public class AuthService :IAuth
             PasswordHash = passwordHash
         };
         _dalManager.JobSeekerManager.AddJobSeeker(jobSeekerEntity);
-<<<<<<< HEAD
-        return GenerateJwtToken(seeker.Email, "JobSeeker");
-=======
         return GenerateJwtToken(seeker.Id, seeker.Email, "JobSeeker");
->>>>>>> b30581dcf064fb04ced3d8fd221c8ae4a56cff17
     }
 
     public string SignUpCompany(CompanyBL company, string password)
@@ -64,11 +56,7 @@ public class AuthService :IAuth
             PasswordHash = passwordHash
         };
         _dalManager.CompanyManager.AddCompany(companyEntity);
-<<<<<<< HEAD
-        return GenerateJwtToken(company.Email, "Company");
-=======
         return GenerateJwtToken(company.Code, company.Email, "Company");
->>>>>>> b30581dcf064fb04ced3d8fd221c8ae4a56cff17
     }
 
     public string SignInJobSeeker(string email, string password)
