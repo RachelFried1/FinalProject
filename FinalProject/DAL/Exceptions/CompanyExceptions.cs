@@ -21,7 +21,7 @@ namespace DAL.Exceptions
     public class CompanyAlreadyExistsException : Exception
     {
         public int StatusCode { get; }
-        public CompanyAlreadyExistsException(int CompanyCode) : base($"The seeker with Id {CompanyCode} already exists!")
+        public CompanyAlreadyExistsException(int CompanyCode) : base($"The company with Id {CompanyCode} already exists!")
         {
             StatusCode = 409;
         }

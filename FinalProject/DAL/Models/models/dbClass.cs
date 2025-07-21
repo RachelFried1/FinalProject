@@ -1,15 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace DAL.Models.models
 {
     public partial class dbClass : DbContext
     {
-        public dbClass()
-        {
-        }
-
         public dbClass(DbContextOptions<dbClass> options)
-        : base(options)
+            : base(options)
         {
         }
 
@@ -101,6 +98,7 @@ namespace DAL.Models.models
 
             OnModelCreatingPartial(modelBuilder);
         }
+
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using DAL.Api;
 using DAL.Exceptions;
-using DAL.Models;
 using DAL.Models.models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,20 +19,22 @@ namespace DAL.Services
 
         public JobSeeker GetJobSeekerById(int id)
         {
-            return dataBase.JobSeekers.FirstOrDefault(s => s.Id == id);
+            return dataBase.JobSeekers
+                .Include(s => s.UserPassword)
+                .FirstOrDefault(s => s.Id == id);
         }
 
         public JobSeeker GetJobSeekerByEmail(string email)
         {
-            var jobSeeker = dataBase.JobSeekers.FirstOrDefault(s => s.Email == email);
-            if (jobSeeker == null)
-                throw new SeekerNotFoundException(email);
+            var jobSeeker = dataBase.JobSeekers
+                .Include(s => s.UserPassword)
+                .FirstOrDefault(s => s.Email == email);
             return jobSeeker;
         }
 
         public void AddJobSeeker(JobSeeker jobSeeker)
         {
-            if (dataBase.JobSeekers.Contains(jobSeeker))
+            if (dataBase.JobSeekers.Any(s => s.Id == jobSeeker.Id))
                 throw new SeekerAlreadyExistsException(jobSeeker.Id);
             jobSeeker.IsActive = true;
             dataBase.JobSeekers.Add(jobSeeker);

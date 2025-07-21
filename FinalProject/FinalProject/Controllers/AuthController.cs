@@ -26,8 +26,8 @@ namespace API.Controllers
             {
                 var jobSeeker = _mapper.Map<JobSeekerBL>(request);
                 jobSeeker.IsActive = true;
-                _blManager.AuthManager.SignUpJobSeeker(jobSeeker, request.Password);
-                return Ok("Job seeker registered successfully.");
+                var token = _blManager.AuthManager.SignUpJobSeeker(jobSeeker, request.Password);
+                return Ok(new { Token = token });
             }
             catch (Exception ex)
             {
@@ -41,8 +41,8 @@ namespace API.Controllers
             try
             {
                 var company = _mapper.Map<CompanyBL>(request);
-                _blManager.AuthManager.SignUpCompany(company, request.Password);
-                return Ok("Company registered successfully.");
+                var token = _blManager.AuthManager.SignUpCompany(company, request.Password);
+                return Ok(new { Token = token });
             }
             catch (Exception ex)
             {
