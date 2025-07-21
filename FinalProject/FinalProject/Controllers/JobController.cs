@@ -55,12 +55,36 @@ namespace API.Controllers
 
             return Ok(matchingCandidates);
         }
+        [HttpGet("GetJobOffersWithCandidates/{jobCode}")]
+        [Authorize(Roles = "Company")]
+        public IActionResult GetJobOffersWithCandidates(int jobCode)
+        {
+            var offers = _blManager.JobBLManager.GetJobOffersWithCandidatesByJobCode(jobCode);           
+            if (offers == null || offers.Count == 0)
+            {
+                return NotFound("No matching candidates found.");
+            }
+            return Ok(offers);
+        }
 
         [HttpGet("GetAppliedCandidates/{jobCode}")]
         [Authorize(Roles = "Company")]
         public IActionResult GetAppliedCandidate(int jobCode)
         {
             var appliedCandidates = _blManager.JobBLManager.GetAppliedCandidatesByJobCode(jobCode);
+
+            if (appliedCandidates == null || appliedCandidates.Count == 0)
+            {
+                return NotFound("No matching candidates found.");
+            }
+
+            return Ok(appliedCandidates);
+        }
+        [HttpGet("GetAppliedCandidatesWithDetails/{jobCode}")]
+        [Authorize(Roles = "Company")]
+        public IActionResult GetAppliedCandidateWithDetails(int jobCode)
+        {
+            var appliedCandidates = _blManager.JobBLManager.GetAppliedCandidatesWithCandidatesByJobCode(jobCode);
 
             if (appliedCandidates == null || appliedCandidates.Count == 0)
             {

@@ -17,11 +17,24 @@ namespace API.Controllers
         }
 
         [HttpPost("SignUpJobSeeker")]
-        public IActionResult SignUpJobSeeker([FromBody] JobSeekerBL seeker, [FromQuery] string password)
+        public IActionResult SignUpJobSeeker([FromBody] JobSeekerSignUpRequestDTO request)
         {
             try
             {
-                var token = _blManager.AuthManager.SignUpJobSeeker(seeker, password);
+                // Map DTO to BL model
+                var seeker = new JobSeekerBL
+                {
+                    Id = request.Id,
+                    Name = request.Name,
+                    SirName = request.SirName,
+                    Email = request.Email,
+                    Country = request.Country,
+                    DailyWorkHours = request.DailyWorkHours,
+                    YearsOfExperience = request.YearsOfExperience,
+                    HasDegree = request.HasDegree,
+                    Field = request.Field
+                };
+                var token = _blManager.AuthManager.SignUpJobSeeker(seeker, request.Password);
                 return Ok(new { Token = token });
             }
             catch (Exception ex)
@@ -31,11 +44,19 @@ namespace API.Controllers
         }
 
         [HttpPost("SignUpCompany")]
-        public IActionResult SignUpCompany([FromBody] CompanyBL company, [FromQuery] string password)
+        public IActionResult SignUpCompany([FromBody] CompanySignUpRequestDTO request)
         {
             try
             {
-                var token = _blManager.AuthManager.SignUpCompany(company, password);
+                // Map DTO to BL model
+                var company = new CompanyBL
+                {
+                    Code = request.Code,
+                    Name = request.Name,
+                    Email = request.Email,
+                    Rate = request.Rate
+                };
+                var token = _blManager.AuthManager.SignUpCompany(company, request.Password);
                 return Ok(new { Token = token });
             }
             catch (Exception ex)

@@ -65,9 +65,15 @@ namespace DAL.Services
 
         public List<JobOffer> GetJobOffersBySeekerId(int id)
         {
-            if (dataBase.JobSeekers.FirstOrDefault(s => s.Id == id) == null)
+            var jobSeeker = dataBase.JobSeekers
+                .Include(s => s.JobOffers)
+                    .ThenInclude(offer => offer.JobCodeNavigation)
+                .FirstOrDefault(s => s.Id == id);
+
+            if (jobSeeker == null)
                 throw new SeekerNotFoundException(id);
-            return dataBase.JobSeekers.FirstOrDefault(s => s.Id == id).JobOffers.ToList();
+
+            return jobSeeker.JobOffers.ToList();
         }
 
         public void Activate(int id)

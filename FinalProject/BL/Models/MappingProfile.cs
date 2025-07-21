@@ -14,6 +14,7 @@ public class MappingProfile : Profile
         CreateMap<CompanyBL, Company>();
         CreateMap<Company, CompanyBL>();
         CreateMap<JobOfferBL, JobOffer>();
+        CreateMap<JobOffer, JobOfferBL>();
         CreateMap<JobOffer, CompanyBL>();
     }
 }
