@@ -2,9 +2,11 @@
 using DAL.Exceptions;
 using DAL.Models;
 using DAL.Models.models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,11 +24,8 @@ namespace DAL.Services
         }
 
         public Job GetJobByCode(int code)
-        {
-            Job job = dataBase.Jobs.FirstOrDefault(j => j.Code == code);
-            if (job == null)
-                throw new JobNotFoundException(code);
-            return job;
+        {   
+            return dataBase.Jobs.FirstOrDefault(j => j.Code == code);
         }
 
         public void AddJob(Job job)
@@ -62,36 +61,54 @@ namespace DAL.Services
             return found;
         }
 
-       
         public List<JobOffer> GetJobOffersByJobCode(int jobCode)
-        {
-            if (dataBase.Jobs.FirstOrDefault(j => j.Code == jobCode) == null)
+{
+            var job = dataBase.Jobs
+                .Include(j => j.JobOffers)
+                    .ThenInclude(offer => offer.Candidate)
+                .FirstOrDefault(j => j.Code == jobCode);
+
+            if (job == null)
                 throw new JobNotFoundException(jobCode);
-            return dataBase.Jobs.FirstOrDefault(j => j.Code == jobCode).JobOffers.Where(offer => offer.Candidate.IsActive).ToList();
+
+            return job.JobOffers
+                .Where(offer => offer.Candidate != null && offer.Candidate.IsActive)
+                .ToList();
         }
 
         public List<JobOffer> GetActiveAppliedCandidatesByJobCode(int jobCode)
         {
-            return GetJobOffersByJobCode(jobCode)
-                .Where(offer => offer.Candidate.IsActive && offer.IsApplied)
+            var jobOffers = dataBase.JobOffers
+                .Include(offer => offer.Candidate)
+                .Include(offer => offer.JobCodeNavigation)
+                .Where(offer => offer.JobCode == jobCode && offer.Candidate.IsActive && offer.IsApplied)
                 .ToList();
+
+            return jobOffers;
         }
 
         public List<Job> GetCompanyJobs(int companyCode)
         {
-            if (dataBase.Companies.FirstOrDefault(c => c.Code == companyCode) == null)
-            {
+            var company = dataBase.Companies
+                .Include(c => c.Jobs)
+                .FirstOrDefault(c => c.Code == companyCode);
+
+            if (company == null)
                 throw new CompanyNotFoundException(companyCode);
-            }
-           return dataBase.Companies.FirstOrDefault(c=>c.Code == companyCode).Jobs.ToList();
+
+            return company.Jobs.ToList();
         }
 
         public void NotSeekingWorkers(int code)
         {
-            if (dataBase.Jobs.FirstOrDefault(j => j.Code == code) == null)
-               throw new JobNotFoundException(code);
-            dataBase.Jobs.FirstOrDefault(j=>j.Code == code).JobOffers.Clear();
-            dataBase.Jobs.Remove(dataBase.Jobs.FirstOrDefault(j => j.Code == code));
+            var job = dataBase.Jobs
+                .Include(j => j.JobOffers)
+                .FirstOrDefault(j => j.Code == code);
+
+            if (job == null)
+                throw new JobNotFoundException(code);
+            dataBase.JobOffers.RemoveRange(job.JobOffers);
+            dataBase.Jobs.Remove(job);
             dataBase.SaveChanges();
         }
     }

@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 using System.Text.Json.Serialization;
 
+using System.Text.Json.Serialization;
+
 namespace DAL.Models.models
 {
     public class CompanyPassword

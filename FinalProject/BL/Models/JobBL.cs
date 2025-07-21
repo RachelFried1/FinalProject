@@ -10,9 +10,9 @@ namespace BL.Models
 {
     public class JobBL
     {
-        [Required]
+        
         public int Code { get; set; }
-        [Required]
+        
         public int CompanyId { get; set; }
         public JobField Field { get; set; }
         public string Country { get; set; } = null!;

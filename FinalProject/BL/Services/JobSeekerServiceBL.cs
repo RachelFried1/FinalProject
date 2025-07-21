@@ -29,11 +29,31 @@ namespace BL.Services
             return _mapper.Map<JobSeekerBL>(_dalManager.JobSeekerManager.GetJobSeekerById(id));
         }
 
-        public List<JobBL> GetJobOffersBySeekerId(int id)
+        public List<JobOfferBL> GetJobOffersBySeekerId(int id)
         {
-            return _mapper.Map<List<JobBL>>(_dalManager.JobSeekerManager.GetJobOffersBySeekerId(id));
+            return _mapper.Map<List<JobOfferBL>>(_dalManager.JobSeekerManager.GetJobOffersBySeekerId(id));
         }
 
+        public List<JobOfferWithJobDTO> GetJobOffersWithJobsBySeekerId(int id)
+        {
+            var jobOffers = _dalManager.JobSeekerManager.GetJobOffersBySeekerId(id);
+
+            return jobOffers.Select(offer => new JobOfferWithJobDTO
+            {
+                OffersCode = offer.OffersCode,
+                JobCode = offer.JobCode,
+                MatchingScore = offer.MatchingScore,
+                IsApplied = offer.IsApplied,
+                ApplicationDate = offer.ApplicationDate,
+                JobCompanyId = offer.JobCodeNavigation.CompanyId,
+                JobField = (Models.JobField)offer.JobCodeNavigation.Field,
+                JobCountry = offer.JobCodeNavigation.Country,
+                JobWorkHours = offer.JobCodeNavigation.WorkHours,
+                JobMinYearsExperience = offer.JobCodeNavigation.MinYearsExperience,
+                JobRequiresDegree = offer.JobCodeNavigation.RequiresDegree,
+                JobDescription = offer.JobCodeNavigation.JobDescription
+            }).ToList();
+        }
         public void Activate(int id)
         {
             _dalManager.JobSeekerManager.Activate(id);

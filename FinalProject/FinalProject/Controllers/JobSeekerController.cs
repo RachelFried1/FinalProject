@@ -46,6 +46,28 @@ namespace API.Controllers
             return Ok(matchingJobs);
         }
 
+
+        [HttpGet("FindMatchingJobsDetailed")]
+        public IActionResult GetJobOffersWithJobsForSeeker()
+        {
+            int jobSeekerId = GetUserIdFromToken();
+            var matchingJobs = _blManager.JobSeekerBLManager.GetJobOffersWithJobsBySeekerId(jobSeekerId);
+            if (matchingJobs == null || matchingJobs.Count == 0)
+            {
+                return NotFound("No matching jobs found.");
+            }
+            return Ok(matchingJobs);
+        }
+
+        [HttpPut("Activate")]
+        public IActionResult Activate()
+        {
+            int jobSeekerId = GetUserIdFromToken();
+            _blManager.JobSeekerBLManager.Activate(jobSeekerId);
+            return Ok($"Job Seeker {jobSeekerId} has been activated.");
+        }
+
+
         [HttpPut("Activate")]
         public IActionResult Activate()
         {
