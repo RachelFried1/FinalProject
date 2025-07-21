@@ -31,10 +31,11 @@ public class AuthService :IAuth
         var passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
 
         var jobSeekerEntity = _mapper.Map<JobSeeker>(seeker);
-        jobSeekerEntity.Password = new JobSeekerPassword
+
+        jobSeekerEntity.UserPassword = new JobSeekerPassword
         {
-            PasswordHash = passwordHash,
-            JobSeekerId = seeker.Id
+            JobSeekerId = seeker.Id,
+            PasswordHash = passwordHash
         };
         _dalManager.JobSeekerManager.AddJobSeeker(jobSeekerEntity);
     }
@@ -46,10 +47,11 @@ public class AuthService :IAuth
 
         var passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
         var companyEntity = _mapper.Map<Company>(company);
-        companyEntity.Password = new CompanyPassword
+
+        companyEntity.UserPassword = new CompanyPassword
         {
-            PasswordHash = passwordHash,
-            CompanyId = company.Code
+            CompanyId = company.Code,
+            PasswordHash = passwordHash
         };
         _dalManager.CompanyManager.AddCompany(companyEntity);
     }
@@ -57,8 +59,10 @@ public class AuthService :IAuth
     public string SignInJobSeeker(string email, string password)
     {
         var jobSeeker = _dalManager.JobSeekerManager.GetJobSeekerByEmail(email);
-        if (jobSeeker != null && jobSeeker.Password != null &&
-            BCrypt.Net.BCrypt.Verify(password, jobSeeker.Password.PasswordHash))
+
+        if (jobSeeker != null && jobSeeker.UserPassword != null &&
+            BCrypt.Net.BCrypt.Verify(password, jobSeeker.UserPassword.PasswordHash))
+
         {
             return GenerateJwtToken(email, "JobSeeker");
         }
@@ -68,8 +72,9 @@ public class AuthService :IAuth
     public string SignInCompany(string email, string password)
     {
         var company = _dalManager.CompanyManager.GetCompanyByEmail(email);
-        if (company != null && company.Password != null &&
-            BCrypt.Net.BCrypt.Verify(password, company.Password.PasswordHash))
+
+        if (company != null && company.UserPassword != null &&
+            BCrypt.Net.BCrypt.Verify(password, company.UserPassword.PasswordHash))
         {
             return GenerateJwtToken(email, "Company");
         }

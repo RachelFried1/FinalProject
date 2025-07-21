@@ -17,8 +17,6 @@ namespace DAL.Models.models
         public virtual DbSet<Job> Jobs { get; set; }
         public virtual DbSet<JobOffer> JobOffers { get; set; }
         public virtual DbSet<JobSeeker> JobSeekers { get; set; }
-
-        // ✅ NEW PASSWORD TABLES
         public virtual DbSet<CompanyPassword> CompanyPasswords { get; set; }
         public virtual DbSet<JobSeekerPassword> JobSeekerPasswords { get; set; }
 
@@ -27,23 +25,22 @@ namespace DAL.Models.models
             modelBuilder.Entity<Company>(entity =>
             {
                 entity.HasKey(e => e.Code).HasName("PK__Company__A25C5AA6DBADD1B8");
-
                 entity.ToTable("Company");
-
                 entity.Property(e => e.Code).ValueGeneratedNever();
                 entity.Property(e => e.Email).HasMaxLength(50);
                 entity.Property(e => e.Name).HasMaxLength(50);
                 entity.HasIndex(e => e.Email).IsUnique();
+
+                entity.HasOne(e => e.UserPassword)
+                    .WithOne(p => p.Company)
+                    .HasForeignKey<CompanyPassword>(p => p.CompanyId);
             });
 
             modelBuilder.Entity<Job>(entity =>
             {
                 entity.HasKey(e => e.Code).HasName("PK__tmp_ms_x__A25C5AA656C24301");
-
                 entity.ToTable("Job");
-
                 entity.HasIndex(e => e.CompanyId, "IX_Job_CompanyID");
-
                 entity.Property(e => e.Code).ValueGeneratedNever();
                 entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
                 entity.Property(e => e.Country).HasMaxLength(50);
@@ -57,12 +54,9 @@ namespace DAL.Models.models
             modelBuilder.Entity<JobOffer>(entity =>
             {
                 entity.HasKey(e => e.OffersCode).HasName("PK__JobOffer__F4BD6BD8585C6A1F");
-
                 entity.ToTable("JobOffer");
-
                 entity.HasIndex(e => e.CandidateId, "IX_JobOffer_CandidateId");
                 entity.HasIndex(e => e.JobCode, "IX_JobOffer_JobCode");
-
                 entity.Property(e => e.OffersCode).ValueGeneratedNever();
                 entity.Property(e => e.ApplicationDate).HasColumnType("datetime");
 
@@ -80,39 +74,29 @@ namespace DAL.Models.models
             modelBuilder.Entity<JobSeeker>(entity =>
             {
                 entity.HasKey(e => e.Id).HasName("PK__tmp_ms_x__3214EC07B4ACE1BA");
-
                 entity.ToTable("JobSeeker");
-
                 entity.Property(e => e.Id).ValueGeneratedNever();
                 entity.Property(e => e.Country).HasMaxLength(50);
                 entity.Property(e => e.Email).HasMaxLength(50);
                 entity.Property(e => e.Name).HasMaxLength(50);
                 entity.Property(e => e.SirName).HasMaxLength(50);
                 entity.HasIndex(e => e.Email).IsUnique();
+
+                entity.HasOne(e => e.UserPassword)
+                    .WithOne(p => p.JobSeeker)
+                    .HasForeignKey<JobSeekerPassword>(p => p.JobSeekerId);
             });
 
-            // ✅ NEW RELATION: Company <-> CompanyPassword
             modelBuilder.Entity<CompanyPassword>(entity =>
             {
-                entity.HasKey(e => e.Id);
-                entity.HasIndex(e => e.CompanyId).IsUnique();
-
-                entity.HasOne(cp => cp.Company)
-                      .WithOne(c => c.Password)
-                      .HasForeignKey<CompanyPassword>(cp => cp.CompanyId)
-                      .OnDelete(DeleteBehavior.Cascade);
+                entity.HasKey(e => e.CompanyId);
+                entity.Property(e => e.PasswordHash).IsRequired();
             });
 
-            // ✅ NEW RELATION: JobSeeker <-> JobSeekerPassword
             modelBuilder.Entity<JobSeekerPassword>(entity =>
             {
-                entity.HasKey(e => e.Id);
-                entity.HasIndex(e => e.JobSeekerId).IsUnique();
-
-                entity.HasOne(jp => jp.JobSeeker)
-                      .WithOne(js => js.Password)
-                      .HasForeignKey<JobSeekerPassword>(jp => jp.JobSeekerId)
-                      .OnDelete(DeleteBehavior.Cascade);
+                entity.HasKey(e => e.JobSeekerId);
+                entity.Property(e => e.PasswordHash).IsRequired();
             });
 
             OnModelCreatingPartial(modelBuilder);
