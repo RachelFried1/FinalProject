@@ -2,6 +2,7 @@
 using BL;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -14,6 +15,12 @@ namespace API.Controllers
         public JobController(IBlManager blManager)
         {
             _blManager = blManager;
+        }
+
+        private int GetUserIdFromToken()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            return userIdClaim != null ? int.Parse(userIdClaim.Value) : 0;
         }
 
         [HttpGet("GetJobByCode/{code}")]
@@ -30,7 +37,7 @@ namespace API.Controllers
             {
                 return BadRequest("Invalid job data.");
             }
-
+            // Optionally, set job.CompanyId = GetUserIdFromToken();
             _blManager.JobBLManager.AddJob(job);
             return Ok($"Job: {job.Code} was added successfully.");
         }
@@ -43,7 +50,7 @@ namespace API.Controllers
 
             if (matchingCandidates == null || matchingCandidates.Count == 0)
             {
-                return NotFound("No matching jobs found.");
+                return NotFound("No matching candidates found.");
             }
 
             return Ok(matchingCandidates);
@@ -53,13 +60,28 @@ namespace API.Controllers
         [Authorize(Roles = "Company")]
         public IActionResult GetAppliedCandidate(int jobCode)
         {
-            return Ok(_blManager.JobBLManager.GetAppliedCandidatesByJobCode(jobCode));
+            var appliedCandidates = _blManager.JobBLManager.GetAppliedCandidatesByJobCode(jobCode);
+
+            if (appliedCandidates == null || appliedCandidates.Count == 0)
+            {
+                return NotFound("No matching candidates found.");
+            }
+
+            return Ok(appliedCandidates);
         }
 
-        [HttpGet("GetJobsForCompany/{companyCode}")]
-        public IActionResult GetJobsForCompany(int companyCode)
+        [HttpGet("GetJobsForCompany")]
+        [Authorize(Roles = "Company")]
+        public IActionResult GetJobsForCompany()
         {
-            return Ok(_blManager.JobBLManager.GetCompanyJobs(companyCode));
+            int companyId = GetUserIdFromToken();
+            var companyJobs = _blManager.JobBLManager.GetCompanyJobs(companyId);
+            if (companyJobs == null || companyJobs.Count == 0)
+            {
+                return NotFound("No Jobs for this company found.");
+            }
+
+            return Ok(companyJobs);
         }
 
         [HttpDelete("NotSeekingWorkers/{code}")]

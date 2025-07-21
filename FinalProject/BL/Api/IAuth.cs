@@ -4,9 +4,8 @@ namespace BL.Api
 {
     public interface IAuth
     {
-        void SignUpJobSeeker(JobSeekerBL seeker, string password);
-        void SignUpCompany(CompanyBL company, string password);
-
+        string SignUpJobSeeker(JobSeekerBL seeker, string password);
+        string SignUpCompany(CompanyBL company, string password);
         string SignInJobSeeker(string email, string password);
         string SignInCompany(string email, string password);
     }

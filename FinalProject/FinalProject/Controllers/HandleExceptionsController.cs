@@ -68,7 +68,7 @@ namespace API.Controllers
             {
                 return Problem(
                 detail: exceptionDetails?.Error.Message,
-                title: "Job already exists!",
+                title: "Seeker already activated!",
                 statusCode: seekerAlreadyActive.StatusCode
                 );
             }

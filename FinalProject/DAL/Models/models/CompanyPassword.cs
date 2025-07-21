@@ -1,5 +1,7 @@
 ﻿
 
+using System.Text.Json.Serialization;
+
 namespace DAL.Models.models
 {
     public class CompanyPassword
@@ -7,6 +9,7 @@ namespace DAL.Models.models
         public int Id { get; set; }
         public string PasswordHash { get; set; }
         public int CompanyId { get; set; }
+        [JsonIgnore]
         public Company Company { get; set; }
     }
 

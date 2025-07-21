@@ -15,7 +15,7 @@ public partial class JobOffer
 
     public bool IsApplied { get; set; }
 
-    public DateTime ApplicationDate { get; set; }
+    public DateTime? ApplicationDate { get; set; } = null;
 
     public double MatchingScore { get; set; }
 
