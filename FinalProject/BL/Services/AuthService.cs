@@ -1,16 +1,16 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using Microsoft.IdentityModel.Tokens;
-using BCrypt.Net;
 using AutoMapper;
-using DAL;
+using BL.Api;
 using BL.Models;
 using DAL.Exceptions;
 using DAL.Models.models;
-using BL.Api;
+using DAL;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
-public class AuthService : IAuth
+
+public class AuthService :IAuth
 {
     private readonly string _jwtSecret = "YourSuperSecretKeyThatIsAtLeast32Chars!";
     private readonly int _jwtExpirationMinutes = 60;
@@ -32,6 +32,7 @@ public class AuthService : IAuth
         var passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
 
         var jobSeekerEntity = _mapper.Map<JobSeeker>(seeker);
+
         jobSeekerEntity.UserPassword = new JobSeekerPassword
         {
             JobSeekerId = seeker.Id,
@@ -48,6 +49,7 @@ public class AuthService : IAuth
 
         var passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
         var companyEntity = _mapper.Map<Company>(company);
+
         companyEntity.UserPassword = new CompanyPassword
         {
             CompanyId = company.Code,
@@ -60,8 +62,10 @@ public class AuthService : IAuth
     public string SignInJobSeeker(string email, string password)
     {
         var jobSeeker = _dalManager.JobSeekerManager.GetJobSeekerByEmail(email);
+
         if (jobSeeker != null && jobSeeker.UserPassword != null &&
             BCrypt.Net.BCrypt.Verify(password, jobSeeker.UserPassword.PasswordHash))
+
         {
             return GenerateJwtToken(jobSeeker.Id, email, "JobSeeker");
         }
@@ -71,6 +75,7 @@ public class AuthService : IAuth
     public string SignInCompany(string email, string password)
     {
         var company = _dalManager.CompanyManager.GetCompanyByEmail(email);
+
         if (company != null && company.UserPassword != null &&
             BCrypt.Net.BCrypt.Verify(password, company.UserPassword.PasswordHash))
         {
