@@ -3,6 +3,8 @@ using BL;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using AutoMapper;
+using API.DTO;
 
 namespace API.Controllers
 {
@@ -11,10 +13,12 @@ namespace API.Controllers
     public class JobController : ControllerBase
     {
         private readonly IBlManager _blManager;
+        private readonly IMapper _mapper;
 
-        public JobController(IBlManager blManager)
+        public JobController(IBlManager blManager, IMapper mapper)
         {
             _blManager = blManager;
+            _mapper = mapper;
         }
 
         private int GetUserIdFromToken()
@@ -23,47 +27,59 @@ namespace API.Controllers
             return userIdClaim != null ? int.Parse(userIdClaim.Value) : 0;
         }
 
+        private bool IsCompanyOwnerOfJob(int jobCode)
+        {
+            var job = _blManager.JobBLManager.GetJobByCode(jobCode);
+            int companyId = GetUserIdFromToken();
+            return job != null && job.CompanyId == companyId;
+        }
+
         [HttpGet("GetJobByCode/{code}")]
+        [Authorize(Roles = "Company")]
         public IActionResult GetJobByCode(int code)
         {
-            return Ok(_blManager.JobBLManager.GetJobByCode(code));
+            if (!IsCompanyOwnerOfJob(code))
+                return Forbid();
+            var job = _blManager.JobBLManager.GetJobByCode(code);
+            if (job == null) return NotFound();
+            return Ok(job);
         }
 
         [HttpPost("AddJob")]
         [Authorize(Roles = "Company")]
-        public IActionResult AddJob([FromBody] JobBL job)
+        public IActionResult AddJob([FromBody] AddJobDTO jobDto)
         {
-            if (job == null)
-            {
+            if (jobDto == null)
                 return BadRequest("Invalid job data.");
-            }
-            // Optionally, set job.CompanyId = GetUserIdFromToken();
-            _blManager.JobBLManager.AddJob(job);
-            return Ok($"Job: {job.Code} was added successfully.");
+
+            var jobBl = _mapper.Map<JobBL>(jobDto);
+            jobBl.CompanyId = GetUserIdFromToken();
+
+            _blManager.JobBLManager.AddJob(jobBl);
+            return Ok($"Job: {jobBl.Code} was added successfully.");
         }
 
         [HttpGet("FindMatchingCandidates/{code}")]
         [Authorize(Roles = "Company")]
         public IActionResult FindMatchingCandidates(int code)
         {
+            if (!IsCompanyOwnerOfJob(code))
+                return Forbid();
             var matchingCandidates = _blManager.JobBLManager.GetJobOffersByJobCode(code);
-
             if (matchingCandidates == null || matchingCandidates.Count == 0)
-            {
                 return NotFound("No matching candidates found.");
-            }
-
             return Ok(matchingCandidates);
         }
+
         [HttpGet("GetJobOffersWithCandidates/{jobCode}")]
         [Authorize(Roles = "Company")]
         public IActionResult GetJobOffersWithCandidates(int jobCode)
         {
-            var offers = _blManager.JobBLManager.GetJobOffersWithCandidatesByJobCode(jobCode);           
+            if (!IsCompanyOwnerOfJob(jobCode))
+                return Forbid();
+            var offers = _blManager.JobBLManager.GetJobOffersWithCandidatesByJobCode(jobCode);
             if (offers == null || offers.Count == 0)
-            {
                 return NotFound("No matching candidates found.");
-            }
             return Ok(offers);
         }
 
@@ -71,27 +87,23 @@ namespace API.Controllers
         [Authorize(Roles = "Company")]
         public IActionResult GetAppliedCandidate(int jobCode)
         {
+            if (!IsCompanyOwnerOfJob(jobCode))
+                return Forbid();
             var appliedCandidates = _blManager.JobBLManager.GetAppliedCandidatesByJobCode(jobCode);
-
             if (appliedCandidates == null || appliedCandidates.Count == 0)
-            {
                 return NotFound("No matching candidates found.");
-            }
-
             return Ok(appliedCandidates);
         }
-        
+
         [HttpGet("GetAppliedCandidatesWithDetails/{jobCode}")]
         [Authorize(Roles = "Company")]
         public IActionResult GetAppliedCandidateWithDetails(int jobCode)
         {
+            if (!IsCompanyOwnerOfJob(jobCode))
+                return Forbid();
             var appliedCandidates = _blManager.JobBLManager.GetAppliedCandidatesWithCandidatesByJobCode(jobCode);
-
             if (appliedCandidates == null || appliedCandidates.Count == 0)
-            {
                 return NotFound("No matching candidates found.");
-            }
-
             return Ok(appliedCandidates);
         }
 
@@ -102,10 +114,7 @@ namespace API.Controllers
             int companyId = GetUserIdFromToken();
             var companyJobs = _blManager.JobBLManager.GetCompanyJobs(companyId);
             if (companyJobs == null || companyJobs.Count == 0)
-            {
                 return NotFound("No Jobs for this company found.");
-            }
-
             return Ok(companyJobs);
         }
 
@@ -113,6 +122,8 @@ namespace API.Controllers
         [Authorize(Roles = "Company")]
         public IActionResult NotSeekingWorkers(int code)
         {
+            if (!IsCompanyOwnerOfJob(code))
+                return Forbid();
             _blManager.JobBLManager.NotSeekingWorkers(code);
             return Ok($"Job : {code} is no longer seeking workers.");
         }

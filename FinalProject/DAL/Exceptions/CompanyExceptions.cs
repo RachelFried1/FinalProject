@@ -22,6 +22,12 @@ namespace DAL.Exceptions
     {
         public int StatusCode { get; }
         public CompanyAlreadyExistsException(int CompanyCode) : base($"The company with Id {CompanyCode} already exists!")
+
+        {
+            StatusCode = 409;
+        }
+        public CompanyAlreadyExistsException(string CompanyEmail) : base($"The company with Email {CompanyEmail} already exists!")
+
         {
             StatusCode = 409;
         }

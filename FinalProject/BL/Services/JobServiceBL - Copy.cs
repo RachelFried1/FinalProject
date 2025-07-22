@@ -40,24 +40,7 @@ namespace BL.Services
         public List<JobOfferWithCandidateDTO> GetJobOffersWithCandidatesByJobCode(int jobCode)
         {
             var jobOffers = _dalManager.JobManager.GetJobOffersByJobCode(jobCode);
-
-            return jobOffers.Select(offer => new JobOfferWithCandidateDTO
-            {
-                OffersCode = offer.OffersCode,
-                JobCode = offer.JobCode,
-                MatchingScore = offer.MatchingScore,
-                IsApplied = offer.IsApplied,
-                ApplicationDate = offer.ApplicationDate,
-                CandidateId = offer.Candidate.Id,
-                CandidateName = offer.Candidate.Name,
-                CandidateSirName = offer.Candidate.SirName,
-                CandidateEmail = offer.Candidate.Email,
-                CandidateCountry = offer.Candidate.Country,
-                CandidateYearsOfExperience = offer.Candidate.YearsOfExperience,
-                CandidateDailyWorkHours = offer.Candidate.DailyWorkHours,
-                CandidateHasDegree = offer.Candidate.HasDegree,
-                CandidateField = (Models.JobField)offer.Candidate.Field
-            }).ToList();
+            return _mapper.Map<List<JobOfferWithCandidateDTO>>(jobOffers);
         }
         public List<JobOfferBL> GetAppliedCandidatesByJobCode(int jobCode)
         {
@@ -67,24 +50,7 @@ namespace BL.Services
         public List<JobOfferWithCandidateDTO> GetAppliedCandidatesWithCandidatesByJobCode(int jobCode)
         {
             var jobOffers = _dalManager.JobManager.GetActiveAppliedCandidatesByJobCode(jobCode);
-
-            return jobOffers.Select(offer => new JobOfferWithCandidateDTO
-            {
-                OffersCode = offer.OffersCode,
-                JobCode = offer.JobCode,
-                MatchingScore = offer.MatchingScore,
-                IsApplied = offer.IsApplied,
-                ApplicationDate = offer.ApplicationDate,
-                CandidateId = offer.Candidate.Id,
-                CandidateName = offer.Candidate.Name,
-                CandidateSirName = offer.Candidate.SirName,
-                CandidateEmail = offer.Candidate.Email,
-                CandidateCountry = offer.Candidate.Country,
-                CandidateYearsOfExperience = offer.Candidate.YearsOfExperience,
-                CandidateDailyWorkHours = offer.Candidate.DailyWorkHours,
-                CandidateHasDegree = offer.Candidate.HasDegree,
-                CandidateField = (Models.JobField)offer.Candidate.Field
-            }).ToList();
+            return _mapper.Map<List<JobOfferWithCandidateDTO>>(jobOffers);
         }
         public List<JobBL> GetCompanyJobs(int companyCode)
         {

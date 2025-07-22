@@ -37,22 +37,7 @@ namespace BL.Services
         public List<JobOfferWithJobDTO> GetJobOffersWithJobsBySeekerId(int id)
         {
             var jobOffers = _dalManager.JobSeekerManager.GetJobOffersBySeekerId(id);
-
-            return jobOffers.Select(offer => new JobOfferWithJobDTO
-            {
-                OffersCode = offer.OffersCode,
-                JobCode = offer.JobCode,
-                MatchingScore = offer.MatchingScore,
-                IsApplied = offer.IsApplied,
-                ApplicationDate = offer.ApplicationDate,
-                JobCompanyId = offer.JobCodeNavigation.CompanyId,
-                JobField = (Models.JobField)offer.JobCodeNavigation.Field,
-                JobCountry = offer.JobCodeNavigation.Country,
-                JobWorkHours = offer.JobCodeNavigation.WorkHours,
-                JobMinYearsExperience = offer.JobCodeNavigation.MinYearsExperience,
-                JobRequiresDegree = offer.JobCodeNavigation.RequiresDegree,
-                JobDescription = offer.JobCodeNavigation.JobDescription
-            }).ToList();
+            return _mapper.Map<List<JobOfferWithJobDTO>>(jobOffers);
         }
         public void Activate(int id)
         {

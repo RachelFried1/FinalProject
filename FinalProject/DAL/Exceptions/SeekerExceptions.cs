@@ -13,6 +13,10 @@ namespace DAL.Exceptions
         {
             StatusCode = 409;
         }
+        public SeekerAlreadyExistsException(string SeekerEmail) : base($"The seeker with Email {SeekerEmail} already exists!")
+        {
+            StatusCode = 409;
+        }
     }
 
     public class SeekerNotFoundException : Exception
