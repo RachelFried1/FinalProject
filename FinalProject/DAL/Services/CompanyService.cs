@@ -36,7 +36,10 @@ namespace DAL.Services
         {
             if (dataBase.Companies.Any(c => c.Code == company.Code))
                 throw new CompanyAlreadyExistsException(company.Code);
-            dataBase.Companies.Add(company);
+            if (dataBase.Companies.Any(c => c.Email == company.Email))
+                throw new CompanyAlreadyExistsException(company.Email);
+        
+                    dataBase.Companies.Add(company);
             dataBase.SaveChanges();
         }
     }

@@ -36,7 +36,10 @@ namespace DAL.Services
         {
             if (dataBase.JobSeekers.Any(s => s.Id == jobSeeker.Id))
                 throw new SeekerAlreadyExistsException(jobSeeker.Id);
-            jobSeeker.IsActive = true;
+            if (dataBase.JobSeekers.Any(s => s.Email == jobSeeker.Email))
+                throw new SeekerAlreadyExistsException(jobSeeker.Email);
+        
+                    jobSeeker.IsActive = true;
             dataBase.JobSeekers.Add(jobSeeker);
             dataBase.SaveChanges();
             AddJobOffersForSeeker(jobSeeker);

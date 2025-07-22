@@ -9,6 +9,7 @@ namespace API.DTO
         {
             CreateMap<JobSeekerSignUpRequestDTO, JobSeekerBL>();
             CreateMap<CompanySignUpRequestDTO, CompanyBL>();
+            CreateMap<AddJobDTO, JobBL>();
         }
     }
 }
