@@ -91,7 +91,7 @@ namespace API.Controllers
                 return Forbid();
             var appliedCandidates = _blManager.JobBLManager.GetAppliedCandidatesByJobCode(jobCode);
             if (appliedCandidates == null || appliedCandidates.Count == 0)
-                return NotFound("No matching candidates found.");
+                return NotFound("No matching applied candidates found.");
             return Ok(appliedCandidates);
         }
 
@@ -103,7 +103,7 @@ namespace API.Controllers
                 return Forbid();
             var appliedCandidates = _blManager.JobBLManager.GetAppliedCandidatesWithCandidatesByJobCode(jobCode);
             if (appliedCandidates == null || appliedCandidates.Count == 0)
-                return NotFound("No matching candidates found.");
+                return NotFound("No matching applied candidates found.");
             return Ok(appliedCandidates);
         }
 
