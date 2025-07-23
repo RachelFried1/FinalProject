@@ -31,12 +31,17 @@ namespace BL.Services
 
         public List<JobOfferBL> GetJobOffersBySeekerId(int id)
         {
-            return _mapper.Map<List<JobOfferBL>>(_dalManager.JobSeekerManager.GetJobOffersBySeekerId(id));
+            var jobOffers = _dalManager.JobSeekerManager.GetJobOffersBySeekerId(id)
+                .OrderByDescending(x => x.MatchingScore)
+                .ToList();
+            return _mapper.Map<List<JobOfferBL>>(jobOffers);
         }
 
         public List<JobOfferWithJobDTO> GetJobOffersWithJobsBySeekerId(int id)
         {
-            var jobOffers = _dalManager.JobSeekerManager.GetJobOffersBySeekerId(id);
+            var jobOffers = _dalManager.JobSeekerManager.GetJobOffersBySeekerId(id)
+                .OrderByDescending(x => x.MatchingScore)
+                .ToList();
             return _mapper.Map<List<JobOfferWithJobDTO>>(jobOffers);
         }
         public void Activate(int id)

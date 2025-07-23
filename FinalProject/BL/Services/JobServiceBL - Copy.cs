@@ -35,21 +35,33 @@ namespace BL.Services
         }
         public List<JobOfferBL> GetJobOffersByJobCode(int jobCode)
         {
-            return _mapper.Map<List<JobOfferBL>>(_dalManager.JobManager.GetJobOffersByJobCode(jobCode));
+            var jobOffers = _dalManager.JobManager.GetJobOffersByJobCode(jobCode)
+                .OrderByDescending(x => x.MatchingScore)
+                .ToList();
+            return _mapper.Map<List<JobOfferBL>>(jobOffers);
         }
+
         public List<JobOfferWithCandidateDTO> GetJobOffersWithCandidatesByJobCode(int jobCode)
         {
-            var jobOffers = _dalManager.JobManager.GetJobOffersByJobCode(jobCode);
+            var jobOffers = _dalManager.JobManager.GetJobOffersByJobCode(jobCode)
+                .OrderByDescending(x => x.MatchingScore)
+                .ToList();
             return _mapper.Map<List<JobOfferWithCandidateDTO>>(jobOffers);
         }
+
         public List<JobOfferBL> GetAppliedCandidatesByJobCode(int jobCode)
         {
-            return _mapper.Map<List<JobOfferBL>>(_dalManager.JobManager.GetActiveAppliedCandidatesByJobCode(jobCode));
+            var jobOffers = _dalManager.JobManager.GetActiveAppliedCandidatesByJobCode(jobCode)
+                .OrderByDescending(x => x.MatchingScore)
+                .ToList();
+            return _mapper.Map<List<JobOfferBL>>(jobOffers);
         }
 
         public List<JobOfferWithCandidateDTO> GetAppliedCandidatesWithCandidatesByJobCode(int jobCode)
         {
-            var jobOffers = _dalManager.JobManager.GetActiveAppliedCandidatesByJobCode(jobCode);
+            var jobOffers = _dalManager.JobManager.GetActiveAppliedCandidatesByJobCode(jobCode)
+                .OrderByDescending(x => x.MatchingScore)
+                .ToList();
             return _mapper.Map<List<JobOfferWithCandidateDTO>>(jobOffers);
         }
         public List<JobBL> GetCompanyJobs(int companyCode)
