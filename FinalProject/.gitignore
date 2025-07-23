@@ -4,6 +4,13 @@
 *.user
 *.userosscache
 *.sln.docstates
+.vs/
+bin/
+obj/
+*.dll
+*.pdb
+*.cache
+*.suo
 
 # Build results
 [Bb]in/
