@@ -10,7 +10,8 @@ using DAL.Exceptions;
 using DAL.Models.models;
 using BL.Api;
 
-public class AuthService : IAuth
+
+public class AuthService :IAuth
 {
     private readonly string _jwtSecret = "YourSuperSecretKeyThatIsAtLeast32Chars!";
     private readonly int _jwtExpirationMinutes = 60;
