@@ -68,14 +68,6 @@ namespace API.Controllers
         }
 
 
-        [HttpPut("Activate")]
-        public IActionResult Activate()
-        {
-            int jobSeekerId = GetUserIdFromToken();
-            _blManager.JobSeekerBLManager.Activate(jobSeekerId);
-            return Ok($"Job Seeker {jobSeekerId} has been activated.");
-        }
-
         [HttpPut("Deactivate")]
         public IActionResult DeActivate()
         {

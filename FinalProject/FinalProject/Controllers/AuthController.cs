@@ -2,6 +2,7 @@
 using BL;
 using BL.Models;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
 
 namespace API.Controllers
 {
@@ -10,18 +11,22 @@ namespace API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IBlManager _blManager;
+        private readonly IMapper _mapper;
 
-        public AuthController(IBlManager blManager)
+        public AuthController(IBlManager blManager, IMapper mapper)
         {
             _blManager = blManager;
+            _mapper = mapper;
         }
 
         [HttpPost("SignUpJobSeeker")]
-        public IActionResult SignUpJobSeeker([FromBody] JobSeekerBL seeker, [FromQuery] string password)
+        public IActionResult SignUpJobSeeker([FromBody] JobSeekerSignUpRequestDTO seeker)
         {
             try
             {
-                var token = _blManager.AuthManager.SignUpJobSeeker(seeker, password);
+                var seekerBL = _mapper.Map<JobSeekerBL>(seeker);
+
+                var token = _blManager.AuthManager.SignUpJobSeeker(seekerBL, seeker.Password);
                 return Ok(new { Token = token });
             }
             catch (Exception ex)
@@ -31,12 +36,12 @@ namespace API.Controllers
         }
 
         [HttpPost("SignUpCompany")]
-        public IActionResult SignUpCompany([FromBody] CompanyBL company, [FromQuery] string password)
+        public IActionResult SignUpCompany([FromBody] CompanySignUpRequestDTO company)
         {
             try
             {
-
-                var token = _blManager.AuthManager.SignUpCompany(company, password);
+                var companyBL = _mapper.Map<CompanyBL>(company);
+                var token = _blManager.AuthManager.SignUpCompany(companyBL, company.Password);
                 return Ok(new { Token = token });
             }
             catch (Exception ex)
