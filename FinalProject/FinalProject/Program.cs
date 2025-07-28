@@ -28,7 +28,14 @@ builder.Services.AddAuthentication("Bearer")
     });
 
 builder.Services.AddAuthorization();
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy => policy
+            .WithOrigins("http://localhost:8080")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+});
 
 var mapperConfig = new MapperConfiguration(cfg =>
 {
@@ -90,8 +97,12 @@ if (app.Environment.IsDevelopment())
 app.UseExceptionHandler("/error");
 app.UseHttpsRedirection();
 
+app.UseCors("AllowFrontend");
+
 app.UseAuthentication(); 
 app.UseAuthorization();
+
+
 
 app.MapControllers();
 

@@ -139,6 +139,5 @@ namespace DAL.Models.models
         InventoryManagement,
         Warehousing,
         FleetManagement
-
     }
 }

@@ -51,7 +51,7 @@ namespace DAL.Services
             foreach (Job job in dataBase.Jobs)
             {
                 double matchScore = matchService.CalculateMatchingScore(seeker, job);
-                if (matchScore >= 0.7)
+                if (matchScore >= 0.4)
                 {
                     var existingOffer = dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code);
                     if (existingOffer == null)

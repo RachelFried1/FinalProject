@@ -47,7 +47,7 @@ namespace DAL.Services
                 if (seeker.IsActive)
                 {
                     double score = matchService.CalculateMatchingScore(seeker, job);
-                    if (score >= 0.7)
+                    if (score >= 0.4)
                     {
                         if (dataBase.JobOffers.FirstOrDefault(offer => offer.CandidateId == seeker.Id && offer.JobCode == job.Code) == null)
                         {

@@ -31,7 +31,6 @@ public class AuthService :IAuth
             throw new SeekerAlreadyExistsException(seeker.Id);
 
         var passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
-
         var jobSeekerEntity = _mapper.Map<JobSeeker>(seeker);
         jobSeekerEntity.UserPassword = new JobSeekerPassword
         {

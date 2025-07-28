@@ -96,6 +96,14 @@ namespace API.Controllers
                 statusCode: seekerNotApplied.StatusCode
                 );
             }
+            if (exceptionDetails?.Error is OfferNotFoundException offerNotFound)
+            {
+                return Problem(
+                detail: exceptionDetails?.Error.Message,
+                title: "Offer not found!",
+                statusCode: offerNotFound.StatusCode
+                );
+            }
             return Problem(
                 detail: "Unexpected error! try to restart the website...",
                 title: "An error occurred",
