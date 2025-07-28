@@ -8,7 +8,7 @@ using API.DTO;
 
 namespace API.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class JobController : ControllerBase
     {
