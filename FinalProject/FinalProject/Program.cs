@@ -32,7 +32,11 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy => policy
+<<<<<<< HEAD
             .WithOrigins("http://localhost:8080")
+=======
+            .WithOrigins("http://localhost:8081")
+>>>>>>> 0f51633b972c08dbac8888f451cfac4ed39523c2
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
@@ -99,7 +103,11 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowFrontend");
 
+<<<<<<< HEAD
 app.UseAuthentication(); 
+=======
+app.UseAuthentication();
+>>>>>>> 0f51633b972c08dbac8888f451cfac4ed39523c2
 app.UseAuthorization();
 
 
